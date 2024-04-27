@@ -73,7 +73,7 @@ public class ERPSolWOMBean {
     String ERPSolSaleretid;
     String ERPIteratorName;
     
-    public void doSetERPSolSCMSessionGlobals() {
+    public void doSetERPSolWOMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
         if (getERPSolStrUserCode().length()==0) {
            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Users Defaults are not defined properly. Please Check"));

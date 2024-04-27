@@ -7,9 +7,9 @@
       <property
          name="activityId">Rollback</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>Rollback&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>Rollback&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -49,7 +49,7 @@
       <property
          name="fromOutcome">ACT-ERP-SOL-LOGOUT</property>
       <property
-         name="sdm:polyPoints">L50,397.08813,52.448242,348.49997,123.536476,T50</property>
+         name="sdm:polyPoints">L50,402.0,52.448242,348.5,128.44824,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -59,7 +59,7 @@
       <property
          name="fromOutcome">ACT-ERP-SOL-LOGOUT</property>
       <property
-         name="sdm:polyPoints">R50,394.41174,182.44824,397.08813,222.24707,L50</property>
+         name="sdm:polyPoints">R50,389.5,182.44824,402.0,222.24707,L50</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn7">
@@ -93,6 +93,161 @@
       <property
          name="fromOutcome">ACT-ERPSOL-RETURN-FROM-WOM</property>
       <property
-         name="sdm:polyPoints">B50,624.99994,79.86001,617.0,165.33531,T50</property>
+         name="sdm:polyPoints">B50,625.0,74.94824,617.0,170.24707,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall10">
+      <property
+         name="activityId">doERPSolWOMSessionGlobals</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doERPSolWOMSessionGlobals&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">325.89648</property>
+      <property
+         name="x">439.0</property>
+   </MethodCall>
+   <View
+      id="View11">
+      <property
+         name="activityId">ERPSolWOMMain</property>
+      <property
+         name="page">/ERPSolWOMMain.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolWOMMain&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">347.39648</property>
+      <property
+         name="x">898.3418</property>
+   </View>
+   <MethodCall
+      id="MethodCall12">
+      <property
+         name="activityId">ExecuteWithParamsSetup</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamsSetup&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">457.44824</property>
+      <property
+         name="x">548.35156</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="MethodCall10"
+      to="MethodCall12">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-WOM-MAIN</property>
+      <property
+         name="sdm:polyPoints">B50,439.0,379.5459,507.35156,457.09766,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall14">
+      <property
+         name="activityId">ExecuteWithParamsTransaction</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamsTransaction&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">404.0459</property>
+      <property
+         name="x">728.35156</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase15"
+      from="MethodCall12"
+      to="MethodCall14">
+      <property
+         name="fromOutcome">ExecuteWithParamsTransaction</property>
+      <property
+         name="sdm:polyPoints">R50,589.35156,457.09766,687.35156,403.6953,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall16">
+      <property
+         name="activityId">ExecuteWithParamsReverse</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamsReverse&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">550.44824</property>
+      <property
+         name="x">780.35156</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase17"
+      from="MethodCall14"
+      to="MethodCall16">
+      <property
+         name="fromOutcome">ExecuteWithParamsTransaction</property>
+      <property
+         name="sdm:polyPoints">B50,728.35156,457.6953,780.35156,496.09766,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall18">
+      <property
+         name="activityId">ExecuteWithParamsReports</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamsReports&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">509.0459</property>
+      <property
+         name="x">1000.35156</property>
+   </MethodCall>
+   <MethodCall
+      id="MethodCall19">
+      <property
+         name="activityId">ExecuteWithParams</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">399.44824</property>
+      <property
+         name="x">1032.3516</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase20"
+      from="MethodCall16"
+      to="MethodCall18">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-WOM-MAIN</property>
+      <property
+         name="sdm:polyPoints">R50,821.35156,550.09766,959.35156,508.6953,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="MethodCall18"
+      to="MethodCall19">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-WOM-MAIN</property>
+      <property
+         name="sdm:polyPoints">T50,1000.35156,454.6953,1032.3516,453.09766,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase22"
+      from="MethodCall19"
+      to="View11">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-WOM-MAIN</property>
+      <property
+         name="sdm:polyPoints">L50,991.35156,399.09766,939.3418,347.0459,R50</property>
    </ControlFlowCase>
 </SDM>
