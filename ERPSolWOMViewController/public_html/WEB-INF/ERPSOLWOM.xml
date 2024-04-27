@@ -48,6 +48,9 @@
     </task-flow-return>
     <method-call id="doERPSolWOMSessionGlobals">
       <method>#{pageFlowScope.ERPSolWOMPageFlowBean.doSetERPSolWOMSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</fixed-outcome>
+      </outcome>
     </method-call>
     <view id="ERPSolWOMMain">
       <page>/ERPSolWOMMain.jsf</page>
