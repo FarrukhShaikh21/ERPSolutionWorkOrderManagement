@@ -5,7 +5,10 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="erptempmain">
-                    <af:image source="#{resource['images:imgWorkOrder.jpg']}" id="i1"/>
+                    <af:panelBox text="Work Order Management System" id="pb1" showDisclosure="false">
+                        <f:facet name="toolbar"/>
+                        <af:image source="#{resource['images:imgWorkOrder.jpg']}" id="i1"/>
+                    </af:panelBox>
                 </f:facet>
                 <f:facet name="erptempleft"/>
             </af:pageTemplate>
