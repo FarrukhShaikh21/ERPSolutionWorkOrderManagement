@@ -49,7 +49,7 @@
       <property
          name="fromOutcome">ACT-ERP-SOL-LOGOUT</property>
       <property
-         name="sdm:polyPoints">L50,402.0,52.448242,348.5,128.44824,T50</property>
+         name="sdm:polyPoints">L50,397.08813,52.448242,348.49997,123.536476,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -59,7 +59,7 @@
       <property
          name="fromOutcome">ACT-ERP-SOL-LOGOUT</property>
       <property
-         name="sdm:polyPoints">R50,389.5,182.44824,402.0,222.24707,L50</property>
+         name="sdm:polyPoints">R50,394.41174,182.44824,397.08813,222.24707,L50</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn7">
@@ -93,6 +93,6 @@
       <property
          name="fromOutcome">ACT-ERPSOL-RETURN-FROM-WOM</property>
       <property
-         name="sdm:polyPoints">B50,625.0,74.94824,617.0,170.24707,T50</property>
+         name="sdm:polyPoints">B50,624.99994,79.86001,617.0,165.33531,T50</property>
    </ControlFlowCase>
 </SDM>
