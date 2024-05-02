@@ -8,6 +8,15 @@
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
-    Name="PuSuppliersVO1"
-    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"/>
+    Name="SrPurchaseDemandHeaderCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView"/>
+  <ViewUsage
+    Name="SrPurchaseDemandLinesDetCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandLinesView"/>
+  <ViewLinkUsage
+    Name="FkPurDemLinDemHeadSeqLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseDemandHeaderCRUD"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseDemandLinesDetCRUD"
+    Reversed="false"/>
 </AppModule>
