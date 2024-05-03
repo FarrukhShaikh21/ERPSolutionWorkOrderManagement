@@ -13,6 +13,56 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllLocationsVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVuDemandForQVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomqvo.VuDemandForQVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_txtLocationName"
+    ListVOName="AccAllLocationsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DemandFor"
+    ListVOName="AccVuDemandForQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DemandFor"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPurchaseDemandHeader"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandHeader"/>
@@ -36,7 +86,15 @@
     PrecisionRule="true"
     EntityAttrName="DemandFor"
     EntityUsage="SrPurchaseDemandHeader"
-    AliasName="DEMAND_FOR"/>
+    AliasName="DEMAND_FOR"
+    LOVName="LOV_DemandFor">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DemandDate"
     IsNotNull="true"
@@ -98,9 +156,31 @@
     EntityAttrName="Companyid"
     EntityUsage="SrPurchaseDemandHeader"
     AliasName="COMPANYID"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="SrPurchaseDemandHeader"
+    AliasName="TXT_LOCATION_NAME"
+    LOVName="LOV_txtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SrPurchaseDemandLinesView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPurchasseDemandHeaderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

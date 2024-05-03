@@ -13,6 +13,9 @@
   <ViewUsage
     Name="SrPurchaseDemandLinesDetCRUD"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandLinesView"/>
+  <ViewUsage
+    Name="AllLocationsAutoSuggestRO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
