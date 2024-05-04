@@ -105,6 +105,9 @@
         <to-string/>
       </outcome>
     </method-call>
+    <view id="SR_0002">
+      <page>/SR_0002.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -180,6 +183,10 @@
       <control-flow-case id="__32">
         <from-outcome>ERP-ACT-SR-0001</from-outcome>
         <to-activity-id>SR_0001</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome>ERP-ACT-SR-0002</from-outcome>
+        <to-activity-id>SR_0002</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__33">

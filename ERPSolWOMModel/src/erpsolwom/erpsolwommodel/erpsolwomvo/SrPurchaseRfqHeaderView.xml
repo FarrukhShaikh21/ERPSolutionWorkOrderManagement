@@ -142,9 +142,21 @@
     EntityAttrName="Modifieddate"
     EntityUsage="SrPurchaseRfqHeader"
     AliasName="MODIFIEDDATE"/>
+  <ViewAttribute
+    Name="Companyid"
+    PrecisionRule="true"
+    EntityAttrName="Companyid"
+    EntityUsage="SrPurchaseRfqHeader"
+    AliasName="COMPANY_ID"/>
   <ViewLinkAccessor
     Name="SrPurchaseRfqLinesView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkScmPurRfqLinRfqheadseqLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPurchasseRfqHeaderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>
