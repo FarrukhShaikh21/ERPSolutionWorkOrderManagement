@@ -19,5 +19,30 @@
         <Item Value="DemandCode"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="DemandDate">
+      <AttrNames>
+        <Item Value="DemandDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LOV_txtLocationName"
+                  id="txtLocationName"/>
+    <list IterBinding="SrPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LOV_DemandFor" id="DemandFor"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

@@ -37,7 +37,6 @@
   <Attribute
     Name="DemandCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="20"
     Scale="0"
     ColumnName="DEMAND_CODE"

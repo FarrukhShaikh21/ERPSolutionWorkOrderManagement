@@ -30,6 +30,11 @@
       <managed-bean-class>erpsolwom.erpsolwomview.erpsolwomclass.ERPSolWOMBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__24">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <method-call id="Rollback">
       <method>#{bindings.Rollback.execute}</method>
       <outcome>
@@ -83,6 +88,21 @@
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ACT-ERP-SOL-GOTO-WOM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SR_0001">
+      <page>/SR_0001.jsf</page>
+    </view>
+    <method-call id="Rollback1">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doERPGotoWOMActivity">
+      <method>#{pageFlowScope.ERPSolTempBean.doGotoERPSolActivity}</method>
+      <outcome>
+        <to-string/>
       </outcome>
     </method-call>
     <control-flow-rule id="__1">
@@ -148,5 +168,29 @@
         <to-activity-id>ERPSolWOMMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>Rollback1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id>doERPGotoWOMActivity</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>ERP-ACT-SR-0001</from-outcome>
+        <to-activity-id>SR_0001</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>Rollback1</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>doERPGotoWOMActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
   </task-flow-definition>
 </adfc-config>

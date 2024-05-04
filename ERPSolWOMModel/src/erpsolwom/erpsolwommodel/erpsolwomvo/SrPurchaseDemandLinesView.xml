@@ -115,4 +115,18 @@
     EntityAttrName="AproxPrice"
     EntityUsage="SrPurchaseDemandLines"
     AliasName="APROX_PRICE"/>
+  <ViewAttribute
+    Name="txtItemName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="SrPurchaseDemandLines"
+    AliasName="TXT_ITEM_NAME"/>
+  <ViewLinkAccessor
+    Name="SrItemsView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemsSrPurchaseDemandLinesItemIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

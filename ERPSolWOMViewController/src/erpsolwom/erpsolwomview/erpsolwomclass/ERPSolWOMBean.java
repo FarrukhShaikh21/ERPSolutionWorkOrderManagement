@@ -132,7 +132,7 @@ public class ERPSolWOMBean {
             BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
             AttributeBinding ERPLocationId =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
             ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SoSalesPersonsByLocAutoSuggestRO",
-                                                                "LOCATIONID ='"+ERPLocationId.getInputValue()+"'AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10,"ERPSolSCMAppModuleDataControl");
+                                                                "LOCATIONID ='"+ERPLocationId.getInputValue()+"'AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10,"ERPSolWOMAppModuleDataControl");
             return ResultList;
         
     }
@@ -145,7 +145,7 @@ public class ERPSolWOMBean {
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("b");
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllLocationsAutoSuggestRO",
-                                                            "UPPER(CONCAT(Locationid,Location_Description))", "LocationDescription", "Locationid", 10,"ERPSolSCMAppModuleDataControl");
+                                                            "UPPER(CONCAT(Locationid,Location_Description))", "LocationDescription", "Locationid", 10,"ERPSolWOMAppModuleDataControl");
         return ResultList;
         
     }
@@ -163,7 +163,7 @@ public class ERPSolWOMBean {
         System.out.println("d");
         System.out.println(ERPLocid.getInputValue());//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllStoresAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND EXISTS(SELECT NULL FROM SYS_USER_STORE SUS WHERE SUS.STOREID=AllStores.STOREID AND SUS.ACESS='Y' AND SUS.USERID='"+ERPSolGlobClassModel.doGetUserCode()+"') AND UPPER(CONCAT(STOREID,STORE_NAME))", "StoreName", "Storeid", 10,"ERPSolSCMAppModuleDataControl");
+                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND EXISTS(SELECT NULL FROM SYS_USER_STORE SUS WHERE SUS.STOREID=AllStores.STOREID AND SUS.ACESS='Y' AND SUS.USERID='"+ERPSolGlobClassModel.doGetUserCode()+"') AND UPPER(CONCAT(STOREID,STORE_NAME))", "StoreName", "Storeid", 10,"ERPSolWOMAppModuleDataControl");
         return ResultList;
         
     }
@@ -182,7 +182,7 @@ public class ERPSolWOMBean {
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         System.out.println("myname");
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllCustomersAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND EXISTS(SELECT NULL FROM SYS_USER_CUSTOMER SUC WHERE SUC.CUSTOMERID=AllCustomers.CUSTOMERID  AND SUC.USERID='"+ERPSolGlobClassModel.doGetUserCode()+"')  AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolSCMAppModuleDataControl");
+                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND EXISTS(SELECT NULL FROM SYS_USER_CUSTOMER SUC WHERE SUC.CUSTOMERID=AllCustomers.CUSTOMERID  AND SUC.USERID='"+ERPSolGlobClassModel.doGetUserCode()+"')  AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolWOMAppModuleDataControl");
         return ResultList;
         
     }   
@@ -246,7 +246,7 @@ public class ERPSolWOMBean {
            System.out.println("ab");
            ERPSolDIVWhere="DIVID= '"+StrERPDivision+"' AND ";
        }
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO",ERPSolDIVWhere+" UPPER(CONCAT(Productid,Model_No))", "ModelNo", "Productid", 10,"ERPSolSCMAppModuleDataControl");
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO",ERPSolDIVWhere+" UPPER(CONCAT(Productid,Model_No))", "ModelNo", "Productid", 10,"ERPSolWOMAppModuleDataControl");
         return ResultList;
         
     }   

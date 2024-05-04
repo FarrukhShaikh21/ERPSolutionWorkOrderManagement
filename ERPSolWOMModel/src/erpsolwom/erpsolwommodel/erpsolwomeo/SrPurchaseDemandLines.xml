@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="SR_PURCHASE_DEMAND_LINES"
   AliasName="SrPurchaseDemandLines"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLinesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Demandlinesseq"
     IsNotNull="true"
@@ -17,7 +22,7 @@
     Scale="0"
     ColumnName="DEMANDLINESSEQ"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_DEMAND_LINES"
     PrimaryKey="true"/>
@@ -28,7 +33,7 @@
     Scale="0"
     ColumnName="DEMANDHEADERSEQ"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_DEMAND_LINES"/>
   <Attribute
@@ -38,16 +43,25 @@
     Scale="0"
     ColumnName="ITEM_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="RequiredByDate"
     ColumnName="REQUIRED_BY_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PURCHASE_DEMAND_LINES"/>
+    TableName="SR_PURCHASE_DEMAND_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.RequiredByDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DemandQuantity"
     IsNotNull="true"
@@ -57,7 +71,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PURCHASE_DEMAND_LINES"/>
+    TableName="SR_PURCHASE_DEMAND_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.DemandQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ApproveQuantity"
     IsNotNull="true"
@@ -67,7 +90,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PURCHASE_DEMAND_LINES"/>
+    TableName="SR_PURCHASE_DEMAND_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.ApproveQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DepartmentId"
     IsNotNull="true"
@@ -80,15 +112,32 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.DepartmentId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ProjectId"
     IsNotNull="true"
     ColumnName="PROJECT_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SR_PURCHASE_DEMAND_LINES"/>
+    TableName="SR_PURCHASE_DEMAND_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.ProjectId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -104,7 +153,7 @@
     IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_DEMAND_LINES"/>
   <Attribute
@@ -120,7 +169,7 @@
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_DEMAND_LINES"/>
   <Attribute
@@ -156,11 +205,38 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_DEMAND_LINES"/>
+  <Attribute
+    Name="txtItemName"
+    Precision="100"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrItems?.ItemName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseDemandHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkPurDemLinDemHeadSeqAssoc"
     AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkPurDemLinDemHeadSeqAssoc.SrPurchaseDemandHeader"
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkPurDemLinDemHeadSeqAssoc.SrPurchaseDemandLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrItems"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc.SrItems"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc.SrPurchaseDemandLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
@@ -184,4 +260,8 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.Demandheaderseq"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>
