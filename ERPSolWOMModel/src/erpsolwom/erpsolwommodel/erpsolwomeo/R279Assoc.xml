@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="R279Assoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="RepDeptAllDepartments"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomeo.AllDepartments">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="RepDeptAllDepartments"/>
+      <Attr Name="_foreignKey" Value="erpsolwom.erpsolwommodel.erpsolwomeo.AllDepartments.XpkallDepartments"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.AllDepartments.Deptid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="AllDepartments"
+    Cardinality="-1"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomeo.AllDepartments">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AllDepartments"/>
+      <Attr Name="_foreignKey" Value="erpsolwom.erpsolwommodel.erpsolwomeo.AllDepartments.R279"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.AllDepartments.RepDept"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

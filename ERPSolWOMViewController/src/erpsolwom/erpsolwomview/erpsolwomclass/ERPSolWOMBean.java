@@ -244,12 +244,40 @@ public class ERPSolWOMBean {
         String ERPSolDIVWhere="";
         if (StrERPDivision.length()>0) {
            System.out.println("ab");
-           ERPSolDIVWhere="DIVID= '"+StrERPDivision+"' AND ";
+           ERPSolDIVWhere="*DIVID= '"+StrERPDivision+"' AND ";
        }
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO",ERPSolDIVWhere+" UPPER(CONCAT(Productid,Model_No))", "ModelNo", "Productid", 10,"ERPSolWOMAppModuleDataControl");
+                ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO",ERPSolDIVWhere+" UPPER(CONCAT(Productid,Model_No))", "ModelNo", "Productid", 10,"ERPSolWOMAppModuleDataControl");
         return ResultList;
         
     }   
+    public List<SelectItem> doERPSolGetAutoSuggestedWoItemValues(String pStringValues) {
+    //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
+        //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
+        List<SelectItem> ResultList=new ArrayList<SelectItem>();
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        AttributeBinding ERPDivision =null;
+        String StrERPDivision=null;
+        try {
+            ERPDivision = (AttributeBinding) ERPSolbc.getControlBinding("DemandFor");
+            StrERPDivision=""+(ERPDivision.getInputValue()==null?"":ERPDivision.getInputValue()) ;
+            
+        } catch (Exception e) {
+            // TODO: Add catch code
+            StrERPDivision="";
+        }
+        System.out.println(StrERPDivision);
+        System.out.println("ac");
+        String ERPSolDIVWhere="";
+        if (StrERPDivision.length()>0) {
+           System.out.println("ab");
+           ERPSolDIVWhere="ITEM_FOR= '"+StrERPDivision+"' AND ";
+       }
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SrItemsAutoSuggestRO",ERPSolDIVWhere+" UPPER(CONCAT(ITEM_NAME,ITEM_CODE))", "ItemName", "ItemCode", 10,"ERPSolWOMAppModuleDataControl");
+
+        return ResultList;
+        
+    }  
+    
     public void doERPSolDialogConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
             OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSaleOrder");
@@ -293,9 +321,9 @@ public class ERPSolWOMBean {
         }
     }   
 
-    public void doERPSoRebatelDialogConfirm(DialogEvent erpsolde) {
+    public void doERPSrWoDemandDialogConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
-            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSalesRebate");
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSrPurchaseDemand");
             binding.execute();
             List ERPSolerrors = binding.getErrors();
             if (ERPSolerrors.isEmpty()) {

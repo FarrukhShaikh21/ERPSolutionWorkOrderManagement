@@ -231,15 +231,15 @@ public class SrPurchaseDemandLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
      * @return the value of CreatedBy
      */
-    public Integer getCreatedBy() {
-        return (Integer) getAttributeInternal(CREATEDBY);
+    public String getCreatedBy() {
+        return (String) getAttributeInternal(CREATEDBY);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CreatedBy.
      * @param value value to set the CreatedBy
      */
-    public void setCreatedBy(Integer value) {
+    public void setCreatedBy(String value) {
         setAttributeInternal(CREATEDBY, value);
     }
 
@@ -263,15 +263,15 @@ public class SrPurchaseDemandLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for LastUpdatedBy, using the alias name LastUpdatedBy.
      * @return the value of LastUpdatedBy
      */
-    public Integer getLastUpdatedBy() {
-        return (Integer) getAttributeInternal(LASTUPDATEDBY);
+    public String getLastUpdatedBy() {
+        return (String) getAttributeInternal(LASTUPDATEDBY);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for LastUpdatedBy.
      * @param value value to set the LastUpdatedBy
      */
-    public void setLastUpdatedBy(Integer value) {
+    public void setLastUpdatedBy(String value) {
         setAttributeInternal(LASTUPDATEDBY, value);
     }
 
@@ -401,7 +401,7 @@ public class SrPurchaseDemandLinesImpl extends ERPSolGlobalsEntityImpl {
     @Override
     protected void create(AttributeList attributeList) {
         // TODO Implement this method
-        setERPSolPKColumnName("SR_PURCHASE_DEMAND_LINES_SEQ");
+        setERPSolPKColumnName("Demandlinesseq");
         setERPSolPKSeqName("SR_PURCHASE_DEMAND_LINES_SEQ");
     //        setERPISGenertePK("NO");
     //        SequenceImpl seq = new SequenceImpl("SO_SALES_ORDER_SEQ", getDBTransaction());

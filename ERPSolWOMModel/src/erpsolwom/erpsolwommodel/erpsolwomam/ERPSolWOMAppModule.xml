@@ -16,6 +16,9 @@
   <ViewUsage
     Name="AllLocationsAutoSuggestRO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"/>
+  <ViewUsage
+    Name="SrItemsAutoSuggestRO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"

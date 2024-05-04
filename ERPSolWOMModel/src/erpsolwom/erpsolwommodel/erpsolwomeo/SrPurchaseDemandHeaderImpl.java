@@ -394,6 +394,7 @@ public class SrPurchaseDemandHeaderImpl extends ERPSolGlobalsEntityImpl {
         else if (operation==DML_UPDATE) {
             if (getPosted().equals("Y")) {
                 populateAttributeAsChanged(MODIFIEDBY, ERPSolGlobClassModel.doGetUserCode());
+               populateAttributeAsChanged(POSTEDDATE, oracle.jbo.domain.Date.getCurrentDate());
                
            }
        }

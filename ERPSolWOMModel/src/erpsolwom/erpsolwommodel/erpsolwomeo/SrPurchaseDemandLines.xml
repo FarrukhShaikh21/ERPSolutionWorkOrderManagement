@@ -38,7 +38,6 @@
     TableName="SR_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="ItemId"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="ITEM_ID"
@@ -64,14 +63,15 @@
   </Attribute>
   <Attribute
     Name="DemandQuantity"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="DEMAND_QUANTITY"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PURCHASE_DEMAND_LINES">
+    TableName="SR_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -83,14 +83,15 @@
   </Attribute>
   <Attribute
     Name="ApproveQuantity"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="APPROVE_QUANTITY"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PURCHASE_DEMAND_LINES">
+    TableName="SR_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -102,7 +103,6 @@
   </Attribute>
   <Attribute
     Name="DepartmentId"
-    IsNotNull="true"
     Precision="15"
     ColumnName="DEPARTMENT_ID"
     SQLType="VARCHAR"
@@ -123,7 +123,6 @@
   </Attribute>
   <Attribute
     Name="ProjectId"
-    IsNotNull="true"
     ColumnName="PROJECT_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
@@ -140,30 +139,44 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
-    Precision="5"
-    Scale="0"
+    Precision="25"
     ColumnName="CREATED_BY"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SR_PURCHASE_DEMAND_LINES"/>
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_DEMAND_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PURCHASE_DEMAND_LINES"/>
+    TableName="SR_PURCHASE_DEMAND_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
-    Precision="5"
-    Scale="0"
+    Precision="25"
     ColumnName="LAST_UPDATED_BY"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
     TableName="SR_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="LastUpdatedDate"
@@ -183,6 +196,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.NoteToBuyer_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="NoteToSupplier"
@@ -195,6 +216,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLines.NoteToSupplier_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="AproxPrice"
@@ -204,7 +233,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PURCHASE_DEMAND_LINES"/>
+    TableName="SR_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="txtItemName"
     Precision="100"

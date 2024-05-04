@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_ITEM_FOR"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SrItems"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrItems"/>
@@ -70,6 +74,42 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SrItems"
     AliasName="MODIFIED_DATE"/>
+  <ViewCriteria
+    Name="SrItemsViewByItemForVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrItemsViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ItemFor"
+        ViewAttribute="ItemFor"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_ITEM_FOR"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrPurchaseDemandLinesView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemsSrPurchaseDemandLinesItemIdLink"

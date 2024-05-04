@@ -18,6 +18,7 @@
     <page path="/SR_0001.jsf" usageId="erpsolwom_erpsolwomview_SR_0001PageDef"/>
     <page path="/WEB-INF/ERPSOLWOM.xml#ERPSOLWOM@Rollback1"
           usageId="erpsolwom_erpsolwomview_ERPSOLWOM_ERPSOLWOM_Rollback1PageDef"/>
+    <page path="/SR_0002.jsf" usageId="erpsolwom_erpsolwomview_SR_0002PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwom_erpsolwomview_ERPSOLWOM_ERPSOLWOM_RollbackPageDef"
@@ -37,6 +38,7 @@
     <page id="erpsolwom_erpsolwomview_SR_0001PageDef" path="erpsolwom.erpsolwomview.pageDefs.SR_0001PageDef"/>
     <page id="erpsolwom_erpsolwomview_ERPSOLWOM_ERPSOLWOM_Rollback1PageDef"
           path="erpsolwom.erpsolwomview.pageDefs.ERPSOLWOM_ERPSOLWOM_Rollback1PageDef"/>
+    <page id="erpsolwom_erpsolwomview_SR_0002PageDef" path="erpsolwom.erpsolwomview.pageDefs.SR_0002PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWOMAppModuleDataControl" Package="erpsolwom.erpsolwommodel.erpsolwomam"

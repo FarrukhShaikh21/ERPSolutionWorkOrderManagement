@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SrPurchaseDemandHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
               id="SrPurchaseDemandHeaderCRUDIterator"/>
+    <iterator Binds="SrPurchaseDemandLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseDemandLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Posted">
@@ -44,5 +46,30 @@
             Action="removeCurrentRow"/>
     <action IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <tree IterBinding="SrPurchaseDemandLinesDetCRUDIterator" id="SrPurchaseDemandLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandLinesView"
+                      Name="SrPurchaseDemandLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="DemandQuantity"/>
+          <Item Value="ApproveQuantity"/>
+          <Item Value="AproxPrice"/>
+          <Item Value="RequiredByDate"/>
+          <Item Value="NoteToBuyer"/>
+          <Item Value="NoteToSupplier"/>
+          <Item Value="ProjectId"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SrPurchaseDemandLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseDemandLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSrPurchaseDemand" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPurchaseDemand" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseDemandHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseDemand_ERPSolWOMAppModuleDataControl_SrPurchaseDemandHeaderCRUD_doSuperviseSrPurchaseDemand_result"/>
   </bindings>
 </pageDefinition>
