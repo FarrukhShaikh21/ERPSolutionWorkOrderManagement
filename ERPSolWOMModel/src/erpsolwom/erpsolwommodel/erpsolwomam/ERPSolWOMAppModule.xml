@@ -19,10 +19,22 @@
   <ViewUsage
     Name="SrItemsAutoSuggestRO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"/>
+  <ViewUsage
+    Name="SrPurchaseRfqHeaderCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"/>
+  <ViewUsage
+    Name="SrPurchaseRfqLinesDetCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
     SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseDemandHeaderCRUD"
     DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseDemandLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurRfqLinRfqheadseqLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkScmPurRfqLinRfqheadseqLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseRfqHeaderCRUD"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseRfqLinesDetCRUD"
     Reversed="false"/>
 </AppModule>
