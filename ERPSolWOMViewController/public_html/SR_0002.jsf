@@ -114,17 +114,14 @@
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr5">
                         <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle">
-                          <af:outputLabel value="#{bindings.DemandFor.label}" id="ol1"/>
+                          <af:outputLabel value="#{bindings.RfqFor.label}" id="ol1"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
-                          <af:selectOneChoice value="#{bindings.DemandFor.inputValue}"
-                                              label="#{bindings.DemandFor.label}"
-                                              required="#{bindings.DemandFor.hints.mandatory}"
-                                              shortDesc="#{bindings.DemandFor.hints.tooltip}" id="soc2" simple="true"
-                                              disabled="#{bindings.SrPurchaseDemandLinesDetCRUDIterator.estimatedRowCount!='0'}"
-                                              autoSubmit="true">
-                            <f:selectItems value="#{bindings.DemandFor.items}" id="si3"/>
-                            <f:validator binding="#{bindings.DemandFor.validator}"/>
+                          <af:selectOneChoice value="#{bindings.RfqFor.inputValue}" label="#{bindings.RfqFor.label}"
+                                              required="#{bindings.RfqFor.hints.mandatory}"
+                                              shortDesc="#{bindings.RfqFor.hints.tooltip}" id="soc2" simple="true">
+                            <f:selectItems value="#{bindings.RfqFor.items}" id="si3"/>
+                            <f:validator binding="#{bindings.RfqFor.validator}"/>
                           </af:selectOneChoice>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
@@ -162,18 +159,35 @@
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                        <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle">
+                          <af:outputLabel value="#{bindings.NoteToSupplier.hints.label}" id="ol3"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="75%" id="gc31" columnSpan="3" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.NoteToSupplier.inputValue}"
+                                        label="#{bindings.NoteToSupplier.hints.label}"
+                                        required="#{bindings.NoteToSupplier.hints.mandatory}"
+                                        columns="#{bindings.NoteToSupplier.hints.displayWidth}"
+                                        maximumLength="#{bindings.NoteToSupplier.hints.precision}"
+                                        shortDesc="#{bindings.NoteToSupplier.hints.tooltip}" id="it9"
+                                        contentStyle="width:100%" simple="true">
+                            <f:validator binding="#{bindings.NoteToSupplier.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>                      
                     </af:panelGridLayout>
                   </af:panelBox>
                 </af:gridCell>
               </af:gridRow>
             </af:panelGridLayout>
             <af:panelGridLayout id="pgl1">
-              <af:gridRow id="gr10">
+              <af:gridRow id="gr30">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc28"
                              styleClass="ERPSolFormEntryAreaHeader" halign="stretch" valign="stretch">
                   <af:panelGridLayout id="pgl2">
                     <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr12">
-                      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc26" halign="stretch"
+                      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29" halign="stretch"
                                    valign="stretch">
                         <af:outputText value="Detail Information" id="ot6" styleClass="ERPSolFormEntryAreaFont"/>
                       </af:gridCell>

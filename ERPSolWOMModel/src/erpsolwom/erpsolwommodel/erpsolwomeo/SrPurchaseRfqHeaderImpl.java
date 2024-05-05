@@ -41,6 +41,7 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
         ModifiedBy,
         Modifieddate,
         Companyid,
+        txtLocationName,
         SrPurchaseRfqLines,
         AllLocations,
         SrPurchaseDemandHeader;
@@ -88,6 +89,7 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.Modifieddate.index();
     public static final int COMPANYID = AttributesEnum.Companyid.index();
+    public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int SRPURCHASERFQLINES = AttributesEnum.SrPurchaseRfqLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int SRPURCHASEDEMANDHEADER = AttributesEnum.SrPurchaseDemandHeader.index();
@@ -270,15 +272,15 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for RfqFor, using the alias name RfqFor.
      * @return the value of RfqFor
      */
-    public Integer getRfqFor() {
-        return (Integer) getAttributeInternal(RFQFOR);
+    public String getRfqFor() {
+        return (String) getAttributeInternal(RFQFOR);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RfqFor.
      * @param value value to set the RfqFor
      */
-    public void setRfqFor(Integer value) {
+    public void setRfqFor(String value) {
         setAttributeInternal(RFQFOR, value);
     }
 
@@ -424,6 +426,22 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setCompanyid(String value) {
         setAttributeInternal(COMPANYID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtLocationName, using the alias name txtLocationName.
+     * @return the value of txtLocationName
+     */
+    public String gettxtLocationName() {
+        return (String) getAttributeInternal(TXTLOCATIONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtLocationName.
+     * @param value value to set the txtLocationName
+     */
+    public void settxtLocationName(String value) {
+        setAttributeInternal(TXTLOCATIONNAME, value);
     }
 
     /**

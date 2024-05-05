@@ -19,5 +19,19 @@
         <Item Value="RfqDate"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="SrPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovRfqFor" id="RfqFor"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LOV_txtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="NoteToSupplier">
+      <AttrNames>
+        <Item Value="NoteToSupplier"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
