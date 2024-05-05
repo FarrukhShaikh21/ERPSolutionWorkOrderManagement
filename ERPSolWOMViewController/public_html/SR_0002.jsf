@@ -73,6 +73,8 @@
                                    icon="#{resource['images:imgSupervise.png']}" iconPosition="top">
                           <af:showPopupBehavior popupId="::p1" triggerType="action"/>
                         </af:button>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b13"/>
                       </af:toolbar>
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
@@ -223,7 +225,7 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle">
                           <af:outputLabel value="#{bindings.BillTo.hints.label}" id="ol7"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc17" columnSpan="3" rowSpan="1"
+                        <af:gridCell marginStart="5px" width="35%" id="gc17" columnSpan="1" rowSpan="1"
                                      halign="stretch">
                           <af:inputText value="#{bindings.BillTo.inputValue}" label="#{bindings.BillTo.hints.label}"
                                         required="#{bindings.BillTo.hints.mandatory}"
@@ -234,13 +236,10 @@
                             <f:validator binding="#{bindings.BillTo.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
-                        <af:gridCell marginStart="5px" width="15%" id="gc20" valign="middle">
+                        <af:gridCell id="gc33" width="15%" valign="middle">
                           <af:outputLabel value="#{bindings.ShipTo.hints.label}" id="ol10"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc21" columnSpan="3" rowSpan="1"
-                                     halign="stretch">
+                        <af:gridCell id="gc34" width="35%" halign="stretch">
                           <af:inputText value="#{bindings.ShipTo.inputValue}" label="#{bindings.ShipTo.hints.label}"
                                         required="#{bindings.ShipTo.hints.mandatory}"
                                         columns="#{bindings.ShipTo.hints.displayWidth}"
@@ -251,11 +250,11 @@
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
                         <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle">
                           <af:outputLabel value="#{bindings.NoteToSupplier.hints.label}" id="ol8"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc19" columnSpan="3" rowSpan="1"
+                        <af:gridCell marginStart="5px" width="35%" id="gc19" columnSpan="1" rowSpan="1"
                                      halign="stretch">
                           <af:inputText value="#{bindings.NoteToSupplier.inputValue}"
                                         label="#{bindings.NoteToSupplier.hints.label}"
@@ -267,12 +266,10 @@
                             <f:validator binding="#{bindings.NoteToSupplier.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
+                        <af:gridCell marginStart="5px" width="15%" id="gc20" valign="middle">
                           <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"
+                        <af:gridCell marginStart="5px" width="35%" id="gc21" columnSpan="3" rowSpan="1"
                                      halign="stretch">
                           <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
                                         required="#{bindings.Remarks.hints.mandatory}"

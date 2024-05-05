@@ -494,7 +494,7 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
     protected void create(AttributeList attributeList) {
         // TODO Implement this method
         setERPSolPKColumnName("Rfqheaderseqno");
-        setERPSolPKSeqName("SCM_PURCHASE_RFQ_HEADER_SEQ");
+        setERPSolPKSeqName("SR_PURCHASE_RFQ_HEADER_SEQ");
         setLocationid(ERPSolGlobClassModel.doGetUserLocationCode());
     setCompanyid(ERPSolGlobClassModel.doGetUserCompanyCode());
     //        setERPISGenertePK("NO");

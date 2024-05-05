@@ -37,7 +37,6 @@
   <Attribute
     Name="RfqHeaderCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="20"
     ColumnName="RFQ_HEADER_CODE"
     SQLType="VARCHAR"
@@ -197,7 +196,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PURCHASE_RFQ_HEADER">
+    TableName="SR_PURCHASE_RFQ_HEADER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -297,7 +297,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="25"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
@@ -318,7 +317,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
