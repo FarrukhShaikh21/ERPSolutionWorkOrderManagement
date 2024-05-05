@@ -159,4 +159,10 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseDemandHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurDemandHeaderSrPurRfqHeaderDemandCodeLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

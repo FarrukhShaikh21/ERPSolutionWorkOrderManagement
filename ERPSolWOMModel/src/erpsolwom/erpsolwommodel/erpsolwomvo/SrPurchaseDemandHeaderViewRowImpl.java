@@ -22,6 +22,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SRPURCHASEDEMANDHEADER = 0;
 
     /**
@@ -44,6 +45,7 @@ public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
         txtLocationName,
         SrPurchaseDemandLinesView,
         AllLocationsVO,
+        SrPurchaseRfqHeaderView,
         AccAllLocationsVO,
         AccVuDemandForQVO;
         static AttributesEnum[] vals = null;
@@ -70,6 +72,7 @@ public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int DEMANDHEADERSEQ = AttributesEnum.Demandheaderseq.index();
     public static final int DEMANDCODE = AttributesEnum.DemandCode.index();
     public static final int DEMANDFOR = AttributesEnum.DemandFor.index();
@@ -86,6 +89,7 @@ public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int SRPURCHASEDEMANDLINESVIEW = AttributesEnum.SrPurchaseDemandLinesView.index();
     public static final int ALLLOCATIONSVO = AttributesEnum.AllLocationsVO.index();
+    public static final int SRPURCHASERFQHEADERVIEW = AttributesEnum.SrPurchaseRfqHeaderView.index();
     public static final int ACCALLLOCATIONSVO = AttributesEnum.AccAllLocationsVO.index();
     public static final int ACCVUDEMANDFORQVO = AttributesEnum.AccVuDemandForQVO.index();
 
@@ -346,6 +350,13 @@ public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
      */
     public void setAllLocationsVO(Row value) {
         setAttributeInternal(ALLLOCATIONSVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPurchaseRfqHeaderView.
+     */
+    public RowIterator getSrPurchaseRfqHeaderView() {
+        return (RowIterator) getAttributeInternal(SRPURCHASERFQHEADERVIEW);
     }
 
     /**

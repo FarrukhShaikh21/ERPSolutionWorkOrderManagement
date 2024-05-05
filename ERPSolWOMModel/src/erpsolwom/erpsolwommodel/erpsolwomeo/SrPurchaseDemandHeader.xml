@@ -292,6 +292,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationsSrPurchasseDemandHeaderLocationIdAssoc.SrPurchaseDemandHeader"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPurchaseRfqHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandHeaderSrPurRfqHeaderDemandCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandHeaderSrPurRfqHeaderDemandCodeAssoc.SrPurchaseRfqHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandHeaderSrPurRfqHeaderDemandCodeAssoc.SrPurchaseDemandHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSrPurchaseDemandHeader"
     PrimaryKey="true">

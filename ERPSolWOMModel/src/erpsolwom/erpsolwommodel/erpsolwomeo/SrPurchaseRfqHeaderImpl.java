@@ -42,7 +42,8 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
         Modifieddate,
         Companyid,
         SrPurchaseRfqLines,
-        AllLocations;
+        AllLocations,
+        SrPurchaseDemandHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -89,6 +90,7 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int COMPANYID = AttributesEnum.Companyid.index();
     public static final int SRPURCHASERFQLINES = AttributesEnum.SrPurchaseRfqLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
+    public static final int SRPURCHASEDEMANDHEADER = AttributesEnum.SrPurchaseDemandHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -443,6 +445,21 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllLocations(EntityImpl value) {
         setAttributeInternal(ALLLOCATIONS, value);
+    }
+
+
+    /**
+     * @return the associated entity SrPurchaseDemandHeaderImpl.
+     */
+    public SrPurchaseDemandHeaderImpl getSrPurchaseDemandHeader() {
+        return (SrPurchaseDemandHeaderImpl) getAttributeInternal(SRPURCHASEDEMANDHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity SrPurchaseDemandHeaderImpl.
+     */
+    public void setSrPurchaseDemandHeader(SrPurchaseDemandHeaderImpl value) {
+        setAttributeInternal(SRPURCHASEDEMANDHEADER, value);
     }
 
 
