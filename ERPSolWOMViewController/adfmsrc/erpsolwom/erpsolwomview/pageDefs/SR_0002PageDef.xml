@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SrPurchaseRfqHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
               id="SrPurchaseRfqHeaderCRUDIterator"/>
+    <iterator Binds="SrPurchaseRfqLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseRfqLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="RfqHeaderCode">
@@ -75,5 +77,26 @@
                   id="DemandCode"/>
     <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseRfqLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseRfqLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="SrPurchaseRfqLinesDetCRUDIterator" id="SrPurchaseRfqLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView"
+                      Name="SrPurchaseRfqLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="RequiredBy"/>
+          <Item Value="Quantity"/>
+          <Item Value="AproxPrice"/>
+          <Item Value="ProjectId"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="SupplierItemName"/>
+          <Item Value="NoteToBuyer"/>
+          <Item Value="NoteToSupplier"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

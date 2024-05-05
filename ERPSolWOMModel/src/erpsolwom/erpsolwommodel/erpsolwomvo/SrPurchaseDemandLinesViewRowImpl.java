@@ -5,6 +5,7 @@ import erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLinesImpl;
 import java.math.BigDecimal;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
@@ -15,6 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPurchaseDemandLinesViewRowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SRPURCHASEDEMANDLINES = 0;
 
     /**
@@ -39,10 +41,12 @@ public class SrPurchaseDemandLinesViewRowImpl extends ViewRowImpl {
         txtItemName,
         SrItemsView,
         SrPurchaseDemandHeaderView,
+        SrPurchaseRfqLinesView,
         AccSrItemsView,
         AccPrgProjectView,
         AccAllDepartmentsView;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -64,6 +68,7 @@ public class SrPurchaseDemandLinesViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int DEMANDLINESSEQ = AttributesEnum.Demandlinesseq.index();
     public static final int DEMANDHEADERSEQ = AttributesEnum.Demandheaderseq.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();
@@ -82,6 +87,7 @@ public class SrPurchaseDemandLinesViewRowImpl extends ViewRowImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
     public static final int SRPURCHASEDEMANDHEADERVIEW = AttributesEnum.SrPurchaseDemandHeaderView.index();
+    public static final int SRPURCHASERFQLINESVIEW = AttributesEnum.SrPurchaseRfqLinesView.index();
     public static final int ACCSRITEMSVIEW = AttributesEnum.AccSrItemsView.index();
     public static final int ACCPRGPROJECTVIEW = AttributesEnum.AccPrgProjectView.index();
     public static final int ACCALLDEPARTMENTSVIEW = AttributesEnum.AccAllDepartmentsView.index();
@@ -382,6 +388,13 @@ public class SrPurchaseDemandLinesViewRowImpl extends ViewRowImpl {
      */
     public void setSrPurchaseDemandHeaderView(Row value) {
         setAttributeInternal(SRPURCHASEDEMANDHEADERVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPurchaseRfqLinesView.
+     */
+    public RowIterator getSrPurchaseRfqLinesView() {
+        return (RowIterator) getAttributeInternal(SRPURCHASERFQLINESVIEW);
     }
 
     /**

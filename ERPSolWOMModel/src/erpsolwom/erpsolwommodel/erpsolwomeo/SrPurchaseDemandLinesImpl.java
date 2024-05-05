@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -41,7 +42,8 @@ public class SrPurchaseDemandLinesImpl extends ERPSolGlobalsEntityImpl {
         AproxPrice,
         txtItemName,
         SrPurchaseDemandHeader,
-        SrItems;
+        SrItems,
+        SrPurchaseRfqLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -84,6 +86,7 @@ public class SrPurchaseDemandLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int SRPURCHASEDEMANDHEADER = AttributesEnum.SrPurchaseDemandHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
+    public static final int SRPURCHASERFQLINES = AttributesEnum.SrPurchaseRfqLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -382,6 +385,14 @@ public class SrPurchaseDemandLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setSrItems(EntityImpl value) {
         setAttributeInternal(SRITEMS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSrPurchaseRfqLines() {
+        return (RowIterator) getAttributeInternal(SRPURCHASERFQLINES);
     }
 
 

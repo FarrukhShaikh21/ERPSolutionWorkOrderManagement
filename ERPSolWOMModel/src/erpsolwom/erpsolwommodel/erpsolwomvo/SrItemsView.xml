@@ -115,4 +115,9 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemsSrPurchaseDemandLinesItemIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqLinesView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseRfqLinesItemIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

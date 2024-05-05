@@ -270,6 +270,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc.SrPurchaseDemandLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPurchaseRfqLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandLinesSrPurRfqLinesDemandLinesSeqAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandLinesSrPurRfqLinesDemandLinesSeqAssoc.SrPurchaseRfqLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandLinesSrPurRfqLinesDemandLinesSeqAssoc.SrPurchaseDemandLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkPurDemLinesDemLinesSno"
     PrimaryKey="true">

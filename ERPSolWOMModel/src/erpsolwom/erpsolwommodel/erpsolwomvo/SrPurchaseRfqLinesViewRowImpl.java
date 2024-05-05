@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -15,6 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SRPURCHASERFQLINES = 0;
 
     /**
@@ -23,7 +25,6 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
     public enum AttributesEnum {
         Rfqlinesseqno,
         Rfqheaderseqno,
-        DemandLinesSno,
         RequiredBy,
         NoteToBuyer,
         NoteToSupplier,
@@ -39,7 +40,14 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
         CreatedDate,
         ModifiedBy,
         Modifieddate,
-        SrPurchaseRfqHeaderView;
+        txtItemName,
+        Demandlinesseq,
+        SrPurchaseRfqHeaderView,
+        SrItemsView,
+        SrPurchaseDemandLinesView,
+        AccSrItemsView,
+        AccPrgProjectView,
+        AccAllDepartmentsView;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -64,9 +72,9 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int RFQLINESSEQNO = AttributesEnum.Rfqlinesseqno.index();
     public static final int RFQHEADERSEQNO = AttributesEnum.Rfqheaderseqno.index();
-    public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int REQUIREDBY = AttributesEnum.RequiredBy.index();
     public static final int NOTETOBUYER = AttributesEnum.NoteToBuyer.index();
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
@@ -82,7 +90,14 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.Modifieddate.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int DEMANDLINESSEQ = AttributesEnum.Demandlinesseq.index();
     public static final int SRPURCHASERFQHEADERVIEW = AttributesEnum.SrPurchaseRfqHeaderView.index();
+    public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
+    public static final int SRPURCHASEDEMANDLINESVIEW = AttributesEnum.SrPurchaseDemandLinesView.index();
+    public static final int ACCSRITEMSVIEW = AttributesEnum.AccSrItemsView.index();
+    public static final int ACCPRGPROJECTVIEW = AttributesEnum.AccPrgProjectView.index();
+    public static final int ACCALLDEPARTMENTSVIEW = AttributesEnum.AccAllDepartmentsView.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -130,21 +145,6 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
         setAttributeInternal(RFQHEADERSEQNO, value);
     }
 
-    /**
-     * Gets the attribute value for DEMAND_LINES_SNO using the alias name DemandLinesSno.
-     * @return the DEMAND_LINES_SNO
-     */
-    public Long getDemandLinesSno() {
-        return (Long) getAttributeInternal(DEMANDLINESSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for DEMAND_LINES_SNO using the alias name DemandLinesSno.
-     * @param value value to set the DEMAND_LINES_SNO
-     */
-    public void setDemandLinesSno(Long value) {
-        setAttributeInternal(DEMANDLINESSNO, value);
-    }
 
     /**
      * Gets the attribute value for REQUIRED_BY using the alias name RequiredBy.
@@ -387,6 +387,38 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_ITEM_NAME using the alias name txtItemName.
+     * @return the TXT_ITEM_NAME
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_ITEM_NAME using the alias name txtItemName.
+     * @param value value to set the TXT_ITEM_NAME
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for DEMANDLINESSEQ using the alias name Demandlinesseq.
+     * @return the DEMANDLINESSEQ
+     */
+    public Long getDemandlinesseq() {
+        return (Long) getAttributeInternal(DEMANDLINESSEQ);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DEMANDLINESSEQ using the alias name Demandlinesseq.
+     * @param value value to set the DEMANDLINESSEQ
+     */
+    public void setDemandlinesseq(Long value) {
+        setAttributeInternal(DEMANDLINESSEQ, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link SrPurchaseRfqHeaderView.
      */
     public Row getSrPurchaseRfqHeaderView() {
@@ -399,6 +431,56 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
     public void setSrPurchaseRfqHeaderView(Row value) {
         setAttributeInternal(SRPURCHASERFQHEADERVIEW, value);
     }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link SrItemsView.
+     */
+    public Row getSrItemsView() {
+        return (Row) getAttributeInternal(SRITEMSVIEW);
+    }
+
+    /**
+     * Sets the master-detail link SrItemsView between this object and <code>value</code>.
+     */
+    public void setSrItemsView(Row value) {
+        setAttributeInternal(SRITEMSVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link SrPurchaseDemandLinesView.
+     */
+    public Row getSrPurchaseDemandLinesView() {
+        return (Row) getAttributeInternal(SRPURCHASEDEMANDLINESVIEW);
+    }
+
+    /**
+     * Sets the master-detail link SrPurchaseDemandLinesView between this object and <code>value</code>.
+     */
+    public void setSrPurchaseDemandLinesView(Row value) {
+        setAttributeInternal(SRPURCHASEDEMANDLINESVIEW, value);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSrItemsView.
+     */
+    public RowSet getAccSrItemsView() {
+        return (RowSet) getAttributeInternal(ACCSRITEMSVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccPrgProjectView.
+     */
+    public RowSet getAccPrgProjectView() {
+        return (RowSet) getAttributeInternal(ACCPRGPROJECTVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccAllDepartmentsView.
+     */
+    public RowSet getAccAllDepartmentsView() {
+        return (RowSet) getAttributeInternal(ACCALLDEPARTMENTSVIEW);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         if (getSrPurchaseRfqHeaderView().getAttribute("Posted").equals("Y")) {

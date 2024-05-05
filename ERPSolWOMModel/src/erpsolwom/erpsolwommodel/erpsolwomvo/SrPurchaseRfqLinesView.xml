@@ -18,6 +18,89 @@
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccSrItemsView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrItemsViewByItemForVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView.SrItemsViewByItemForVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_ITEM_FOR">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SrPurchaseRfqHeaderView?.RfqFor==null?"0":SrPurchaseRfqHeaderView?.RfqFor]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccPrgProjectView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PrgProjectView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllDepartmentsView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllDepartmentsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_txtItemName"
+    ListVOName="AccSrItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtItemName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemName"/>
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ItemName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ProjectId"
+    ListVOName="AccPrgProjectView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProjectId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DepartmentId"
+    ListVOName="AccAllDepartmentsView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Deptid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPurchaseRfqLines"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqLines"/>
@@ -34,12 +117,6 @@
     EntityAttrName="Rfqheaderseqno"
     EntityUsage="SrPurchaseRfqLines"
     AliasName="RFQHEADERSEQNO"/>
-  <ViewAttribute
-    Name="DemandLinesSno"
-    PrecisionRule="true"
-    EntityAttrName="DemandLinesSno"
-    EntityUsage="SrPurchaseRfqLines"
-    AliasName="DEMAND_LINES_SNO"/>
   <ViewAttribute
     Name="RequiredBy"
     PrecisionRule="true"
@@ -99,13 +176,29 @@
     PrecisionRule="true"
     EntityAttrName="ProjectId"
     EntityUsage="SrPurchaseRfqLines"
-    AliasName="PROJECT_ID"/>
+    AliasName="PROJECT_ID"
+    LOVName="LOV_ProjectId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DepartmentId"
     PrecisionRule="true"
     EntityAttrName="DepartmentId"
     EntityUsage="SrPurchaseRfqLines"
-    AliasName="DEPARTMENT_ID"/>
+    AliasName="DEPARTMENT_ID"
+    LOVName="LOV_DepartmentId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -130,9 +223,43 @@
     EntityAttrName="Modifieddate"
     EntityUsage="SrPurchaseRfqLines"
     AliasName="MODIFIEDDATE"/>
+  <ViewAttribute
+    Name="txtItemName"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="SrPurchaseRfqLines"
+    AliasName="TXT_ITEM_NAME"
+    LOVName="LOV_txtItemName"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Demandlinesseq"
+    PrecisionRule="true"
+    EntityAttrName="Demandlinesseq"
+    EntityUsage="SrPurchaseRfqLines"
+    AliasName="DEMANDLINESSEQ"/>
   <ViewLinkAccessor
     Name="SrPurchaseRfqHeaderView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkScmPurRfqLinRfqheadseqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrItemsView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseRfqLinesItemIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseDemandLinesView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurDemandLinesSrPurRfqLinesDemandLinesSeqLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

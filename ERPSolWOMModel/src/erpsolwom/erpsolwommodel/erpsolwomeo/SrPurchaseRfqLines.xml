@@ -31,15 +31,6 @@
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_RFQ_LINES"/>
   <Attribute
-    Name="DemandLinesSno"
-    Precision="10"
-    Scale="0"
-    ColumnName="DEMAND_LINES_SNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Long"
-    ColumnType="NUMBER"
-    TableName="SR_PURCHASE_RFQ_LINES"/>
-  <Attribute
     Name="RequiredBy"
     ColumnName="REQUIRED_BY"
     SQLType="DATE"
@@ -186,12 +177,59 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SR_PURCHASE_RFQ_LINES"/>
+  <Attribute
+    Name="txtItemName"
+    Precision="80"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrItems?.ItemName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ItemId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqLines.txtItemName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Demandlinesseq"
+    Precision="10"
+    Scale="0"
+    ColumnName="DEMANDLINESSEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SR_PURCHASE_RFQ_LINES"/>
   <AccessorAttribute
     Name="SrPurchaseRfqHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkScmPurRfqLinRfqheadseqAssoc"
     AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkScmPurRfqLinRfqheadseqAssoc.SrPurchaseRfqHeader"
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkScmPurRfqLinRfqheadseqAssoc.SrPurchaseRfqLines"
     Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrItems"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseRfqLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseRfqLinesItemIdAssoc.SrItems"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseRfqLinesItemIdAssoc.SrPurchaseRfqLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPurchaseDemandLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandLinesSrPurRfqLinesDemandLinesSeqAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandLinesSrPurRfqLinesDemandLinesSeqAssoc.SrPurchaseDemandLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandLinesSrPurRfqLinesDemandLinesSeqAssoc.SrPurchaseRfqLines"
+    Type="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandLinesImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseRfqLines"
@@ -214,4 +252,30 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqLines.Rfqheaderseqno"/>
     </AttrArray>
   </Key>
+  <Key
+    Name="fk_SrPurchaseRfqLines">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SRITEMS_PRIMARY_KEY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PURCHASE_RFQ_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqLines.ItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SrPurchaseRfqLines1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_PUR_DEM_LINES_DEM_LINES_SNO"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PURCHASE_RFQ_LINES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqLines.Demandlinesseq"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>
