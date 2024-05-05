@@ -291,6 +291,11 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqSupplierView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method

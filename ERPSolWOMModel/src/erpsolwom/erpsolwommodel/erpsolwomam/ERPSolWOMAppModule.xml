@@ -25,6 +25,9 @@
   <ViewUsage
     Name="SrPurchaseRfqLinesDetCRUD"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView"/>
+  <ViewUsage
+    Name="SrPurchaseRfqSupplierDetCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
@@ -36,5 +39,11 @@
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkScmPurRfqLinRfqheadseqLink"
     SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseRfqHeaderCRUD"
     DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseRfqLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SrPurRfqHeaderSrPurRfqSupplierSupplierSnoLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseRfqHeaderCRUD"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseRfqSupplierDetCRUD"
     Reversed="false"/>
 </AppModule>

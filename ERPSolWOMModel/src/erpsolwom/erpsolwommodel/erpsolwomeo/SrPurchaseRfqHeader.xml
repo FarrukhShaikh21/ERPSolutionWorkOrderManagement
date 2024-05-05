@@ -428,6 +428,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandHeaderSrPurRfqHeaderDemandCodeAssoc.SrPurchaseRfqHeader"
     Type="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseDemandHeaderImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPurchaseRfqSupplier"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoAssoc.SrPurchaseRfqSupplier"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoAssoc.SrPurchaseRfqHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseRfqHeader"
     PrimaryKey="true">
