@@ -32,7 +32,20 @@
   <ViewAccessor
     Name="AccSrPurchaseDemandHeaderView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseDemandHeaderLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView.SrPurchaseDemandHeaderLocationVC"/>
+    <ViewCriteriaUsage
+      Name="SrPurchaseDemandHeaderViewCriteria"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView.SrPurchaseDemandHeaderViewCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovRfqFor"
     ListVOName="AccVuDemandForQVO"

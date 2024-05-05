@@ -220,6 +220,58 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="SrPurchaseDemandHeaderViewCriteria"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseDemandHeaderViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SrPurchaseRfqHeaderView"
+        ViewAttribute="SrPurchaseRfqHeaderView"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseRfqHeaderViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseRfqHeaderViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="DemandCode"
+              ViewAttribute="DemandCode"
+              Operator="ISNOTBLANK"
+              Conjunction="AND"
+              UpperColumns="0"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrPurchaseDemandLinesView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
