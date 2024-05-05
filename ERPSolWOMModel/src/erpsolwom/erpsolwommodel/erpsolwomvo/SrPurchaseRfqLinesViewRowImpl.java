@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.Row;
 import oracle.jbo.RowSet;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -117,15 +118,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for RFQLINESSEQNO using the alias name Rfqlinesseqno.
      * @return the RFQLINESSEQNO
      */
-    public Long getRfqlinesseqno() {
-        return (Long) getAttributeInternal(RFQLINESSEQNO);
+    public Integer getRfqlinesseqno() {
+        return (Integer) getAttributeInternal(RFQLINESSEQNO);
     }
 
     /**
      * Sets <code>value</code> as attribute value for RFQLINESSEQNO using the alias name Rfqlinesseqno.
      * @param value value to set the RFQLINESSEQNO
      */
-    public void setRfqlinesseqno(Long value) {
+    public void setRfqlinesseqno(Integer value) {
         setAttributeInternal(RFQLINESSEQNO, value);
     }
 
@@ -133,15 +134,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for RFQHEADERSEQNO using the alias name Rfqheaderseqno.
      * @return the RFQHEADERSEQNO
      */
-    public Long getRfqheaderseqno() {
-        return (Long) getAttributeInternal(RFQHEADERSEQNO);
+    public Integer getRfqheaderseqno() {
+        return (Integer) getAttributeInternal(RFQHEADERSEQNO);
     }
 
     /**
      * Sets <code>value</code> as attribute value for RFQHEADERSEQNO using the alias name Rfqheaderseqno.
      * @param value value to set the RFQHEADERSEQNO
      */
-    public void setRfqheaderseqno(Long value) {
+    public void setRfqheaderseqno(Integer value) {
         setAttributeInternal(RFQHEADERSEQNO, value);
     }
 
@@ -150,15 +151,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for REQUIRED_BY using the alias name RequiredBy.
      * @return the REQUIRED_BY
      */
-    public Timestamp getRequiredBy() {
-        return (Timestamp) getAttributeInternal(REQUIREDBY);
+    public Date getRequiredBy() {
+        return (Date) getAttributeInternal(REQUIREDBY);
     }
 
     /**
      * Sets <code>value</code> as attribute value for REQUIRED_BY using the alias name RequiredBy.
      * @param value value to set the REQUIRED_BY
      */
-    public void setRequiredBy(Timestamp value) {
+    public void setRequiredBy(Date value) {
         setAttributeInternal(REQUIREDBY, value);
     }
 
@@ -214,15 +215,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for REQUESTER_ID using the alias name RequesterId.
      * @return the REQUESTER_ID
      */
-    public Long getRequesterId() {
-        return (Long) getAttributeInternal(REQUESTERID);
+    public Integer getRequesterId() {
+        return (Integer) getAttributeInternal(REQUESTERID);
     }
 
     /**
      * Sets <code>value</code> as attribute value for REQUESTER_ID using the alias name RequesterId.
      * @param value value to set the REQUESTER_ID
      */
-    public void setRequesterId(Long value) {
+    public void setRequesterId(Integer value) {
         setAttributeInternal(REQUESTERID, value);
     }
 
@@ -230,15 +231,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for ITEM_ID using the alias name ItemId.
      * @return the ITEM_ID
      */
-    public Long getItemId() {
-        return (Long) getAttributeInternal(ITEMID);
+    public Integer getItemId() {
+        return (Integer) getAttributeInternal(ITEMID);
     }
 
     /**
      * Sets <code>value</code> as attribute value for ITEM_ID using the alias name ItemId.
      * @param value value to set the ITEM_ID
      */
-    public void setItemId(Long value) {
+    public void setItemId(Integer value) {
         setAttributeInternal(ITEMID, value);
     }
 
@@ -310,15 +311,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for DEPARTMENT_ID using the alias name DepartmentId.
      * @return the DEPARTMENT_ID
      */
-    public Integer getDepartmentId() {
-        return (Integer) getAttributeInternal(DEPARTMENTID);
+    public String getDepartmentId() {
+        return (String) getAttributeInternal(DEPARTMENTID);
     }
 
     /**
      * Sets <code>value</code> as attribute value for DEPARTMENT_ID using the alias name DepartmentId.
      * @param value value to set the DEPARTMENT_ID
      */
-    public void setDepartmentId(Integer value) {
+    public void setDepartmentId(String value) {
         setAttributeInternal(DEPARTMENTID, value);
     }
 
@@ -342,15 +343,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for CREATED_DATE using the alias name CreatedDate.
      * @return the CREATED_DATE
      */
-    public Timestamp getCreatedDate() {
-        return (Timestamp) getAttributeInternal(CREATEDDATE);
+    public Date getCreatedDate() {
+        return (Date) getAttributeInternal(CREATEDDATE);
     }
 
     /**
      * Sets <code>value</code> as attribute value for CREATED_DATE using the alias name CreatedDate.
      * @param value value to set the CREATED_DATE
      */
-    public void setCreatedDate(Timestamp value) {
+    public void setCreatedDate(Date value) {
         setAttributeInternal(CREATEDDATE, value);
     }
 
@@ -374,15 +375,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for MODIFIEDDATE using the alias name Modifieddate.
      * @return the MODIFIEDDATE
      */
-    public Timestamp getModifieddate() {
-        return (Timestamp) getAttributeInternal(MODIFIEDDATE);
+    public Date getModifieddate() {
+        return (Date) getAttributeInternal(MODIFIEDDATE);
     }
 
     /**
      * Sets <code>value</code> as attribute value for MODIFIEDDATE using the alias name Modifieddate.
      * @param value value to set the MODIFIEDDATE
      */
-    public void setModifieddate(Timestamp value) {
+    public void setModifieddate(Date value) {
         setAttributeInternal(MODIFIEDDATE, value);
     }
 
@@ -406,15 +407,15 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for DEMANDLINESSEQ using the alias name Demandlinesseq.
      * @return the DEMANDLINESSEQ
      */
-    public Long getDemandlinesseq() {
-        return (Long) getAttributeInternal(DEMANDLINESSEQ);
+    public Integer getDemandlinesseq() {
+        return (Integer) getAttributeInternal(DEMANDLINESSEQ);
     }
 
     /**
      * Sets <code>value</code> as attribute value for DEMANDLINESSEQ using the alias name Demandlinesseq.
      * @param value value to set the DEMANDLINESSEQ
      */
-    public void setDemandlinesseq(Long value) {
+    public void setDemandlinesseq(Integer value) {
         setAttributeInternal(DEMANDLINESSEQ, value);
     }
 

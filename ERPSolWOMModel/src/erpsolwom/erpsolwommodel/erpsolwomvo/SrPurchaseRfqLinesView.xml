@@ -35,7 +35,17 @@
   <ViewAccessor
     Name="AccPrgProjectView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PrgProjectView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PrgProjectViewByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PrgProjectView.PrgProjectViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SrPurchaseRfqHeaderView?.Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllDepartmentsView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllDepartmentsView"
