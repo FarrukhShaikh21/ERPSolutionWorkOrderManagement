@@ -204,7 +204,56 @@
                             <f:validator binding="#{bindings.NoteToSupplier.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                      </af:gridRow>                      
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                        <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle">
+                          <af:outputLabel value="#{bindings.BillTo.hints.label}" id="ol7"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="75%" id="gc17" columnSpan="3" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.BillTo.inputValue}" label="#{bindings.BillTo.hints.label}"
+                                        required="#{bindings.BillTo.hints.mandatory}"
+                                        columns="#{bindings.BillTo.hints.displayWidth}"
+                                        maximumLength="#{bindings.BillTo.hints.precision}"
+                                        shortDesc="#{bindings.BillTo.hints.tooltip}" id="it12" simple="true"
+                                        contentStyle="width:100%">
+                            <f:validator binding="#{bindings.BillTo.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
+                        <af:gridCell marginStart="5px" width="15%" id="gc20" valign="middle">
+                          <af:outputLabel value="#{bindings.ShipTo.hints.label}" id="ol10"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="75%" id="gc21" columnSpan="3" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.ShipTo.inputValue}" label="#{bindings.ShipTo.hints.label}"
+                                        required="#{bindings.ShipTo.hints.mandatory}"
+                                        columns="#{bindings.ShipTo.hints.displayWidth}"
+                                        maximumLength="#{bindings.ShipTo.hints.precision}"
+                                        shortDesc="#{bindings.ShipTo.hints.tooltip}" id="it13" simple="true"
+                                        contentStyle="width:100%">
+                            <f:validator binding="#{bindings.ShipTo.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
+                        <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle">
+                          <af:outputLabel value="#{bindings.NoteToSupplier.hints.label}" id="ol8"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="75%" id="gc19" columnSpan="3" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.NoteToSupplier.inputValue}"
+                                        label="#{bindings.NoteToSupplier.hints.label}"
+                                        required="#{bindings.NoteToSupplier.hints.mandatory}"
+                                        columns="#{bindings.NoteToSupplier.hints.displayWidth}"
+                                        maximumLength="#{bindings.NoteToSupplier.hints.precision}"
+                                        shortDesc="#{bindings.NoteToSupplier.hints.tooltip}" id="it11"
+                                        contentStyle="width:100%" simple="true">
+                            <f:validator binding="#{bindings.NoteToSupplier.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
                     </af:panelGridLayout>
                   </af:panelBox>
                 </af:gridCell>

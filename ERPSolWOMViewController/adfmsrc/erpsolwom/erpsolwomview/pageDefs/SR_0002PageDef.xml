@@ -43,5 +43,15 @@
         <Item Value="ValidToDate"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="BillTo">
+      <AttrNames>
+        <Item Value="BillTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="ShipTo">
+      <AttrNames>
+        <Item Value="ShipTo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
