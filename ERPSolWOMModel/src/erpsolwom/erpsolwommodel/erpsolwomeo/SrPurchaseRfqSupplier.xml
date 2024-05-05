@@ -9,31 +9,34 @@
   DBObjectType="table"
   DBObjectName="SR_PURCHASE_RFQ_SUPPLIER"
   AliasName="SrPurchaseRfqSupplier"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplierImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Rfqsupplierseqno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="RFQSUPPLIERSEQNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_RFQ_SUPPLIER"
     PrimaryKey="true"/>
   <Attribute
     Name="Rfqheaderseqno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="RFQHEADERSEQNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_RFQ_SUPPLIER"/>
   <Attribute
     Name="Supplierid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="SUPPLIERID"
     SQLType="VARCHAR"
@@ -70,7 +73,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="25"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
@@ -83,10 +85,9 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_RFQ_SUPPLIER"/>
   <Attribute
@@ -105,7 +106,7 @@
     Name="Modifieddate"
     ColumnName="MODIFIEDDATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_RFQ_SUPPLIER"/>
   <AccessorAttribute

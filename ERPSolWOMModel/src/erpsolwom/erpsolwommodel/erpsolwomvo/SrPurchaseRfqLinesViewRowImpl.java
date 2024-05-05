@@ -489,5 +489,6 @@ public class SrPurchaseRfqLinesViewRowImpl extends ViewRowImpl {
        }
         return super.isAttributeUpdateable(i);
     }
+    
 }
 

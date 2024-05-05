@@ -71,5 +71,15 @@
                   DataControl="ERPSolWOMAppModuleDataControl"
                   InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseDemandHeaderCRUD"
                   ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseDemand_ERPSolWOMAppModuleDataControl_SrPurchaseDemandHeaderCRUD_doSuperviseSrPurchaseDemand_result"/>
+    <attributeValues IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Demandheaderseq">
+      <AttrNames>
+        <Item Value="Demandheaderseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

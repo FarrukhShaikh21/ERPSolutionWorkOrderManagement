@@ -12,7 +12,44 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AccPuSuppliersVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersVOByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO.PuSuppliersVOByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SrPurchaseRfqHeaderView?.Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_Supplierid"
+    ListVOName="AccPuSuppliersVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPurchaseRfqSupplier"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier"/>
@@ -36,7 +73,15 @@
     PrecisionRule="true"
     EntityAttrName="Supplierid"
     EntityUsage="SrPurchaseRfqSupplier"
-    AliasName="SUPPLIERID"/>
+    AliasName="SUPPLIERID"
+    LOVName="LOV_Supplierid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactNo"
     PrecisionRule="true"

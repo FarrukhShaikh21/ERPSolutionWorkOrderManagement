@@ -9,6 +9,8 @@
               id="SrPurchaseRfqHeaderCRUDIterator"/>
     <iterator Binds="SrPurchaseRfqLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
               id="SrPurchaseRfqLinesDetCRUDIterator"/>
+    <iterator Binds="SrPurchaseRfqSupplierDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseRfqSupplierDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="RfqHeaderCode">
@@ -101,6 +103,30 @@
     <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Posted">
       <AttrNames>
         <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SrPurchaseRfqSupplierDetCRUDIterator" id="SrPurchaseRfqSupplierDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
+                      Name="SrPurchaseRfqSupplierDetCRUD0">
+        <AttrNames>
+          <Item Value="Supplierid"/>
+          <Item Value="ContactNo"/>
+          <Item Value="SupplierRemarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SrPurchaseRfqSupplierDetCRUDIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseRfqSupplierDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Rfqheaderseqno">
+      <AttrNames>
+        <Item Value="Rfqheaderseqno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
       </AttrNames>
     </attributeValues>
   </bindings>

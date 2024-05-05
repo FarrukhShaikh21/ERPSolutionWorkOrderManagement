@@ -45,7 +45,7 @@
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
                                    iconPosition="top"
-                                   action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteSaleRebate}"/>
+                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRDemand}"/>
                         <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
                                    icon="#{resource['images:imgFind.png']}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
@@ -82,6 +82,15 @@
                           <af:outputLabel value="#{bindings.DemandCode.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Demandheaderseq.inputValue}"
+                                        label="#{bindings.Demandheaderseq.hints.label}"
+                                        required="#{bindings.Demandheaderseq.hints.mandatory}"
+                                        columns="#{bindings.Demandheaderseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Demandheaderseq.hints.precision}"
+                                        shortDesc="#{bindings.Demandheaderseq.hints.tooltip}" id="it8" rendered="false">
+                            <f:validator binding="#{bindings.Demandheaderseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Demandheaderseq.format}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.DemandCode.inputValue}"
                                         label="#{bindings.DemandCode.hints.label}"
                                         required="#{bindings.DemandCode.hints.mandatory}"
@@ -97,6 +106,14 @@
                                         maximumLength="#{bindings.Posted.hints.precision}"
                                         shortDesc="#{bindings.Posted.hints.tooltip}" id="it6" rendered="false">
                             <f:validator binding="#{bindings.Posted.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Companyid.inputValue}"
+                                        label="#{bindings.Companyid.hints.label}"
+                                        required="#{bindings.Companyid.hints.mandatory}"
+                                        columns="#{bindings.Companyid.hints.displayWidth}"
+                                        maximumLength="#{bindings.Companyid.hints.precision}"
+                                        shortDesc="#{bindings.Companyid.hints.tooltip}" id="it9" rendered="false">
+                            <f:validator binding="#{bindings.Companyid.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle">
