@@ -5,8 +5,8 @@
     <af:messages id="m1"/>
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
-        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.DemandCode.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSrWoDemandDialogConfirm}" type="yesNo">
+        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.RfqHeaderCode.inputValue})"
+                   dialogListener="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolsRFQDialogConfirm}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
@@ -37,10 +37,9 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
-                        <af:button actionListener="#{bindings.doSuperviseSrPurchaseDemand.execute}"
-                                   text="doSuperviseSrPurchaseDemand"
-                                   disabled="#{!bindings.doSuperviseSrPurchaseDemand.enabled}" id="b7"
-                                   rendered="false"/>
+                        <af:button actionListener="#{bindings.doSuperviseSrPurchaseRFQ.execute}"
+                                   text="doSuperviseSrPurchaseRFQ"
+                                   disabled="#{!bindings.doSuperviseSrPurchaseRFQ.enabled}" id="b7" rendered="false"/>
                         <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-SCM"
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
@@ -57,7 +56,7 @@
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Demand"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Demand"
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New RFQ"
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
@@ -137,10 +136,41 @@
                                                         required="#{bindings.txtLocationName.hints.mandatory}"
                                                         columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                        simple="true">
+                                                        simple="true" autoSubmit="true">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                        <af:gridCell id="gc23" width="15%" valign="middle">
+                          <af:outputLabel value="#{bindings.DemandCode.hints.label}" id="ol13"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc22" width="35%">
+                          <af:inputComboboxListOfValues id="demandCodeId"
+                                                        popupTitle="Search and Select: #{bindings.DemandCode.hints.label}"
+                                                        value="#{bindings.DemandCode.inputValue}"
+                                                        label="#{bindings.DemandCode.hints.label}"
+                                                        model="#{bindings.DemandCode.listOfValuesModel}"
+                                                        required="#{bindings.DemandCode.hints.mandatory}"
+                                                        columns="#{bindings.DemandCode.hints.displayWidth}"
+                                                        shortDesc="#{bindings.DemandCode.hints.tooltip}" simple="true"
+                                                        partialTriggers="iclov1">
+                            <f:validator binding="#{bindings.DemandCode.validator}"/>
+                          </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle">
+                          <af:outputLabel value="#{bindings.DueDate.hints.label}" id="ol12"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" id="gc31" columnSpan="1" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
+                                        required="#{bindings.DueDate.hints.mandatory}"
+                                        columns="#{bindings.DueDate.hints.displayWidth}"
+                                        shortDesc="#{bindings.DueDate.hints.tooltip}" id="id5" simple="true">
+                            <f:validator binding="#{bindings.DueDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
+                          </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr5">
@@ -172,27 +202,11 @@
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
-                          <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
-                        </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"
-                                     halign="stretch">
-                          <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
-                                        required="#{bindings.Remarks.hints.mandatory}"
-                                        columns="#{bindings.Remarks.hints.displayWidth}"
-                                        maximumLength="#{bindings.Remarks.hints.precision}"
-                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it3"
-                                        contentStyle="width:100%" simple="true">
-                            <f:validator binding="#{bindings.Remarks.validator}"/>
-                          </af:inputText>
-                        </af:gridCell>
-                      </af:gridRow>
-                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                        <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle">
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                        <af:gridCell marginStart="5px" width="15%" id="gc30" valign="middle">
                           <af:outputLabel value="#{bindings.NoteToSupplier.hints.label}" id="ol3"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc31" columnSpan="3" rowSpan="1"
+                        <af:gridCell marginStart="5px" width="75%" id="gc32" columnSpan="3" rowSpan="1"
                                      halign="stretch">
                           <af:inputText value="#{bindings.NoteToSupplier.inputValue}"
                                         label="#{bindings.NoteToSupplier.hints.label}"
@@ -251,6 +265,22 @@
                                         shortDesc="#{bindings.NoteToSupplier.hints.tooltip}" id="it11"
                                         contentStyle="width:100%" simple="true">
                             <f:validator binding="#{bindings.NoteToSupplier.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
+                          <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
+                                        required="#{bindings.Remarks.hints.mandatory}"
+                                        columns="#{bindings.Remarks.hints.displayWidth}"
+                                        maximumLength="#{bindings.Remarks.hints.precision}"
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it3" contentStyle="width:100%"
+                                        simple="true">
+                            <f:validator binding="#{bindings.Remarks.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>

@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <EntityUsage
     Name="SrPurchaseRfqLines"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqLines"/>
@@ -125,4 +130,10 @@
     EntityAttrName="Modifieddate"
     EntityUsage="SrPurchaseRfqLines"
     AliasName="MODIFIEDDATE"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkScmPurRfqLinRfqheadseqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

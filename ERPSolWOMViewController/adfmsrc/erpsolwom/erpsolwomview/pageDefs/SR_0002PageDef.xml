@@ -53,5 +53,25 @@
         <Item Value="ShipTo"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="DueDate">
+      <AttrNames>
+        <Item Value="DueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SrPurchaseRfqHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSrPurchaseRFQ" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPurchaseRFQ" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseRfqHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseRFQ_ERPSolWOMAppModuleDataControl_SrPurchaseRfqHeaderCRUD_doSuperviseSrPurchaseRFQ_result"/>
+    <listOfValues IterBinding="SrPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovDemandCode"
+                  id="DemandCode"/>
   </bindings>
 </pageDefinition>

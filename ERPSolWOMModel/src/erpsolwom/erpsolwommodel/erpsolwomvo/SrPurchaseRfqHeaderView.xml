@@ -12,7 +12,15 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderViewImpl"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderViewRowImpl"
+  ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseRfqHeaderView"
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseRfqHeaderViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccVuDemandForQVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomqvo.VuDemandForQVO"
@@ -20,6 +28,10 @@
   <ViewAccessor
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSrPurchaseDemandHeaderView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LovRfqFor"
@@ -62,6 +74,26 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovDemandCode"
+    ListVOName="AccSrPurchaseDemandHeaderView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DemandCode"/>
+      <Item Value="DemandDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPurchaseRfqHeader"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqHeader"/>
@@ -85,7 +117,15 @@
     PrecisionRule="true"
     EntityAttrName="DemandCode"
     EntityUsage="SrPurchaseRfqHeader"
-    AliasName="DEMAND_CODE"/>
+    AliasName="DEMAND_CODE"
+    LOVName="LovDemandCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BillTo"
     IsNotNull="true"
@@ -238,4 +278,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSrPurchaseRFQ"
+      MethodName="doSuperviseSrPurchaseRFQ">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>
