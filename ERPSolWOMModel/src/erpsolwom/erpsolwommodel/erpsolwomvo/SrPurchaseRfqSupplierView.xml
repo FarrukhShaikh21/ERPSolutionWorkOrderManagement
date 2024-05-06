@@ -120,6 +120,14 @@
     EntityAttrName="Modifieddate"
     EntityUsage="SrPurchaseRfqSupplier"
     AliasName="MODIFIEDDATE"/>
+  <ViewAttribute
+    Name="txtRfqHeaderCode"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRfqHeaderCode"
+    EntityUsage="SrPurchaseRfqSupplier"
+    AliasName="TXT_RFQ_HEADER_CODE"/>
   <ViewLinkAccessor
     Name="SrPurchaseRfqHeaderView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoLink"

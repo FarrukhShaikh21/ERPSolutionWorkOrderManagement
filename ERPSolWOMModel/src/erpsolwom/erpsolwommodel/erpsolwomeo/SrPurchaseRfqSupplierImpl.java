@@ -27,6 +27,7 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
         CreatedDate,
         ModifiedBy,
         Modifieddate,
+        txtRfqHeaderCode,
         SrPurchaseRfqHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -50,6 +51,7 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
     public static final int RFQSUPPLIERSEQNO = AttributesEnum.Rfqsupplierseqno.index();
     public static final int RFQHEADERSEQNO = AttributesEnum.Rfqheaderseqno.index();
     public static final int SUPPLIERID = AttributesEnum.Supplierid.index();
@@ -59,12 +61,20 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.Modifieddate.index();
+    public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int SRPURCHASERFQHEADER = AttributesEnum.SrPurchaseRfqHeader.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SrPurchaseRfqSupplierImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier");
     }
 
     /**
@@ -212,6 +222,22 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtRfqHeaderCode, using the alias name txtRfqHeaderCode.
+     * @return the value of txtRfqHeaderCode
+     */
+    public String gettxtRfqHeaderCode() {
+        return (String) getAttributeInternal(TXTRFQHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRfqHeaderCode.
+     * @param value value to set the txtRfqHeaderCode
+     */
+    public void settxtRfqHeaderCode(String value) {
+        setAttributeInternal(TXTRFQHEADERCODE, value);
+    }
+
+    /**
      * @return the associated entity SrPurchaseRfqHeaderImpl.
      */
     public SrPurchaseRfqHeaderImpl getSrPurchaseRfqHeader() {
@@ -225,6 +251,7 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(SRPURCHASERFQHEADER, value);
     }
 
+
     /**
      * @param rfqsupplierseqno key constituent
 
@@ -232,13 +259,6 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(Integer rfqsupplierseqno) {
         return new Key(new Object[] { rfqsupplierseqno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier");
     }
 
     /**

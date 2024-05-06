@@ -13,6 +13,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SRPURCHASERFQSUPPLIER = 0;
 
     /**
@@ -28,9 +29,11 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
         CreatedDate,
         ModifiedBy,
         Modifieddate,
+        txtRfqHeaderCode,
         SrPurchaseRfqHeaderView,
         AccPuSuppliersVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -52,6 +55,7 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int RFQSUPPLIERSEQNO = AttributesEnum.Rfqsupplierseqno.index();
     public static final int RFQHEADERSEQNO = AttributesEnum.Rfqheaderseqno.index();
     public static final int SUPPLIERID = AttributesEnum.Supplierid.index();
@@ -61,6 +65,7 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.Modifieddate.index();
+    public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int SRPURCHASERFQHEADERVIEW = AttributesEnum.SrPurchaseRfqHeaderView.index();
     public static final int ACCPUSUPPLIERSVO = AttributesEnum.AccPuSuppliersVO.index();
 
@@ -220,6 +225,22 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
      */
     public void setModifieddate(Date value) {
         setAttributeInternal(MODIFIEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_RFQ_HEADER_CODE using the alias name txtRfqHeaderCode.
+     * @return the TXT_RFQ_HEADER_CODE
+     */
+    public String gettxtRfqHeaderCode() {
+        return (String) getAttributeInternal(TXTRFQHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_RFQ_HEADER_CODE using the alias name txtRfqHeaderCode.
+     * @param value value to set the TXT_RFQ_HEADER_CODE
+     */
+    public void settxtRfqHeaderCode(String value) {
+        setAttributeInternal(TXTRFQHEADERCODE, value);
     }
 
     /**

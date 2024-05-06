@@ -109,6 +109,27 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_RFQ_SUPPLIER"/>
+  <Attribute
+    Name="txtRfqHeaderCode"
+    Precision="80"
+    ColumnName="TXT_RFQ_HEADER_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_RFQ_SUPPLIER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier.txtRfqHeaderCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseRfqHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoAssoc"
@@ -148,4 +169,8 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier.Rfqheaderseqno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>
