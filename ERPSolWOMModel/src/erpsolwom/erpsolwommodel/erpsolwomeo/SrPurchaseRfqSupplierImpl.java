@@ -4,6 +4,7 @@ import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -28,7 +29,8 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
         ModifiedBy,
         Modifieddate,
         txtRfqHeaderCode,
-        SrPurchaseRfqHeader;
+        SrPurchaseRfqHeader,
+        SrPurchaseBidHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -52,6 +54,7 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
         }
     }
 
+
     public static final int RFQSUPPLIERSEQNO = AttributesEnum.Rfqsupplierseqno.index();
     public static final int RFQHEADERSEQNO = AttributesEnum.Rfqheaderseqno.index();
     public static final int SUPPLIERID = AttributesEnum.Supplierid.index();
@@ -63,6 +66,7 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
     public static final int MODIFIEDDATE = AttributesEnum.Modifieddate.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int SRPURCHASERFQHEADER = AttributesEnum.SrPurchaseRfqHeader.index();
+    public static final int SRPURCHASEBIDHEADER = AttributesEnum.SrPurchaseBidHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -76,6 +80,7 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier");
     }
+
 
     /**
      * Gets the attribute value for Rfqsupplierseqno, using the alias name Rfqsupplierseqno.
@@ -249,6 +254,14 @@ public class SrPurchaseRfqSupplierImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setSrPurchaseRfqHeader(SrPurchaseRfqHeaderImpl value) {
         setAttributeInternal(SRPURCHASERFQHEADER, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSrPurchaseBidHeader() {
+        return (RowIterator) getAttributeInternal(SRPURCHASEBIDHEADER);
     }
 
 

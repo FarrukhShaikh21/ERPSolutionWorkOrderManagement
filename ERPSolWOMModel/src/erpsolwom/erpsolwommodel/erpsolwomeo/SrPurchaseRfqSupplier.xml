@@ -116,7 +116,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PURCHASE_RFQ_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -137,6 +136,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoAssoc.SrPurchaseRfqSupplier"
     Type="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqHeaderImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoAssoc.SrPurchaseBidHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoAssoc.SrPurchaseRfqSupplier"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSrPurchaseRfqSupplier"
     PrimaryKey="true">

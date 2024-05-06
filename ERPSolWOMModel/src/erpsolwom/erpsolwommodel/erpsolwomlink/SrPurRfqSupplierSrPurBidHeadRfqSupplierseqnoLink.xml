@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SrPurchaseRfqSupplierView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="SrPurchaseRfqSupplierView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView.Rfqsupplierseqno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SrPurchaseBidHeaderView"
+    Cardinality="-1"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SrPurchaseBidHeaderView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderView.Rfqsupplierseqno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -128,10 +128,90 @@
     EntityAttrName="txtRfqHeaderCode"
     EntityUsage="SrPurchaseRfqSupplier"
     AliasName="TXT_RFQ_HEADER_CODE"/>
+  <ViewCriteria
+    Name="SrPurchaseRfqSupplierViewForBidVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseRfqSupplierViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SrPurchaseBidHeaderView"
+        ViewAttribute="SrPurchaseBidHeaderView"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseBidHeaderViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseBidHeaderViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Rfqsupplierseqno"
+              ViewAttribute="Rfqsupplierseqno"
+              Operator="ISNOTBLANK"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="SrPurchaseRfqHeaderView"
+        ViewAttribute="SrPurchaseRfqHeaderView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseRfqHeaderViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseRfqHeaderViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="RfqHeaderCode"
+              ViewAttribute="RfqHeaderCode"
+              Operator="="
+              Conjunction="AND"
+              Value=""
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrPurchaseRfqHeaderView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseBidHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoLink"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

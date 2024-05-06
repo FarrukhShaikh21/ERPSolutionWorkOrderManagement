@@ -3,6 +3,7 @@ package erpsolwom.erpsolwommodel.erpsolwomvo;
 import erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplierImpl;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
@@ -13,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
+
 
     public static final int ENTITY_SRPURCHASERFQSUPPLIER = 0;
 
@@ -31,6 +33,7 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
         Modifieddate,
         txtRfqHeaderCode,
         SrPurchaseRfqHeaderView,
+        SrPurchaseBidHeaderView,
         AccPuSuppliersVO;
         static AttributesEnum[] vals = null;
         ;
@@ -56,6 +59,7 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int RFQSUPPLIERSEQNO = AttributesEnum.Rfqsupplierseqno.index();
     public static final int RFQHEADERSEQNO = AttributesEnum.Rfqheaderseqno.index();
     public static final int SUPPLIERID = AttributesEnum.Supplierid.index();
@@ -67,6 +71,7 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
     public static final int MODIFIEDDATE = AttributesEnum.Modifieddate.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int SRPURCHASERFQHEADERVIEW = AttributesEnum.SrPurchaseRfqHeaderView.index();
+    public static final int SRPURCHASEBIDHEADERVIEW = AttributesEnum.SrPurchaseBidHeaderView.index();
     public static final int ACCPUSUPPLIERSVO = AttributesEnum.AccPuSuppliersVO.index();
 
     /**
@@ -255,6 +260,13 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
      */
     public void setSrPurchaseRfqHeaderView(Row value) {
         setAttributeInternal(SRPURCHASERFQHEADERVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPurchaseBidHeaderView.
+     */
+    public RowIterator getSrPurchaseBidHeaderView() {
+        return (RowIterator) getAttributeInternal(SRPURCHASEBIDHEADERVIEW);
     }
 
     /**

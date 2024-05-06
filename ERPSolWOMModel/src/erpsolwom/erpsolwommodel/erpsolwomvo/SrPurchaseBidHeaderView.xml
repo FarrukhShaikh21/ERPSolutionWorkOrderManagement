@@ -180,6 +180,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Rfqsupplierseqno"
+    PrecisionRule="true"
+    EntityAttrName="Rfqsupplierseqno"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="RFQSUPPLIERSEQNO"/>
   <ViewLinkAccessor
     Name="SrPurchaseBidLinesView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.PkSrPurBidLinRfqHeadLink"
@@ -188,6 +194,12 @@
   <ViewLinkAccessor
     Name="AllLocationsVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrPurchaseBidHeaderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqSupplierView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
