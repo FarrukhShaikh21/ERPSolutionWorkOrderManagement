@@ -129,4 +129,24 @@
     EntityAttrName="Rfqsupplierseqno"
     EntityUsage="SrPurchaseBidLines"
     AliasName="RFQSUPPLIERSEQNO"/>
+  <ViewAttribute
+    Name="ItemId"
+    PrecisionRule="true"
+    EntityAttrName="ItemId"
+    EntityUsage="SrPurchaseBidLines"
+    AliasName="ITEM_ID"/>
+  <ViewAttribute
+    Name="txtItemName"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="SrPurchaseBidLines"
+    AliasName="TXT_ITEM_NAME"
+    IsQueriable="false"
+    IsPersistent="false"/>
+  <ViewLinkAccessor
+    Name="SrItemsView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemsSrPurchaseBidLinesItemIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

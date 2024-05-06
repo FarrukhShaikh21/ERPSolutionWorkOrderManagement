@@ -242,11 +242,57 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_BID_LINES"/>
+  <Attribute
+    Name="ItemId"
+    Precision="10"
+    Scale="0"
+    ColumnName="ITEM_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SR_PURCHASE_BID_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.ItemId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtItemName"
+    Precision="80"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_BID_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrItems?.ItemName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseBidHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.PkSrPurBidLinRfqHeadAssoc"
     AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomeo.PkSrPurBidLinRfqHeadAssoc.SrPurchaseBidHeader"
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.PkSrPurBidLinRfqHeadAssoc.SrPurchaseBidLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrItems"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseBidLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseBidLinesItemIdAssoc.SrItems"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseBidLinesItemIdAssoc.SrPurchaseBidLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
@@ -268,6 +314,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.Bidheaderseq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SrPurchaseBidLines">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SRITEMS_PRIMARY_KEY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PURCHASE_BID_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.ItemId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
