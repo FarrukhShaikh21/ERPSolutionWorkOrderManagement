@@ -5,6 +5,7 @@ import erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqHeaderImpl;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -49,7 +50,8 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
         SrPurchaseRfqSupplierView,
         AccVuDemandForQVO,
         AccAllLocationsVO,
-        AccSrPurchaseDemandHeaderView;
+        AccSrPurchaseDemandHeaderView,
+        AccSrPurchaseDemandLinesView;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -103,6 +105,7 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
     public static final int ACCVUDEMANDFORQVO = AttributesEnum.AccVuDemandForQVO.index();
     public static final int ACCALLLOCATIONSVO = AttributesEnum.AccAllLocationsVO.index();
     public static final int ACCSRPURCHASEDEMANDHEADERVIEW = AttributesEnum.AccSrPurchaseDemandHeaderView.index();
+    public static final int ACCSRPURCHASEDEMANDLINESVIEW = AttributesEnum.AccSrPurchaseDemandLinesView.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -164,6 +167,28 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
      */
     public void setDemandCode(String value) {
         setAttributeInternal(DEMANDCODE, value);
+        while(getSrPurchaseRfqLinesView().getRowCount()>0) {
+            getSrPurchaseRfqLinesView().first().remove();
+        }
+        
+        getAccSrPurchaseDemandLinesView().setNamedWhereClauseParam("P_ADF_DEMAND_CODE", value==null?"0":value);
+        getAccSrPurchaseDemandLinesView().executeQuery();
+        RowSetIterator rsi=getAccSrPurchaseDemandLinesView();
+        while(rsi.hasNext()) {
+            Row nextRow =rsi.next();
+            Row newRow=getSrPurchaseRfqLinesView().createRow();
+            newRow.setAttribute("Demandlinesseq", nextRow.getAttribute("Demandlinesseq"));
+            newRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
+            newRow.setAttribute("RequiredBy", nextRow.getAttribute("RequiredByDate"));
+            newRow.setAttribute("Quantity", nextRow.getAttribute("ApproveQuantity"));
+            newRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
+            newRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
+            newRow.setAttribute("NoteToBuyer", nextRow.getAttribute("NoteToBuyer"));
+            newRow.setAttribute("NoteToSupplier", nextRow.getAttribute("NoteToSupplier"));
+//            newRow.setAttribute("RequesterId", nextRow.getAttribute("RequesterId"));
+            getSrPurchaseRfqLinesView().insertRow(newRow);
+        }
+//        getSrPurchaseRfqLinesView().r
     }
 
     /**
@@ -515,6 +540,13 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccSrPurchaseDemandHeaderView() {
         return (RowSet) getAttributeInternal(ACCSRPURCHASEDEMANDHEADERVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSrPurchaseDemandLinesView.
+     */
+    public RowSet getAccSrPurchaseDemandLinesView() {
+        return (RowSet) getAttributeInternal(ACCSRPURCHASEDEMANDLINESVIEW);
     }
 
     @Override

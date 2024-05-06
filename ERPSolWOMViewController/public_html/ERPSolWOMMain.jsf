@@ -6,7 +6,12 @@
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="erptempmain">
                     <af:panelBox text="Work Order Management System" id="pb1" showDisclosure="false">
-                        <f:facet name="toolbar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:link id="l1" icon="#{resource['images:imgHome.png']}"
+                                         action="ACT-ERPSOL-RETURN-FROM-WOM" partialSubmit="true"/>
+                            </af:toolbar>
+                        </f:facet>
                         <af:image source="#{resource['images:imgWorkOrder.jpg']}" id="i1"/>
                     </af:panelBox>
                 </f:facet>

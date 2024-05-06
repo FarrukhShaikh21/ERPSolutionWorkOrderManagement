@@ -41,7 +41,7 @@
                                    text="doSuperviseSrPurchaseDemand"
                                    disabled="#{!bindings.doSuperviseSrPurchaseDemand.enabled}" id="b7"
                                    rendered="false"/>
-                        <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-SCM"
+                        <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-WOM"
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
                                    iconPosition="top"

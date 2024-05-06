@@ -46,6 +46,14 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseDemandLinesView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandLinesView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseDemandLinesViewByRfqHeaderSnoVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandLinesView.SrPurchaseDemandLinesViewByRfqHeaderSnoVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovRfqFor"
     ListVOName="AccVuDemandForQVO"

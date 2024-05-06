@@ -358,4 +358,71 @@
       <property
          name="sdm:polyPoints">B50,1288.0,391.14648,1303.5,391.14648,T50</property>
    </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule33">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">-98.70117</property>
+      <property
+         name="x">777.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="WildcardControlFlowRule33"
+      to="MethodCall35">
+      <property
+         name="fromOutcome">ACT-ERP-CLOSE-FORM-WOM</property>
+      <property
+         name="sdm:polyPoints">B50,777.0,70.79883,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall35">
+      <property
+         name="activityId">Rollback2</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Rollback2&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">71.149414</property>
+      <property
+         name="x">859.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase36"
+      from="MethodCall35"
+      to="View11">
+      <property
+         name="fromOutcome">ACT-ERP-CLOSE-FORM-WOM</property>
+      <property
+         name="sdm:polyPoints">B50,859.5,170.22119,847.3418,170.22119,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View37">
+      <property
+         name="activityId">SR_0003</property>
+      <property
+         name="page">/SR_0003.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SR_0003&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">113.09766</property>
+      <property
+         name="x">1458.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase38"
+      from="MethodCall30"
+      to="View37">
+      <property
+         name="fromOutcome">ERP-ACT-SR-0003</property>
+      <property
+         name="sdm:polyPoints">R50,1458.5,324.84473,B50</property>
+   </ControlFlowCase>
 </SDM>

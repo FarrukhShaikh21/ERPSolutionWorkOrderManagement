@@ -108,6 +108,15 @@
     <view id="SR_0002">
       <page>/SR_0002.jsf</page>
     </view>
+    <method-call id="Rollback2">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-CLOSE-FORM-WOM</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SR_0003">
+      <page>/SR_0003.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -188,12 +197,30 @@
         <from-outcome>ERP-ACT-SR-0002</from-outcome>
         <to-activity-id>SR_0002</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__36">
+        <from-outcome>ERP-ACT-SR-0003</from-outcome>
+        <to-activity-id>SR_0003</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__33">
       <from-activity-id>Rollback1</from-activity-id>
       <control-flow-case id="__34">
         <from-outcome>Rollback</from-outcome>
         <to-activity-id>doERPGotoWOMActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WOM</from-outcome>
+        <to-activity-id>Rollback2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>Rollback2</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WOM</from-outcome>
+        <to-activity-id>ERPSolWOMMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

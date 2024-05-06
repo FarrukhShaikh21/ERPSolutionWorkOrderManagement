@@ -879,6 +879,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationsSrPurchasseRfqHeaderLocationIdAssoc.AllLocations"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrPurchaseBidHeaderLocationIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrPurchaseBidHeaderLocationIdAssoc.SrPurchaseBidHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrPurchaseBidHeaderLocationIdAssoc.AllLocations"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallLocations"
     PrimaryKey="true">
@@ -922,4 +929,8 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.AllLocations.Companyid"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>
