@@ -522,6 +522,13 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="PU_SUPPLIERS"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidHeaderSupplierIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidHeaderSupplierIdAssoc.SrPurchaseBidHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidHeaderSupplierIdAssoc.PuSuppliers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkpuSuppliers"
     PrimaryKey="true">
@@ -576,4 +583,8 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.PuSuppliers.Companyid"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>

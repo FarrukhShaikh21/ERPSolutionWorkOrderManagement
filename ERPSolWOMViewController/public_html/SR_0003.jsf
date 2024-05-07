@@ -77,10 +77,27 @@
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
                       <af:gridRow marginTop="5px" height="auto" id="gr4">
-                        <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle">
-                          <af:outputLabel value="#{bindings.RfqHeaderCode.hints.label}" id="ol5"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.BidCode.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Bidheaderseq.inputValue}"
+                                        label="#{bindings.Bidheaderseq.hints.label}"
+                                        required="#{bindings.Bidheaderseq.hints.mandatory}"
+                                        columns="#{bindings.Bidheaderseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Bidheaderseq.hints.precision}"
+                                        shortDesc="#{bindings.Bidheaderseq.hints.tooltip}" id="it18" rendered="false">
+                            <f:validator binding="#{bindings.Bidheaderseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Bidheaderseq.format}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.BidCode.inputValue}" label="#{bindings.BidCode.hints.label}"
+                                        required="#{bindings.BidCode.hints.mandatory}"
+                                        columns="#{bindings.BidCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.BidCode.hints.precision}"
+                                        shortDesc="#{bindings.BidCode.hints.tooltip}" id="it16" simple="true"
+                                        readOnly="true">
+                            <f:validator binding="#{bindings.BidCode.validator}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Companyid.inputValue}"
                                         label="#{bindings.Companyid.hints.label}"
                                         required="#{bindings.Companyid.hints.mandatory}"
@@ -88,24 +105,6 @@
                                         maximumLength="#{bindings.Companyid.hints.precision}"
                                         shortDesc="#{bindings.Companyid.hints.tooltip}" id="it17" rendered="false">
                             <f:validator binding="#{bindings.Companyid.validator}"/>
-                          </af:inputText>
-                          <af:inputText value="#{bindings.Rfqheaderseqno.inputValue}"
-                                        label="#{bindings.Rfqheaderseqno.hints.label}"
-                                        required="#{bindings.Rfqheaderseqno.hints.mandatory}"
-                                        columns="#{bindings.Rfqheaderseqno.hints.displayWidth}"
-                                        maximumLength="#{bindings.Rfqheaderseqno.hints.precision}"
-                                        shortDesc="#{bindings.Rfqheaderseqno.hints.tooltip}" id="it16" rendered="false">
-                            <f:validator binding="#{bindings.Rfqheaderseqno.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Rfqheaderseqno.format}"/>
-                          </af:inputText>
-                          <af:inputText value="#{bindings.RfqHeaderCode.inputValue}"
-                                        label="#{bindings.RfqHeaderCode.hints.label}"
-                                        required="#{bindings.RfqHeaderCode.hints.mandatory}"
-                                        columns="#{bindings.RfqHeaderCode.hints.displayWidth}"
-                                        maximumLength="#{bindings.RfqHeaderCode.hints.precision}"
-                                        shortDesc="#{bindings.RfqHeaderCode.hints.tooltip}" id="it8" readOnly="true"
-                                        simple="true">
-                            <f:validator binding="#{bindings.RfqHeaderCode.validator}"/>
                           </af:inputText>
                           <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
                                         required="#{bindings.Posted.hints.mandatory}"
@@ -115,32 +114,21 @@
                             <f:validator binding="#{bindings.Posted.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle">
-                          <af:outputLabel value="#{bindings.RfqDate.hints.label}" id="ol9"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.BidDate.hints.label}" id="ol9"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7">
-                          <af:inputDate value="#{bindings.RfqDate.inputValue}" label="#{bindings.RfqDate.hints.label}"
-                                        required="#{bindings.RfqDate.hints.mandatory}"
-                                        columns="#{bindings.RfqDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.RfqDate.hints.tooltip}" id="id3" simple="true">
-                            <f:validator binding="#{bindings.RfqDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.RfqDate.format}"/>
+                          <af:inputDate value="#{bindings.BidDate.inputValue}" label="#{bindings.BidDate.hints.label}"
+                                        required="#{bindings.BidDate.hints.mandatory}"
+                                        columns="#{bindings.BidDate.hints.displayWidth}"
+                                        shortDesc="#{bindings.BidDate.hints.tooltip}" id="id3" simple="true">
+                            <f:validator binding="#{bindings.BidDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.BidDate.format}"/>
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr6">
-                        <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle">
-                          <af:outputLabel value="#{bindings.RfqFor.label}" id="ol4"/>
-                        </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
-                          <af:selectOneChoice value="#{bindings.RfqFor.inputValue}" label="#{bindings.RfqFor.label}"
-                                              required="#{bindings.RfqFor.hints.mandatory}"
-                                              shortDesc="#{bindings.RfqFor.hints.tooltip}" id="soc4" simple="true">
-                            <f:selectItems value="#{bindings.RfqFor.items}" id="si4"/>
-                            <f:validator binding="#{bindings.RfqFor.validator}"/>
-                          </af:selectOneChoice>
-                        </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle">
+                        <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.txtLocationName.hints.label}" id="ol6"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" halign="stretch"
@@ -158,81 +146,80 @@
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                        <af:gridCell id="gc23" width="15%" valign="middle">
-                          <af:outputLabel value="#{bindings.DemandCode.hints.label}" id="ol13"/>
+                        <af:gridCell id="gc23" width="15%" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.RfqHeaderCode.hints.label}" id="ol4"/>
                         </af:gridCell>
                         <af:gridCell id="gc22" width="35%">
-                          <af:inputComboboxListOfValues id="demandCodeId"
-                                                        popupTitle="Search and Select: #{bindings.DemandCode.hints.label}"
-                                                        value="#{bindings.DemandCode.inputValue}"
-                                                        label="#{bindings.DemandCode.hints.label}"
-                                                        model="#{bindings.DemandCode.listOfValuesModel}"
-                                                        required="#{bindings.DemandCode.hints.mandatory}"
-                                                        columns="#{bindings.DemandCode.hints.displayWidth}"
-                                                        shortDesc="#{bindings.DemandCode.hints.tooltip}" simple="true"
-                                                        partialTriggers="iclov1" autoSubmit="true">
-                            <f:validator binding="#{bindings.DemandCode.validator}"/>
-                          </af:inputComboboxListOfValues>
+                          <af:inputText value="#{bindings.RfqHeaderCode.inputValue}"
+                                        label="#{bindings.RfqHeaderCode.hints.label}"
+                                        required="#{bindings.RfqHeaderCode.hints.mandatory}"
+                                        columns="#{bindings.RfqHeaderCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.RfqHeaderCode.hints.precision}"
+                                        shortDesc="#{bindings.RfqHeaderCode.hints.tooltip}" id="it19" simple="true">
+                            <f:validator binding="#{bindings.RfqHeaderCode.validator}"/>
+                          </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle">
-                          <af:outputLabel value="#{bindings.DueDate.hints.label}" id="ol12"/>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                        <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center"/>
+                        <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.DemandCode.hints.label}" id="ol12"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc31" columnSpan="1" rowSpan="1"
                                      halign="stretch">
-                          <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
-                                        required="#{bindings.DueDate.hints.mandatory}"
-                                        columns="#{bindings.DueDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.DueDate.hints.tooltip}" id="id5" simple="true">
-                            <f:validator binding="#{bindings.DueDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
-                          </af:inputDate>
+                          <af:inputText value="#{bindings.DemandCode.inputValue}"
+                                        label="#{bindings.DemandCode.hints.label}"
+                                        required="#{bindings.DemandCode.hints.mandatory}"
+                                        columns="#{bindings.DemandCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.DemandCode.hints.precision}"
+                                        shortDesc="#{bindings.DemandCode.hints.tooltip}" id="it8" simple="true">
+                            <f:validator binding="#{bindings.DemandCode.validator}"/>
+                          </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr5">
-                        <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle">
-                          <af:outputLabel value="#{bindings.ValidFromDate.hints.label}" id="ol1"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.EffectiveFrom.hints.label}" id="ol1"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
-                          <af:inputDate value="#{bindings.ValidFromDate.inputValue}"
-                                        label="#{bindings.ValidFromDate.hints.label}"
-                                        required="#{bindings.ValidFromDate.hints.mandatory}"
-                                        columns="#{bindings.ValidFromDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.ValidFromDate.hints.tooltip}" id="id1" simple="true">
-                            <f:validator binding="#{bindings.ValidFromDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.ValidFromDate.format}"/>
+                          <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
+                                        label="#{bindings.EffectiveFrom.hints.label}"
+                                        required="#{bindings.EffectiveFrom.hints.mandatory}"
+                                        columns="#{bindings.EffectiveFrom.hints.displayWidth}"
+                                        shortDesc="#{bindings.EffectiveFrom.hints.tooltip}" id="id5" simple="true">
+                            <f:validator binding="#{bindings.EffectiveFrom.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.EffectiveFrom.format}"/>
                           </af:inputDate>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
-                          <af:outputLabel value="#{bindings.ValidToDate.hints.label}" id="ol11"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.EffectiveTo.hints.label}" id="ol11"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
                                      valign="middle">
-                          <af:inputDate value="#{bindings.ValidToDate.inputValue}"
-                                        label="#{bindings.ValidToDate.hints.label}"
-                                        required="#{bindings.ValidToDate.hints.mandatory}"
-                                        columns="#{bindings.ValidToDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.ValidToDate.hints.tooltip}" id="id4" simple="true">
-                            <f:validator binding="#{bindings.ValidToDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.ValidToDate.format}"/>
+                          <af:inputDate value="#{bindings.EffectiveTo.inputValue}"
+                                        label="#{bindings.EffectiveTo.hints.label}"
+                                        required="#{bindings.EffectiveTo.hints.mandatory}"
+                                        columns="#{bindings.EffectiveTo.hints.displayWidth}"
+                                        shortDesc="#{bindings.EffectiveTo.hints.tooltip}" id="id6" simple="true">
+                            <f:validator binding="#{bindings.EffectiveTo.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.EffectiveTo.format}"/>
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
-                        <af:gridCell marginStart="5px" width="15%" id="gc30" valign="middle">
-                          <af:outputLabel value="#{bindings.NoteToSupplier.hints.label}" id="ol3"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc30" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol3"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="75%" id="gc32" columnSpan="3" rowSpan="1"
                                      halign="stretch">
-                          <af:inputText value="#{bindings.NoteToSupplier.inputValue}"
-                                        label="#{bindings.NoteToSupplier.hints.label}"
-                                        required="#{bindings.NoteToSupplier.hints.mandatory}"
-                                        columns="#{bindings.NoteToSupplier.hints.displayWidth}"
-                                        maximumLength="#{bindings.NoteToSupplier.hints.precision}"
-                                        shortDesc="#{bindings.NoteToSupplier.hints.tooltip}" id="it9"
-                                        contentStyle="width:100%" simple="true">
-                            <f:validator binding="#{bindings.NoteToSupplier.validator}"/>
+                          <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
+                                        required="#{bindings.Remarks.hints.mandatory}"
+                                        columns="#{bindings.Remarks.hints.displayWidth}"
+                                        maximumLength="#{bindings.Remarks.hints.precision}"
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it20" simple="true"
+                                        contentStyle="width:100%">
+                            <f:validator binding="#{bindings.Remarks.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>

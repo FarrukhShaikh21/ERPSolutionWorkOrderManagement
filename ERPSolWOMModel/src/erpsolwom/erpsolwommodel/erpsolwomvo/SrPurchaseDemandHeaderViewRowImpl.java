@@ -46,6 +46,7 @@ public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
         SrPurchaseDemandLinesView,
         AllLocationsVO,
         SrPurchaseRfqHeaderView,
+        SrPurchaseRfqHeaderView1,
         AccAllLocationsVO,
         AccVuDemandForQVO;
         static AttributesEnum[] vals = null;
@@ -90,6 +91,7 @@ public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
     public static final int SRPURCHASEDEMANDLINESVIEW = AttributesEnum.SrPurchaseDemandLinesView.index();
     public static final int ALLLOCATIONSVO = AttributesEnum.AllLocationsVO.index();
     public static final int SRPURCHASERFQHEADERVIEW = AttributesEnum.SrPurchaseRfqHeaderView.index();
+    public static final int SRPURCHASERFQHEADERVIEW1 = AttributesEnum.SrPurchaseRfqHeaderView1.index();
     public static final int ACCALLLOCATIONSVO = AttributesEnum.AccAllLocationsVO.index();
     public static final int ACCVUDEMANDFORQVO = AttributesEnum.AccVuDemandForQVO.index();
 
@@ -357,6 +359,13 @@ public class SrPurchaseDemandHeaderViewRowImpl extends ViewRowImpl {
      */
     public RowIterator getSrPurchaseRfqHeaderView() {
         return (RowIterator) getAttributeInternal(SRPURCHASERFQHEADERVIEW);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPurchaseRfqHeaderView1.
+     */
+    public RowIterator getSrPurchaseRfqHeaderView1() {
+        return (RowIterator) getAttributeInternal(SRPURCHASERFQHEADERVIEW1);
     }
 
     /**

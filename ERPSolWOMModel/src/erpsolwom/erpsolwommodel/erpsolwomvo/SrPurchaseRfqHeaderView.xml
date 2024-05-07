@@ -304,6 +304,17 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurRfqSupplierSupplierSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseDemandHeaderView1"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurDemandSrPurcRfqDemandCodeLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseBidHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurBidHeaderRfqHeaderCodeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method

@@ -5,6 +5,63 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SrPurchaseBidHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseBidHeaderCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="BidCode">
+      <AttrNames>
+        <Item Value="BidCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="Bidheaderseq">
+      <AttrNames>
+        <Item Value="Bidheaderseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="BidDate">
+      <AttrNames>
+        <Item Value="BidDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="RfqHeaderCode">
+      <AttrNames>
+        <Item Value="RfqHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <list IterBinding="SrPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovSupplierid" id="Supplierid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="DemandCode">
+      <AttrNames>
+        <Item Value="DemandCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="EffectiveFrom">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="EffectiveTo">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

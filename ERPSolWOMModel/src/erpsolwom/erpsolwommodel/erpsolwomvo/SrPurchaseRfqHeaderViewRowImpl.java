@@ -48,6 +48,8 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
         AllLocationsVO,
         SrPurchaseDemandHeaderView,
         SrPurchaseRfqSupplierView,
+        SrPurchaseDemandHeaderView1,
+        SrPurchaseBidHeaderView,
         AccVuDemandForQVO,
         AccAllLocationsVO,
         AccSrPurchaseDemandHeaderView,
@@ -102,6 +104,8 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
     public static final int ALLLOCATIONSVO = AttributesEnum.AllLocationsVO.index();
     public static final int SRPURCHASEDEMANDHEADERVIEW = AttributesEnum.SrPurchaseDemandHeaderView.index();
     public static final int SRPURCHASERFQSUPPLIERVIEW = AttributesEnum.SrPurchaseRfqSupplierView.index();
+    public static final int SRPURCHASEDEMANDHEADERVIEW1 = AttributesEnum.SrPurchaseDemandHeaderView1.index();
+    public static final int SRPURCHASEBIDHEADERVIEW = AttributesEnum.SrPurchaseBidHeaderView.index();
     public static final int ACCVUDEMANDFORQVO = AttributesEnum.AccVuDemandForQVO.index();
     public static final int ACCALLLOCATIONSVO = AttributesEnum.AccAllLocationsVO.index();
     public static final int ACCSRPURCHASEDEMANDHEADERVIEW = AttributesEnum.AccSrPurchaseDemandHeaderView.index();
@@ -519,6 +523,27 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
      */
     public RowIterator getSrPurchaseRfqSupplierView() {
         return (RowIterator) getAttributeInternal(SRPURCHASERFQSUPPLIERVIEW);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link SrPurchaseDemandHeaderView1.
+     */
+    public Row getSrPurchaseDemandHeaderView1() {
+        return (Row) getAttributeInternal(SRPURCHASEDEMANDHEADERVIEW1);
+    }
+
+    /**
+     * Sets the master-detail link SrPurchaseDemandHeaderView1 between this object and <code>value</code>.
+     */
+    public void setSrPurchaseDemandHeaderView1(Row value) {
+        setAttributeInternal(SRPURCHASEDEMANDHEADERVIEW1, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPurchaseBidHeaderView.
+     */
+    public RowIterator getSrPurchaseBidHeaderView() {
+        return (RowIterator) getAttributeInternal(SRPURCHASEBIDHEADERVIEW);
     }
 
     /**

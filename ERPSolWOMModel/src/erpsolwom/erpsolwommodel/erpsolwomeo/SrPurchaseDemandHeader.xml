@@ -299,6 +299,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandHeaderSrPurRfqHeaderDemandCodeAssoc.SrPurchaseDemandHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandSrPurcRfqDemandCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandSrPurcRfqDemandCodeAssoc.SrPurchaseBidHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurDemandSrPurcRfqDemandCodeAssoc.SrPurchaseDemandHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSrPurchaseDemandHeader"
     PrimaryKey="true">

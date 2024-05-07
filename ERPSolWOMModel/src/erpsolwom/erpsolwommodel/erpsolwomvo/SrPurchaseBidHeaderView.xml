@@ -17,6 +17,20 @@
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccPuSuppliersVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersVOByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO.PuSuppliersVOByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"
     ListVOName="AccAllLocationsVO"
@@ -186,6 +200,12 @@
     EntityAttrName="Rfqsupplierseqno"
     EntityUsage="SrPurchaseBidHeader"
     AliasName="RFQSUPPLIERSEQNO"/>
+  <ViewAttribute
+    Name="txtSupplierName"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="SrPurchaseBidHeader"
+    AliasName="TXT_SUPPLIER_NAME"/>
   <ViewLinkAccessor
     Name="SrPurchaseBidLinesView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.PkSrPurBidLinRfqHeadLink"
@@ -200,6 +220,18 @@
   <ViewLinkAccessor
     Name="SrPurchaseRfqSupplierView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqSupplierSrPurBidHeadRfqSupplierseqnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseBidHeaderSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurBidHeaderRfqHeaderCodeLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

@@ -45,7 +45,8 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
         SrPurchaseRfqLines,
         AllLocations,
         SrPurchaseDemandHeader,
-        SrPurchaseRfqSupplier;
+        SrPurchaseRfqSupplier,
+        SrPurchaseBidHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -95,6 +96,7 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int SRPURCHASEDEMANDHEADER = AttributesEnum.SrPurchaseDemandHeader.index();
     public static final int SRPURCHASERFQSUPPLIER = AttributesEnum.SrPurchaseRfqSupplier.index();
+    public static final int SRPURCHASEBIDHEADER = AttributesEnum.SrPurchaseBidHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -488,6 +490,14 @@ public class SrPurchaseRfqHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public RowIterator getSrPurchaseRfqSupplier() {
         return (RowIterator) getAttributeInternal(SRPURCHASERFQSUPPLIER);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSrPurchaseBidHeader() {
+        return (RowIterator) getAttributeInternal(SRPURCHASEBIDHEADER);
     }
 
 
