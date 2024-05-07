@@ -529,6 +529,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidHeaderSupplierIdAssoc.PuSuppliers"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseRfqSupplier"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseRfqSupplierSupplierIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseRfqSupplierSupplierIdAssoc.SrPurchaseRfqSupplier"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseRfqSupplierSupplierIdAssoc.PuSuppliers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkpuSuppliers"
     PrimaryKey="true">

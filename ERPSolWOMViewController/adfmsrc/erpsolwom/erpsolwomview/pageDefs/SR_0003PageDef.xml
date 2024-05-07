@@ -29,15 +29,8 @@
         <Item Value="BidDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="RfqHeaderCode">
-      <AttrNames>
-        <Item Value="RfqHeaderCode"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="SrPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
                   id="txtLocationName"/>
-    <list IterBinding="SrPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovSupplierid" id="Supplierid"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="DemandCode">
       <AttrNames>
         <Item Value="DemandCode"/>
@@ -63,5 +56,29 @@
         <Item Value="Posted"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="SrPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LOV_RfqHeaderCode"
+                  id="RfqHeaderCode"/>
+    <listOfValues IterBinding="SrPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="SupplierQuoteNo">
+      <AttrNames>
+        <Item Value="SupplierQuoteNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="ResponseDate">
+      <AttrNames>
+        <Item Value="ResponseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SrPurchaseBidHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseBidHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPurchaseBidHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SrPurchaseBidHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

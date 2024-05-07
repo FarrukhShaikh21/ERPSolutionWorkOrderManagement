@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PuSupplierSrPurchaseRfqSupplierSupplierIdAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="PuSuppliers"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomeo.PuSuppliers"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PuSuppliers"/>
+      <Attr Name="_foreignKey" Value="erpsolwom.erpsolwommodel.erpsolwomeo.PuSuppliers.XpkpuSuppliers"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.PuSuppliers.Supplierid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SrPurchaseRfqSupplier"
+    Cardinality="-1"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SrPurchaseRfqSupplier"/>
+      <Attr Name="_foreignKey"
+        Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier.fk_SrPurchaseRfqSupplier1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqSupplier.Supplierid"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
