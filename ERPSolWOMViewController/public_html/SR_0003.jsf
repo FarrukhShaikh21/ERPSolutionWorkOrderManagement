@@ -146,24 +146,6 @@
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
-                        <af:gridCell id="gc23" width="15%" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.RfqHeaderCode.hints.label}" id="ol4"/>
-                        </af:gridCell>
-                        <af:gridCell id="gc22" width="35%">
-                          <af:inputComboboxListOfValues id="rfqHeaderCodeId"
-                                                        popupTitle="Search and Select: #{bindings.RfqHeaderCode.hints.label}"
-                                                        value="#{bindings.RfqHeaderCode.inputValue}"
-                                                        label="#{bindings.RfqHeaderCode.hints.label}"
-                                                        model="#{bindings.RfqHeaderCode.listOfValuesModel}"
-                                                        required="#{bindings.RfqHeaderCode.hints.mandatory}"
-                                                        columns="#{bindings.RfqHeaderCode.hints.displayWidth}"
-                                                        shortDesc="#{bindings.RfqHeaderCode.hints.tooltip}"
-                                                        simple="true" autoSubmit="true">
-                            <f:validator binding="#{bindings.RfqHeaderCode.validator}"/>
-                          </af:inputComboboxListOfValues>
-                        </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
                         <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol13"/>
                         </af:gridCell>
@@ -176,8 +158,27 @@
                                                         required="#{bindings.txtSupplierName.hints.mandatory}"
                                                         columns="#{bindings.txtSupplierName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
-                                                        simple="true" partialTriggers="rfqHeaderCodeId">
+                                                        simple="true" autoSubmit="true">
                             <f:validator binding="#{bindings.txtSupplierName.validator}"/>
+                          </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                        <af:gridCell id="gc23" width="15%" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.RfqHeaderCode.hints.label}" id="ol4"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc22" width="35%">
+                          <af:inputComboboxListOfValues id="rfqHeaderCodeId"
+                                                        popupTitle="Search and Select: #{bindings.RfqHeaderCode.hints.label}"
+                                                        value="#{bindings.RfqHeaderCode.inputValue}"
+                                                        label="#{bindings.RfqHeaderCode.hints.label}"
+                                                        model="#{bindings.RfqHeaderCode.listOfValuesModel}"
+                                                        required="#{bindings.RfqHeaderCode.hints.mandatory}"
+                                                        columns="#{bindings.RfqHeaderCode.hints.displayWidth}"
+                                                        shortDesc="#{bindings.RfqHeaderCode.hints.tooltip}"
+                                                        simple="true" autoSubmit="true"
+                                                        partialTriggers="txtSupplierNameId">
+                            <f:validator binding="#{bindings.RfqHeaderCode.validator}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle" halign="center">

@@ -211,6 +211,11 @@ public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
      */
     public void setRfqHeaderCode(String value) {
         setAttributeInternal(RFQHEADERCODE, value);
+                getAccSrPurchaseRfqSupplierView().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_CODE", value==null?-1:value);
+                getAccSrPurchaseRfqSupplierView().setNamedWhereClauseParam("P_ADF_SUPPLIERID", getSupplierid()==null?-1:getSupplierid());
+                getAccSrPurchaseRfqSupplierView().executeQuery();
+                setRfqsupplierseqno((Integer)getAccSrPurchaseRfqSupplierView().first().getAttribute("Rfqsupplierseqno"));
+        
     }
 
     /**
@@ -227,11 +232,11 @@ public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
      */
     public void setSupplierid(String value) {
         setAttributeInternal(SUPPLIERID, value);
-        setAttributeInternal(SUPPLIERID, value);
-        getAccSrPurchaseRfqSupplierView().setNamedWhereClauseParam("P_ADF_SUPPLIERID", value==null?-1:value);
-        getAccSrPurchaseRfqSupplierView().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_CODE", getRfqHeaderCode()==null?-1:getRfqHeaderCode());
-        getAccSrPurchaseRfqSupplierView().executeQuery();
-        setRfqsupplierseqno((Integer)getAccSrPurchaseRfqSupplierView().first().getAttribute("Rfqsupplierseqno"));
+//        setAttributeInternal(SUPPLIERID, value);
+//        getAccSrPurchaseRfqSupplierView().setNamedWhereClauseParam("P_ADF_SUPPLIERID", value==null?-1:value);
+//        getAccSrPurchaseRfqSupplierView().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_CODE", getRfqHeaderCode()==null?-1:getRfqHeaderCode());
+//        getAccSrPurchaseRfqSupplierView().executeQuery();
+//        setRfqsupplierseqno((Integer)getAccSrPurchaseRfqSupplierView().first().getAttribute("Rfqsupplierseqno"));
     }
 
     /**

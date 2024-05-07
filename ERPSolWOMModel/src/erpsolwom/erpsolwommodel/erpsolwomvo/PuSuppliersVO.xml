@@ -17,10 +17,6 @@
     Name="P_ADF_LOCATIONID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <Variable
-    Name="P_ADF_RFQ_HEADER_CODE"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
   <EntityUsage
     Name="PuSuppliers"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.PuSuppliers"/>
@@ -395,31 +391,6 @@
                     ViewAttribute="Bidheaderseq"
                     Operator="ISNOTBLANK"
                     Conjunction="AND"
-                    Required="Optional"/>
-                </ViewCriteriaRow>
-              </ViewCriteria>
-            </ViewCriteriaItem>
-            <ViewCriteriaItem
-              Name="SrPurchaseRfqHeaderView"
-              ViewAttribute="SrPurchaseRfqHeaderView"
-              Operator="EXISTS"
-              Conjunction="AND"
-              IsNestedCriteria="true"
-              Required="Optional">
-              <ViewCriteria
-                Name="SrPurchaseRfqHeaderViewNestedCriteria"
-                ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
-                Conjunction="AND">
-                <ViewCriteriaRow
-                  Name="SrPurchaseRfqHeaderViewNestedCriteria_row_0"
-                  UpperColumns="1">
-                  <ViewCriteriaItem
-                    Name="RfqHeaderCode"
-                    ViewAttribute="RfqHeaderCode"
-                    Operator="="
-                    Conjunction="AND"
-                    Value=":P_ADF_RFQ_HEADER_CODE"
-                    IsBindVarValue="true"
                     Required="Optional"/>
                 </ViewCriteriaRow>
               </ViewCriteria>

@@ -37,16 +37,22 @@
         <TransientExpression
           trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
       </PIMap>
-      <PIMap Variable="P_ADF_RFQ_HEADER_CODE">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[RfqHeaderCode==null?"0":RfqHeaderCode]]></TransientExpression>
-      </PIMap>
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="AccSrPurchaseRfqHeaderView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseRfqHeaderAvailableForBidVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView.SrPurchaseRfqHeaderAvailableForBidVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SUPPLIERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Supplierid==null?-1:Supplierid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSrPurchaseRfqSupplierView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
@@ -101,8 +107,7 @@
       <Item Value="DemandCode"/>
       <Item Value="RfqDate"/>
     </AttrArray>
-    <DisplayCriteria
-      Name="SrPurchaseRfqHeaderAvailableForBidVC"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LovtxtSupplierName"

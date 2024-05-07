@@ -46,5 +46,21 @@ public class SrPurchaseRfqHeaderViewImpl extends ViewObjectImpl implements SrPur
     //            }
     //        }
     }
+
+    /**
+     * Returns the variable value for P_ADF_SUPPLIERID.
+     * @return variable value for P_ADF_SUPPLIERID
+     */
+    public String getP_ADF_SUPPLIERID() {
+        return (String) ensureVariableManager().getVariableValue("P_ADF_SUPPLIERID");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_SUPPLIERID.
+     * @param value value to bind as P_ADF_SUPPLIERID
+     */
+    public void setP_ADF_SUPPLIERID(String value) {
+        ensureVariableManager().setVariableValue("P_ADF_SUPPLIERID", value);
+    }
 }
 

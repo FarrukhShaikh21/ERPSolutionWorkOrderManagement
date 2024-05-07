@@ -21,6 +21,10 @@
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_SUPPLIERID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccVuDemandForQVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomqvo.VuDemandForQVO"
@@ -306,7 +310,7 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="SrPurchaseRfqHeaderViewCriteria_row_0"
+      Name="SrPurchaseRfqHeaderAvailableForBidVC_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
         Name="SrPurchaseBidHeaderView"
@@ -323,28 +327,38 @@
             Name="SrPurchaseBidHeaderViewNestedCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
-              Name="SrPurchaseRfqSupplierView"
-              ViewAttribute="SrPurchaseRfqSupplierView"
-              Operator="EXISTS"
+              Name="Supplierid"
+              ViewAttribute="Supplierid"
+              Operator="="
               Conjunction="AND"
-              IsNestedCriteria="true"
-              Required="Optional">
-              <ViewCriteria
-                Name="SrPurchaseRfqSupplierViewNestedCriteria"
-                ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
-                Conjunction="AND">
-                <ViewCriteriaRow
-                  Name="SrPurchaseRfqSupplierViewNestedCriteria_row_0"
-                  UpperColumns="1">
-                  <ViewCriteriaItem
-                    Name="SrPurchaseRfqSupplierViewNestedCriteria_SrPurchaseRfqSupplierViewNestedCriteria_row_0_Rfqsupplierseqno"
-                    ViewAttribute="Rfqsupplierseqno"
-                    Operator="ISNOTBLANK"
-                    Conjunction="AND"
-                    Required="Optional"/>
-                </ViewCriteriaRow>
-              </ViewCriteria>
-            </ViewCriteriaItem>
+              Value=":P_ADF_SUPPLIERID"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="SrPurchaseRfqSupplierView"
+        ViewAttribute="SrPurchaseRfqSupplierView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseRfqSupplierViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseRfqSupplierViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Supplierid"
+              ViewAttribute="Supplierid"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_SUPPLIERID"
+              IsBindVarValue="true"
+              Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
