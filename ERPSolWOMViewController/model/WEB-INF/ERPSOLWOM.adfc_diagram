@@ -425,4 +425,29 @@
       <property
          name="sdm:polyPoints">R50,1458.5,324.84473,B50</property>
    </ControlFlowCase>
+   <View
+      id="View39">
+      <property
+         name="activityId">SR_0004</property>
+      <property
+         name="page">/SR_0004.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SR_0004&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">603.7988</property>
+      <property
+         name="x">1393.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase40"
+      from="MethodCall30"
+      to="View39">
+      <property
+         name="fromOutcome">ERP-ACT-SR-0004</property>
+      <property
+         name="sdm:polyPoints">R54,1393.5,328.34473,T50</property>
+   </ControlFlowCase>
 </SDM>
