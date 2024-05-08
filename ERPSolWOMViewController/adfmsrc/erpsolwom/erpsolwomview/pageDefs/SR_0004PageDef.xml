@@ -5,6 +5,59 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SrPurchaseBidCompareHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseBidCompareHeaderCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="BidCompareCode">
+      <AttrNames>
+        <Item Value="BidCompareCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="CompareDate">
+      <AttrNames>
+        <Item Value="CompareDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" StaticList="false" Uses="LovRfqHeaderCode"
+                  id="RfqHeaderCode"/>
+    <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="DemandCode">
+      <AttrNames>
+        <Item Value="DemandCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <methodAction id="doSuperviseSrPurchaseComp" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPurchaseComp" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseBidCompareHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseComp_ERPSolWOMAppModuleDataControl_SrPurchaseBidCompareHeaderCRUD_doSuperviseSrPurchaseComp_result"/>
+  </bindings>
 </pageDefinition>

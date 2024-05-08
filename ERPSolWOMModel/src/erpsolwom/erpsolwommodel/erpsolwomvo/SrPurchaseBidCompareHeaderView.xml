@@ -12,7 +12,67 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareHeaderViewImpl"
+  ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseBidCompareHeaderView"
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseBidCompareHeaderViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AccAllLocationsVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSrPurchaseRfqHeaderView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAllLocationsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovRfqHeaderCode"
+    ListVOName="AccSrPurchaseRfqHeaderView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RfqHeaderCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RfqHeaderCode"/>
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RfqHeaderCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPurchaseBidCompareHeader"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareHeader"/>
@@ -49,7 +109,15 @@
     PrecisionRule="true"
     EntityAttrName="RfqHeaderCode"
     EntityUsage="SrPurchaseBidCompareHeader"
-    AliasName="RFQ_HEADER_CODE"/>
+    AliasName="RFQ_HEADER_CODE"
+    LOVName="LovRfqHeaderCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Remarks"
     PrecisionRule="true"
@@ -109,9 +177,41 @@
     EntityAttrName="PostedDate"
     EntityUsage="SrPurchaseBidCompareHeader"
     AliasName="POSTED_DATE"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="SrPurchaseBidCompareHeader"
+    AliasName="TXT_LOCATION_NAME"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SrPurchaseBidCompareLinesView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkBidComLinCompHeadLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrBidCompareHeaderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSrPurchaseComp"
+      MethodName="doSuperviseSrPurchaseComp">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

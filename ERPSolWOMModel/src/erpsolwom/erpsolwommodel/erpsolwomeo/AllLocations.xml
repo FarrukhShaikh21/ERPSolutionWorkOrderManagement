@@ -886,6 +886,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrPurchaseBidHeaderLocationIdAssoc.AllLocations"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidCompareHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrBidCompareHeaderLocationIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrBidCompareHeaderLocationIdAssoc.SrPurchaseBidCompareHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrBidCompareHeaderLocationIdAssoc.AllLocations"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallLocations"
     PrimaryKey="true">

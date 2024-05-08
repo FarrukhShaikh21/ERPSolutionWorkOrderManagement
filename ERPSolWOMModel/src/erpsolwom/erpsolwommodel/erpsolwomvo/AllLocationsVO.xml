@@ -471,4 +471,9 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrPurchaseBidHeaderLocationIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseBidCompareHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrBidCompareHeaderLocationIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
