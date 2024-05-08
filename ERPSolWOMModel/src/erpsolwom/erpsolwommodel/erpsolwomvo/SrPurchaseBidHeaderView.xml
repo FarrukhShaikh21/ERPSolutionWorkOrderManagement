@@ -13,9 +13,12 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderViewRowImpl">
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderViewRowImpl"
+  ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidHeaderViewImpl"
+  ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseBidHeaderView"
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseBidHeaderViewClient">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
@@ -60,6 +63,20 @@
     <ViewCriteriaUsage
       Name="SrPurchaseRfqSupplierByRfqSupplierVC"
       FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView.SrPurchaseRfqSupplierByRfqSupplierVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseRfqLinesView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseRfqLinesByRfqHeaderCodeVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView.SrPurchaseRfqLinesByRfqHeaderCodeVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_RFQ_HEADER_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[RfqHeaderCode==null?"-1":RfqHeaderCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"
@@ -332,4 +349,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSrPurchaseBID"
+      MethodName="doSuperviseSrPurchaseBID">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

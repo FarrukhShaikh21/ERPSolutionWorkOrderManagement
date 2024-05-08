@@ -18,6 +18,10 @@
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_RFQ_HEADER_CODE"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccSrItemsView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"
@@ -255,6 +259,60 @@
     EntityAttrName="Demandlinesseq"
     EntityUsage="SrPurchaseRfqLines"
     AliasName="DEMANDLINESSEQ"/>
+  <ViewCriteria
+    Name="SrPurchaseRfqLinesByRfqHeaderCodeVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqLinesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseRfqLinesViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SrPurchaseRfqHeaderView"
+        ViewAttribute="SrPurchaseRfqHeaderView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseRfqHeaderViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseRfqHeaderViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="RfqHeaderCode"
+              ViewAttribute="RfqHeaderCode"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_RFQ_HEADER_CODE"
+              UpperColumns="0"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrPurchaseRfqHeaderView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkScmPurRfqLinRfqheadseqLink"

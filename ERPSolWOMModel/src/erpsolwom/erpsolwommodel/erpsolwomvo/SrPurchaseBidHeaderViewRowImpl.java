@@ -5,6 +5,7 @@ import erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidHeaderImpl;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -14,6 +15,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_SRPURCHASEBIDHEADER = 0;
 
     /**
@@ -49,8 +52,10 @@ public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
         AccAllLocationsVO,
         AccPuSuppliersVO,
         AccSrPurchaseRfqHeaderView,
-        AccSrPurchaseRfqSupplierView;
-        private static AttributesEnum[] vals = null;
+        AccSrPurchaseRfqSupplierView,
+        AccSrPurchaseRfqLinesView;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -72,6 +77,8 @@ public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int BIDHEADERSEQ = AttributesEnum.Bidheaderseq.index();
     public static final int BIDCODE = AttributesEnum.BidCode.index();
     public static final int BIDDATE = AttributesEnum.BidDate.index();
@@ -102,6 +109,7 @@ public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
     public static final int ACCPUSUPPLIERSVO = AttributesEnum.AccPuSuppliersVO.index();
     public static final int ACCSRPURCHASERFQHEADERVIEW = AttributesEnum.AccSrPurchaseRfqHeaderView.index();
     public static final int ACCSRPURCHASERFQSUPPLIERVIEW = AttributesEnum.AccSrPurchaseRfqSupplierView.index();
+    public static final int ACCSRPURCHASERFQLINESVIEW = AttributesEnum.AccSrPurchaseRfqLinesView.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -215,7 +223,28 @@ public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
                 getAccSrPurchaseRfqSupplierView().setNamedWhereClauseParam("P_ADF_SUPPLIERID", getSupplierid()==null?-1:getSupplierid());
                 getAccSrPurchaseRfqSupplierView().executeQuery();
                 setRfqsupplierseqno((Integer)getAccSrPurchaseRfqSupplierView().first().getAttribute("Rfqsupplierseqno"));
+ 
+        while(getSrPurchaseBidLinesView().getRowCount()>0) {
+            getSrPurchaseBidLinesView().first().remove();
+        }
         
+        getAccSrPurchaseRfqLinesView().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_CODE", value==null?"0":value);
+        getAccSrPurchaseRfqLinesView().executeQuery();
+        RowSetIterator rsi=getAccSrPurchaseRfqLinesView();
+        while(rsi.hasNext()) {
+            Row nextRow =rsi.next();
+            Row newRow=getSrPurchaseBidLinesView().createRow();
+            newRow.setAttribute("Demandlinesseq", nextRow.getAttribute("Demandlinesseq"));
+            newRow.setAttribute("Rfqlinesseqno", nextRow.getAttribute("Rfqlinesseqno"));
+
+            newRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
+            newRow.setAttribute("BidPrice", nextRow.getAttribute("AproxPrice"));
+            newRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
+            newRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
+            newRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
+        //            newRow.setAttribute("RequesterId", nextRow.getAttribute("RequesterId"));
+            getSrPurchaseBidLinesView().insertRow(newRow);
+        }       
     }
 
     /**
@@ -552,6 +581,21 @@ public class SrPurchaseBidHeaderViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccSrPurchaseRfqSupplierView() {
         return (RowSet) getAttributeInternal(ACCSRPURCHASERFQSUPPLIERVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSrPurchaseRfqLinesView.
+     */
+    public RowSet getAccSrPurchaseRfqLinesView() {
+        return (RowSet) getAttributeInternal(ACCSRPURCHASERFQLINESVIEW);
+    }
+    
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        if (getPosted().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
     }
 }
 

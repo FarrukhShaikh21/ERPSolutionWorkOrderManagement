@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SrPurchaseBidHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
               id="SrPurchaseBidHeaderCRUDIterator"/>
+    <iterator Binds="SrPurchaseBidLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseBidLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SrPurchaseBidHeaderCRUDIterator" id="BidCode">
@@ -80,5 +82,27 @@
             DataControl="ERPSolWOMAppModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
             DataControl="ERPSolWOMAppModuleDataControl"/>
+    <tree IterBinding="SrPurchaseBidLinesDetCRUDIterator" id="SrPurchaseBidLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidLinesView"
+                      Name="SrPurchaseBidLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="ProjectId"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="Quantity"/>
+          <Item Value="BidPrice"/>
+          <Item Value="TaxPercent"/>
+          <Item Value="txtTaxAmount"/>
+          <Item Value="txtNetAmount"/>
+          <Item Value="SupplierItemName"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="doSuperviseSrPurchaseBID" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPurchaseBID" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseBidHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseBID_ERPSolWOMAppModuleDataControl_SrPurchaseBidHeaderCRUD_doSuperviseSrPurchaseBID_result"/>
   </bindings>
 </pageDefinition>

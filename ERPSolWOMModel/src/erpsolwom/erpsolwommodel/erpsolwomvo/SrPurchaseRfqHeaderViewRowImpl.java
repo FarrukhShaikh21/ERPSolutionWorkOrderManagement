@@ -185,6 +185,7 @@ public class SrPurchaseRfqHeaderViewRowImpl extends ViewRowImpl {
             newRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
             newRow.setAttribute("RequiredBy", nextRow.getAttribute("RequiredByDate"));
             newRow.setAttribute("Quantity", nextRow.getAttribute("ApproveQuantity"));
+            newRow.setAttribute("AproxPrice", nextRow.getAttribute("AproxPrice"));
             newRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
             newRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
             newRow.setAttribute("NoteToBuyer", nextRow.getAttribute("NoteToBuyer"));

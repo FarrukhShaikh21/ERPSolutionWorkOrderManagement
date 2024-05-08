@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SR_PURCHASE_BID_LINES"
   AliasName="SrPurchaseBidLines"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLinesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="Bidlinesseq"
     Precision="10"
@@ -19,7 +25,14 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_BID_LINES"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Bidheaderseq"
     Precision="10"
@@ -167,7 +180,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SR_PURCHASE_BID_LINES"/>
+    TableName="SR_PURCHASE_BID_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.ProjectId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DepartmentId"
     IsNotNull="true"
@@ -180,6 +202,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.DepartmentId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SupplierItemName"
@@ -192,10 +222,17 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.SupplierItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="25"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
@@ -205,15 +242,31 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PURCHASE_BID_LINES"/>
+    TableName="SR_PURCHASE_BID_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ModifiedBy"
     Precision="25"
@@ -225,6 +278,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Modifieddate"
@@ -232,23 +291,21 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PURCHASE_BID_LINES"/>
-  <Attribute
-    Name="Rfqsupplierseqno"
-    Precision="10"
-    Scale="0"
-    ColumnName="RFQSUPPLIERSEQNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Long"
-    ColumnType="NUMBER"
-    TableName="SR_PURCHASE_BID_LINES"/>
+    TableName="SR_PURCHASE_BID_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ItemId"
     Precision="10"
     Scale="0"
     ColumnName="ITEM_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_BID_LINES">
     <Properties>
@@ -267,7 +324,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PURCHASE_BID_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -280,6 +336,58 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtTaxAmount"
+    ColumnName="TXT_TAX_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[((BidPrice==null?0:BidPrice) * (TaxPercent==null?0:TaxPercent) )/100]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.txtTaxAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="BidPrice"/>
+      <Item
+        Value="TaxPercent"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtNetAmount"
+    ColumnName="TXT_NET_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[((txtTaxAmount==null?0:txtTaxAmount) + (BidPrice==null?0:BidPrice)) * (Quantity==null?0:Quantity)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidLines.txtNetAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="Quantity"/>
+      <Item
+        Value="TaxPercent"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="SrPurchaseBidHeader"

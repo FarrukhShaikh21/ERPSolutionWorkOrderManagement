@@ -67,7 +67,6 @@
   </Attribute>
   <Attribute
     Name="DemandCode"
-    IsNotNull="true"
     Precision="20"
     ColumnName="DEMAND_CODE"
     SQLType="VARCHAR"
@@ -126,7 +125,6 @@
   </Attribute>
   <Attribute
     Name="Supplierid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="SUPPLIERID"
     SQLType="VARCHAR"
@@ -165,7 +163,6 @@
   </Attribute>
   <Attribute
     Name="Locationid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="LOCATIONID"
     SQLType="VARCHAR"
@@ -186,7 +183,6 @@
   </Attribute>
   <Attribute
     Name="ResponseDate"
-    IsNotNull="true"
     ColumnName="RESPONSE_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
