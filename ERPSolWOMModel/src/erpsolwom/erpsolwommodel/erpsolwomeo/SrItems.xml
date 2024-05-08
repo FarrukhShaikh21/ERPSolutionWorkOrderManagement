@@ -116,6 +116,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseBidLinesItemIdAssoc.SrItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidCompareLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc.SrPurchaseBidCompareLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SritemsPrimaryKey"
     PrimaryKey="true">
