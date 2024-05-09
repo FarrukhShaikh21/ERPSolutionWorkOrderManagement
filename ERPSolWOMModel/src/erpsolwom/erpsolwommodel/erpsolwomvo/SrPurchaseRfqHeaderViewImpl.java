@@ -62,5 +62,21 @@ public class SrPurchaseRfqHeaderViewImpl extends ViewObjectImpl implements SrPur
     public void setP_ADF_SUPPLIERID(String value) {
         ensureVariableManager().setVariableValue("P_ADF_SUPPLIERID", value);
     }
+
+    /**
+     * Returns the variable value for P_ADF_LOCATIONID.
+     * @return variable value for P_ADF_LOCATIONID
+     */
+    public String getP_ADF_LOCATIONID() {
+        return (String) ensureVariableManager().getVariableValue("P_ADF_LOCATIONID");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_LOCATIONID.
+     * @param value value to bind as P_ADF_LOCATIONID
+     */
+    public void setP_ADF_LOCATIONID(String value) {
+        ensureVariableManager().setVariableValue("P_ADF_LOCATIONID", value);
+    }
 }
 

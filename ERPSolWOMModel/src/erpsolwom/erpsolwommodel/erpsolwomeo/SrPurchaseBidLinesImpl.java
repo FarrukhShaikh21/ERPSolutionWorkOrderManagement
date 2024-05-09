@@ -41,6 +41,7 @@ public class SrPurchaseBidLinesImpl extends ERPSolGlobalsEntityImpl {
         txtItemName,
         txtTaxAmount,
         txtNetAmount,
+        txtSupplierId,
         SrPurchaseBidHeader,
         SrItems;
         private static AttributesEnum[] vals = null;
@@ -87,6 +88,7 @@ public class SrPurchaseBidLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
+    public static final int TXTSUPPLIERID = AttributesEnum.txtSupplierId.index();
     public static final int SRPURCHASEBIDHEADER = AttributesEnum.SrPurchaseBidHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
 
@@ -423,6 +425,22 @@ public class SrPurchaseBidLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtNetAmount(BigDecimal value) {
         setAttributeInternal(TXTNETAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierId, using the alias name txtSupplierId.
+     * @return the value of txtSupplierId
+     */
+    public String gettxtSupplierId() {
+        return (String) getAttributeInternal(TXTSUPPLIERID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierId.
+     * @param value value to set the txtSupplierId
+     */
+    public void settxtSupplierId(String value) {
+        setAttributeInternal(TXTSUPPLIERID, value);
     }
 
     /**

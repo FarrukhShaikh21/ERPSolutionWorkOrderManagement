@@ -32,6 +32,12 @@
     <ViewCriteriaUsage
       Name="SrPurchaseRfqHeaderForCompareVC"
       FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView.SrPurchaseRfqHeaderForCompareVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="AccSrPurchaseBidLinesView"
@@ -40,12 +46,6 @@
     <ViewCriteriaUsage
       Name="SrPurchaseBidLinesByRFQHeaderCodeVC"
       FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidLinesView.SrPurchaseBidLinesByRFQHeaderCodeVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_RFQ_HEADER_CODE">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[RfqHeaderCode==null?"0":RfqHeaderCode]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
   </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"

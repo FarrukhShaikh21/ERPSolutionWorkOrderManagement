@@ -37,7 +37,6 @@
     TableName="SR_PURCHASE_BID_COMPARE_LINES"/>
   <Attribute
     Name="Bidlinesseq"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="BIDLINESSEQ"
@@ -56,7 +55,6 @@
     TableName="SR_PURCHASE_BID_COMPARE_LINES"/>
   <Attribute
     Name="Supplierid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="SUPPLIERID"
     SQLType="VARCHAR"
@@ -69,7 +67,6 @@
   </Attribute>
   <Attribute
     Name="ItemId"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="ITEM_ID"
@@ -86,7 +83,6 @@
   </Attribute>
   <Attribute
     Name="BidRate"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="BID_RATE"
@@ -103,7 +99,6 @@
   </Attribute>
   <Attribute
     Name="TaxRate"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="TAX_RATE"
@@ -120,7 +115,6 @@
   </Attribute>
   <Attribute
     Name="NetAmount"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="NET_AMOUNT"
@@ -153,7 +147,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="25"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
@@ -172,7 +165,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
@@ -316,6 +308,15 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="Rfqlinesseqno"
+    Precision="10"
+    Scale="0"
+    ColumnName="RFQLINESSEQNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SR_PURCHASE_BID_COMPARE_LINES"/>
   <AccessorAttribute
     Name="SrPurchaseBidCompareHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkBidComLinCompHeadAssoc"

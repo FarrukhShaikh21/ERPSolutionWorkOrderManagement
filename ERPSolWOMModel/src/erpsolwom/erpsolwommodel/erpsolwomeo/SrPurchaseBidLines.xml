@@ -389,6 +389,17 @@
         Value="TaxPercent"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtSupplierId"
+    ColumnName="TXT_SUPPLIER_ID"
+    SQLType="INTEGER"
+    Type="java.lang.String"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrPurchaseBidHeader?.Supplierid]]></TransientExpression>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseBidHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.PkSrPurBidLinRfqHeadAssoc"

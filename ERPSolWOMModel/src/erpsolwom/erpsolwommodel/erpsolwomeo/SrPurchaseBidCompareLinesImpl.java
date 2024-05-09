@@ -44,6 +44,7 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
         txtItemName,
         Quantity,
         txtSupplierName,
+        Rfqlinesseqno,
         SrPurchaseBidCompareHeader,
         SrItems,
         PuSuppliers;
@@ -91,6 +92,7 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int QUANTITY = AttributesEnum.Quantity.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int RFQLINESSEQNO = AttributesEnum.Rfqlinesseqno.index();
     public static final int SRPURCHASEBIDCOMPAREHEADER = AttributesEnum.SrPurchaseBidCompareHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
@@ -427,6 +429,22 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for Rfqlinesseqno, using the alias name Rfqlinesseqno.
+     * @return the value of Rfqlinesseqno
+     */
+    public Long getRfqlinesseqno() {
+        return (Long) getAttributeInternal(RFQLINESSEQNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Rfqlinesseqno.
+     * @param value value to set the Rfqlinesseqno
+     */
+    public void setRfqlinesseqno(Long value) {
+        setAttributeInternal(RFQLINESSEQNO, value);
     }
 
     /**

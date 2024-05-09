@@ -16,6 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class SrPurchaseBidLinesViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SRPURCHASEBIDLINES = 0;
 
     /**
@@ -42,6 +43,7 @@ public class SrPurchaseBidLinesViewRowImpl extends ViewRowImpl {
         txtItemName,
         txtNetAmount,
         txtTaxAmount,
+        txtSupplierId,
         SrItemsView,
         SrPurchaseBidHeaderView,
         AccAllDepartmentsView,
@@ -70,6 +72,7 @@ public class SrPurchaseBidLinesViewRowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int BIDLINESSEQ = AttributesEnum.Bidlinesseq.index();
     public static final int BIDHEADERSEQ = AttributesEnum.Bidheaderseq.index();
     public static final int RFQLINESSEQNO = AttributesEnum.Rfqlinesseqno.index();
@@ -90,6 +93,7 @@ public class SrPurchaseBidLinesViewRowImpl extends ViewRowImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
+    public static final int TXTSUPPLIERID = AttributesEnum.txtSupplierId.index();
     public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
     public static final int SRPURCHASEBIDHEADERVIEW = AttributesEnum.SrPurchaseBidHeaderView.index();
     public static final int ACCALLDEPARTMENTSVIEW = AttributesEnum.AccAllDepartmentsView.index();
@@ -427,6 +431,22 @@ public class SrPurchaseBidLinesViewRowImpl extends ViewRowImpl {
      */
     public void settxtTaxAmount(BigDecimal value) {
         setAttributeInternal(TXTTAXAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_SUPPLIER_ID using the alias name txtSupplierId.
+     * @return the TXT_SUPPLIER_ID
+     */
+    public String gettxtSupplierId() {
+        return (String) getAttributeInternal(TXTSUPPLIERID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_SUPPLIER_ID using the alias name txtSupplierId.
+     * @param value value to set the TXT_SUPPLIER_ID
+     */
+    public void settxtSupplierId(String value) {
+        setAttributeInternal(TXTSUPPLIERID, value);
     }
 
     /**

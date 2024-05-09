@@ -189,18 +189,23 @@ public class SrPurchaseBidCompareHeaderViewRowImpl extends ViewRowImpl {
         
         getAccSrPurchaseBidLinesView().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_CODE", value==null?"0":value);
         getAccSrPurchaseBidLinesView().executeQuery();
-        RowSetIterator rsi=getAccSrPurchaseRfqLinesView();
+        RowSetIterator rsi=getAccSrPurchaseBidLinesView();
         while(rsi.hasNext()) {
         Row nextRow =rsi.next();
         Row newRow=getSrPurchaseBidCompareLinesView().createRow();
         newRow.setAttribute("Demandlinesseq", nextRow.getAttribute("Demandlinesseq"));
         newRow.setAttribute("Rfqlinesseqno", nextRow.getAttribute("Rfqlinesseqno"));
+        newRow.setAttribute("Bidlinesseq", nextRow.getAttribute("Bidlinesseq"));
+        newRow.setAttribute("Supplierid", nextRow.getAttribute("txtSupplierId"));
 
         newRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
-        newRow.setAttribute("BidPrice", nextRow.getAttribute("AproxPrice"));
+        newRow.setAttribute("BidRate", nextRow.getAttribute("BidPrice"));
         newRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
         newRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
         newRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
+        newRow.setAttribute("NetAmount", nextRow.getAttribute("NetPrice"));
+        newRow.setAttribute("TaxRate", nextRow.getAttribute("TaxPercent"));
+
         //            newRow.setAttribute("RequesterId", nextRow.getAttribute("RequesterId"));
         getSrPurchaseBidCompareLinesView().insertRow(newRow);
         }
@@ -421,6 +426,13 @@ public class SrPurchaseBidCompareHeaderViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccSrPurchaseBidLinesView() {
         return (RowSet) getAttributeInternal(ACCSRPURCHASEBIDLINESVIEW);
+    }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        if (getPosted().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
     }
 }
 

@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccAllDepartmentsView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllDepartmentsView"
@@ -20,6 +25,10 @@
   <ViewAccessor
     Name="AccPrgProjectView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PrgProjectView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSrBidCriteriaVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrBidCriteriaVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LovDepartmentId"
@@ -56,6 +65,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProjectName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovBidCriteriaSno"
+    ListVOName="AccSrBidCriteriaVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BidCriteriaSno"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BidCriteriaSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BidCritediaName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -129,7 +157,15 @@
     PrecisionRule="true"
     EntityAttrName="BidCriteriaSno"
     EntityUsage="SrPurchaseBidCompareLines"
-    AliasName="BID_CRITERIA_SNO"/>
+    AliasName="BID_CRITERIA_SNO"
+    LOVName="LovBidCriteriaSno">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -213,6 +249,12 @@
     EntityAttrName="txtSupplierName"
     EntityUsage="SrPurchaseBidCompareLines"
     AliasName="TXT_SUPPLIER_NAME"/>
+  <ViewAttribute
+    Name="Rfqlinesseqno"
+    PrecisionRule="true"
+    EntityAttrName="Rfqlinesseqno"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="RFQLINESSEQNO"/>
   <ViewLinkAccessor
     Name="SrItemsView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseBidCompLinesItemIdLink"
@@ -231,4 +273,10 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <SortCriteria>
+    <Sort
+      Attribute="ItemId"/>
+    <Sort
+      Attribute="Supplierid"/>
+  </SortCriteria>
 </ViewObject>
