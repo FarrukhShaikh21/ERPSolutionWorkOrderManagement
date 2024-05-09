@@ -43,8 +43,10 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
         ProjectId,
         txtItemName,
         Quantity,
+        txtSupplierName,
         SrPurchaseBidCompareHeader,
-        SrItems;
+        SrItems,
+        PuSuppliers;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -88,8 +90,10 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int PROJECTID = AttributesEnum.ProjectId.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int QUANTITY = AttributesEnum.Quantity.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SRPURCHASEBIDCOMPAREHEADER = AttributesEnum.SrPurchaseBidCompareHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
+    public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -410,6 +414,22 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
      * @return the associated entity erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl.
      */
     public SrPurchaseBidCompareHeaderImpl getSrPurchaseBidCompareHeader() {
@@ -435,6 +455,21 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setSrItems(EntityImpl value) {
         setAttributeInternal(SRITEMS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getPuSuppliers() {
+        return (EntityImpl) getAttributeInternal(PUSUPPLIERS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setPuSuppliers(EntityImpl value) {
+        setAttributeInternal(PUSUPPLIERS, value);
     }
 
 

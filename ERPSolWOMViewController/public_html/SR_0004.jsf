@@ -152,7 +152,7 @@
                                                         required="#{bindings.RfqHeaderCode.hints.mandatory}"
                                                         columns="#{bindings.RfqHeaderCode.hints.displayWidth}"
                                                         shortDesc="#{bindings.RfqHeaderCode.hints.tooltip}"
-                                                        simple="true">
+                                                        simple="true" autoSubmit="true">
                             <f:validator binding="#{bindings.RfqHeaderCode.validator}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
@@ -241,6 +241,18 @@
                               <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                             </af:inputText>
                           </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.label}"
+                                     id="c6" width="120">
+                            <af:inputText value="#{row.bindings.txtSupplierName.inputValue}"
+                                          label="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.label}"
+                                          required="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.tooltip}"
+                                          id="it7" readOnly="true">
+                              <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                            </af:inputText>
+                          </af:column>
                           <af:column headerText="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.Quantity.label}"
                                      id="c2">
                             <af:inputText value="#{row.bindings.Quantity.inputValue}"
@@ -321,15 +333,10 @@
                           </af:column>
                           <af:column headerText="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.IsSelect.label}"
                                      id="c7">
-                            <af:inputText value="#{row.bindings.IsSelect.inputValue}"
-                                          label="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.IsSelect.label}"
-                                          required="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.IsSelect.mandatory}"
-                                          columns="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.IsSelect.displayWidth}"
-                                          maximumLength="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.IsSelect.precision}"
-                                          shortDesc="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.IsSelect.tooltip}"
-                                          id="it9">
-                              <f:validator binding="#{row.bindings.IsSelect.validator}"/>
-                            </af:inputText>
+                            <af:selectOneChoice label="Label 1" value="#{row.bindings.IsSelect.inputValue}" id="soc3">
+                              <af:selectItem label="Yes" value="Y" id="si3"/>
+                              <af:selectItem label="No" value="N" id="si4"/>
+                            </af:selectOneChoice>
                           </af:column>
                         </af:table>
                       </af:panelCollection>

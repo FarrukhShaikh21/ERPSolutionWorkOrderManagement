@@ -292,6 +292,30 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtSupplierName"
+    Precision="80"
+    ColumnName="TXT_SUPPLIER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[PuSuppliers?.SuppName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Supplierid"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareLines.txtSupplierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseBidCompareHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkBidComLinCompHeadAssoc"
@@ -304,6 +328,13 @@
     Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc"
     AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc.SrItems"
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseBidCompLinesItemIdAssoc.SrPurchaseBidCompareLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PuSuppliers"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidCompareLinesSupplierIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidCompareLinesSupplierIdAssoc.PuSuppliers"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidCompareLinesSupplierIdAssoc.SrPurchaseBidCompareLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
@@ -336,6 +367,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareLines.ItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SrPurchaseBidCompareLines1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKPU_SUPPLIERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PURCHASE_BID_COMPARE_LIN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareLines.Supplierid"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

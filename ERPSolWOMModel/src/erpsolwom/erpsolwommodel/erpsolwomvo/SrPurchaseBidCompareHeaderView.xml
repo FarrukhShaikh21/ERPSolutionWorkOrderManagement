@@ -15,9 +15,11 @@
   PageIterMode="Full"
   ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareHeaderViewImpl"
   ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseBidCompareHeaderView"
-  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseBidCompareHeaderViewClient">
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseBidCompareHeaderViewClient"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareHeaderViewRowImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="AccAllLocationsVO"
@@ -30,6 +32,20 @@
     <ViewCriteriaUsage
       Name="SrPurchaseRfqHeaderForCompareVC"
       FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView.SrPurchaseRfqHeaderForCompareVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseBidLinesView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidLinesView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseBidLinesByRFQHeaderCodeVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidLinesView.SrPurchaseBidLinesByRFQHeaderCodeVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_RFQ_HEADER_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[RfqHeaderCode==null?"0":RfqHeaderCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"

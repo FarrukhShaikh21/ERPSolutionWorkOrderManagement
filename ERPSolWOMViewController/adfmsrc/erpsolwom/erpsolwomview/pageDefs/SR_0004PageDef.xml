@@ -74,6 +74,7 @@
           <Item Value="IsSelect"/>
           <Item Value="DepartmentId"/>
           <Item Value="ProjectId"/>
+          <Item Value="txtSupplierName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

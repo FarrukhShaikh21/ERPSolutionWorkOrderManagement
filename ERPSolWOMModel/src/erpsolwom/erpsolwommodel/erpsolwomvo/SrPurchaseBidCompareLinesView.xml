@@ -205,6 +205,14 @@
     EntityAttrName="Quantity"
     EntityUsage="SrPurchaseBidCompareLines"
     AliasName="QUANTITY"/>
+  <ViewAttribute
+    Name="txtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="TXT_SUPPLIER_NAME"/>
   <ViewLinkAccessor
     Name="SrItemsView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseBidCompLinesItemIdLink"
@@ -214,6 +222,12 @@
   <ViewLinkAccessor
     Name="SrPurchaseBidCompareHeaderView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkBidComLinCompHeadLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseBidCompareLinesSupplierIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
