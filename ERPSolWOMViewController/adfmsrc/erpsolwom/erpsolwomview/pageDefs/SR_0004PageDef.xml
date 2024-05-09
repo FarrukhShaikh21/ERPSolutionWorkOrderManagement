@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SrPurchaseBidCompareHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
               id="SrPurchaseBidCompareHeaderCRUDIterator"/>
+    <iterator Binds="SrPurchaseBidCompareLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseBidCompareLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="BidCompareCode">
@@ -59,5 +61,21 @@
                   DataControl="ERPSolWOMAppModuleDataControl"
                   InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseBidCompareHeaderCRUD"
                   ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseComp_ERPSolWOMAppModuleDataControl_SrPurchaseBidCompareHeaderCRUD_doSuperviseSrPurchaseComp_result"/>
+    <tree IterBinding="SrPurchaseBidCompareLinesDetCRUDIterator" id="SrPurchaseBidCompareLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView"
+                      Name="SrPurchaseBidCompareLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="Quantity"/>
+          <Item Value="BidRate"/>
+          <Item Value="TaxRate"/>
+          <Item Value="NetAmount"/>
+          <Item Value="BidCriteriaSno"/>
+          <Item Value="IsSelect"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="ProjectId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

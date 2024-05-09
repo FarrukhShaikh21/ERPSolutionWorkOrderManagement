@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -38,6 +39,10 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
         ModifiedBy,
         Modifieddate,
         IsSelect,
+        DepartmentId,
+        ProjectId,
+        txtItemName,
+        Quantity,
         SrPurchaseBidCompareHeader,
         SrItems;
         private static AttributesEnum[] vals = null;
@@ -62,6 +67,8 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int BIDCOMPARELINESSEQ = AttributesEnum.Bidcomparelinesseq.index();
     public static final int BIDCOMPAREHEADERSEQ = AttributesEnum.Bidcompareheaderseq.index();
     public static final int BIDLINESSEQ = AttributesEnum.Bidlinesseq.index();
@@ -77,6 +84,10 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.Modifieddate.index();
     public static final int ISSELECT = AttributesEnum.IsSelect.index();
+    public static final int DEPARTMENTID = AttributesEnum.DepartmentId.index();
+    public static final int PROJECTID = AttributesEnum.ProjectId.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int QUANTITY = AttributesEnum.Quantity.index();
     public static final int SRPURCHASEBIDCOMPAREHEADER = AttributesEnum.SrPurchaseBidCompareHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
 
@@ -85,6 +96,14 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public SrPurchaseBidCompareLinesImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareLines");
+    }
+
 
     /**
      * Gets the attribute value for Bidcomparelinesseq, using the alias name Bidcomparelinesseq.
@@ -266,15 +285,15 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for CreatedDate, using the alias name CreatedDate.
      * @return the value of CreatedDate
      */
-    public Timestamp getCreatedDate() {
-        return (Timestamp) getAttributeInternal(CREATEDDATE);
+    public Date getCreatedDate() {
+        return (Date) getAttributeInternal(CREATEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CreatedDate.
      * @param value value to set the CreatedDate
      */
-    public void setCreatedDate(Timestamp value) {
+    public void setCreatedDate(Date value) {
         setAttributeInternal(CREATEDDATE, value);
     }
 
@@ -298,15 +317,15 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Modifieddate, using the alias name Modifieddate.
      * @return the value of Modifieddate
      */
-    public Timestamp getModifieddate() {
-        return (Timestamp) getAttributeInternal(MODIFIEDDATE);
+    public Date getModifieddate() {
+        return (Date) getAttributeInternal(MODIFIEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Modifieddate.
      * @param value value to set the Modifieddate
      */
-    public void setModifieddate(Timestamp value) {
+    public void setModifieddate(Date value) {
         setAttributeInternal(MODIFIEDDATE, value);
     }
 
@@ -327,16 +346,80 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for DepartmentId, using the alias name DepartmentId.
+     * @return the value of DepartmentId
+     */
+    public String getDepartmentId() {
+        return (String) getAttributeInternal(DEPARTMENTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DepartmentId.
+     * @param value value to set the DepartmentId
+     */
+    public void setDepartmentId(String value) {
+        setAttributeInternal(DEPARTMENTID, value);
+    }
+
+    /**
+     * Gets the attribute value for ProjectId, using the alias name ProjectId.
+     * @return the value of ProjectId
+     */
+    public Integer getProjectId() {
+        return (Integer) getAttributeInternal(PROJECTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ProjectId.
+     * @param value value to set the ProjectId
+     */
+    public void setProjectId(Integer value) {
+        setAttributeInternal(PROJECTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtItemName, using the alias name txtItemName.
+     * @return the value of txtItemName
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtItemName.
+     * @param value value to set the txtItemName
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for Quantity, using the alias name Quantity.
+     * @return the value of Quantity
+     */
+    public BigDecimal getQuantity() {
+        return (BigDecimal) getAttributeInternal(QUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Quantity.
+     * @param value value to set the Quantity
+     */
+    public void setQuantity(BigDecimal value) {
+        setAttributeInternal(QUANTITY, value);
+    }
+
+    /**
      * @return the associated entity erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl.
      */
-    public ERPSolGlobalsEntityImpl getSrPurchaseBidCompareHeader() {
-        return (ERPSolGlobalsEntityImpl) getAttributeInternal(SRPURCHASEBIDCOMPAREHEADER);
+    public SrPurchaseBidCompareHeaderImpl getSrPurchaseBidCompareHeader() {
+        return (SrPurchaseBidCompareHeaderImpl) getAttributeInternal(SRPURCHASEBIDCOMPAREHEADER);
     }
 
     /**
      * Sets <code>value</code> as the associated entity erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl.
      */
-    public void setSrPurchaseBidCompareHeader(ERPSolGlobalsEntityImpl value) {
+    public void setSrPurchaseBidCompareHeader(SrPurchaseBidCompareHeaderImpl value) {
         setAttributeInternal(SRPURCHASEBIDCOMPAREHEADER, value);
     }
 
@@ -354,6 +437,7 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(SRITEMS, value);
     }
 
+
     /**
      * @param bidcomparelinesseq key constituent
 
@@ -361,13 +445,6 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(Integer bidcomparelinesseq) {
         return new Key(new Object[] { bidcomparelinesseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareLines");
     }
 
     /**

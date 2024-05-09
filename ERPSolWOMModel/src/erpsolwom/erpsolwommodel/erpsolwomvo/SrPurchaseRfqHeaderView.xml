@@ -313,6 +313,31 @@
       Name="SrPurchaseRfqHeaderAvailableForBidVC_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="SrPurchaseRfqSupplierView"
+        ViewAttribute="SrPurchaseRfqSupplierView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseRfqSupplierViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseRfqSupplierViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Supplierid"
+              ViewAttribute="Supplierid"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_SUPPLIERID"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
         Name="SrPurchaseBidHeaderView"
         ViewAttribute="SrPurchaseBidHeaderView"
         Operator="NOT EXISTS"
@@ -337,27 +362,54 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="SrPurchaseRfqHeaderForCompareVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseRfqHeaderViewCriteria_row_0"
+      UpperColumns="1">
       <ViewCriteriaItem
-        Name="SrPurchaseRfqSupplierView"
-        ViewAttribute="SrPurchaseRfqSupplierView"
-        Operator="EXISTS"
+        Name="SrPurchaseBidCompareHeaderView"
+        ViewAttribute="SrPurchaseBidCompareHeaderView"
+        Operator="NOT EXISTS"
         Conjunction="AND"
         IsNestedCriteria="true"
         Required="Optional">
         <ViewCriteria
-          Name="SrPurchaseRfqSupplierViewNestedCriteria"
-          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqSupplierView"
+          Name="SrPurchaseBidCompareHeaderViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareHeaderView"
           Conjunction="AND">
           <ViewCriteriaRow
-            Name="SrPurchaseRfqSupplierViewNestedCriteria_row_0"
+            Name="SrPurchaseBidCompareHeaderViewNestedCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
-              Name="Supplierid"
-              ViewAttribute="Supplierid"
-              Operator="="
+              Name="BidCompareCode"
+              ViewAttribute="BidCompareCode"
+              Operator="ISNOTBLANK"
               Conjunction="AND"
-              Value=":P_ADF_SUPPLIERID"
-              IsBindVarValue="true"
+              UpperColumns="0"
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
@@ -395,6 +447,11 @@
   <ViewLinkAccessor
     Name="SrPurchaseBidHeaderView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeaderSrPurBidHeaderRfqHeaderCodeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseBidCompareHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ClientInterface

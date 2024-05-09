@@ -37,7 +37,8 @@ public class SrPurchaseBidCompareHeaderImpl extends ERPSolGlobalsEntityImpl {
         PostedDate,
         txtLocationName,
         SrPurchaseBidCompareLines,
-        AllLocations;
+        AllLocations,
+        SrPurchaseRfqHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -60,6 +61,8 @@ public class SrPurchaseBidCompareHeaderImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int BIDCOMPAREHEADERSEQ = AttributesEnum.Bidcompareheaderseq.index();
     public static final int BIDCOMPARECODE = AttributesEnum.BidCompareCode.index();
     public static final int COMPAREDATE = AttributesEnum.CompareDate.index();
@@ -77,12 +80,21 @@ public class SrPurchaseBidCompareHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int SRPURCHASEBIDCOMPARELINES = AttributesEnum.SrPurchaseBidCompareLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
+    public static final int SRPURCHASERFQHEADER = AttributesEnum.SrPurchaseRfqHeader.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SrPurchaseBidCompareHeaderImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareHeader");
+    }
+
 
     /**
      * Gets the attribute value for Bidcompareheaderseq, using the alias name Bidcompareheaderseq.
@@ -346,19 +358,27 @@ public class SrPurchaseBidCompareHeaderImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * @return the associated entity SrPurchaseRfqHeaderImpl.
+     */
+    public SrPurchaseRfqHeaderImpl getSrPurchaseRfqHeader() {
+        return (SrPurchaseRfqHeaderImpl) getAttributeInternal(SRPURCHASERFQHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity SrPurchaseRfqHeaderImpl.
+     */
+    public void setSrPurchaseRfqHeader(SrPurchaseRfqHeaderImpl value) {
+        setAttributeInternal(SRPURCHASERFQHEADER, value);
+    }
+
+
+    /**
      * @param bidcompareheaderseq key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer bidcompareheaderseq) {
         return new Key(new Object[] { bidcompareheaderseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareHeader");
     }
 
     /**

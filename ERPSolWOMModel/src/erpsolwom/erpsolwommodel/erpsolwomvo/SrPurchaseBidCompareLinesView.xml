@@ -13,6 +13,52 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllDepartmentsView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllDepartmentsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccPrgProjectView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PrgProjectView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovDepartmentId"
+    ListVOName="AccAllDepartmentsView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Deptid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovProjectId"
+    ListVOName="AccPrgProjectView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProjectId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPurchaseBidCompareLines"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareLines"/>
@@ -117,9 +163,57 @@
     EntityAttrName="IsSelect"
     EntityUsage="SrPurchaseBidCompareLines"
     AliasName="IS_SELECT"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="DEPARTMENT_ID"
+    LOVName="LovDepartmentId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjectId"
+    PrecisionRule="true"
+    EntityAttrName="ProjectId"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="PROJECT_ID"
+    LOVName="LovProjectId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtItemName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="TXT_ITEM_NAME"/>
+  <ViewAttribute
+    Name="Quantity"
+    PrecisionRule="true"
+    EntityAttrName="Quantity"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="QUANTITY"/>
   <ViewLinkAccessor
     Name="SrItemsView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseBidCompLinesItemIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseBidCompareHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkBidComLinCompHeadLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

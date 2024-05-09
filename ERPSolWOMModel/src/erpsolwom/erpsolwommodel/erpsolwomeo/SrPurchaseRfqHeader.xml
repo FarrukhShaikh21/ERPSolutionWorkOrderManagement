@@ -444,6 +444,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeaderSrPurBidHeaderRfqHeaderCodeAssoc.SrPurchaseRfqHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseBidCompareHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeAssoc.SrPurchaseBidCompareHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeAssoc.SrPurchaseRfqHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseRfqHeader"
     PrimaryKey="true">

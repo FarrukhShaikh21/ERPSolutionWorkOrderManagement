@@ -300,6 +300,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrBidCompareHeaderLocationIdAssoc.SrPurchaseBidCompareHeader"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPurchaseRfqHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeAssoc.SrPurchaseRfqHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeAssoc.SrPurchaseBidCompareHeader"
+    Type="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseRfqHeaderImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkSrPurBidComHeader"
     PrimaryKey="true">
@@ -319,6 +326,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareHeader.Locationid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SrPurchaseBidCompareHeader1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UNQ_SCM_PURCHASE_RFQ_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PURCHASE_BID_COMPARE_HEA"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareHeader.RfqHeaderCode"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

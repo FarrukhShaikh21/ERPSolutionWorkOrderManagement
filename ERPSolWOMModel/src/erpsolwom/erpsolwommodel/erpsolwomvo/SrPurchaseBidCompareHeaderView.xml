@@ -26,7 +26,11 @@
   <ViewAccessor
     Name="AccSrPurchaseRfqHeaderView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseRfqHeaderForCompareVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseRfqHeaderView.SrPurchaseRfqHeaderForCompareVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"
     ListVOName="AccAllLocationsVO"
@@ -201,6 +205,12 @@
   <ViewLinkAccessor
     Name="AllLocationsVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrBidCompareHeaderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseRfqHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurRfqHeadSrPurBidCompHeadRfqCompHeaderCodeLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
