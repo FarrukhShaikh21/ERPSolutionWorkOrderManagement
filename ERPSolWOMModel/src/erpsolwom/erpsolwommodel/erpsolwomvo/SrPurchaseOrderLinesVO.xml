@@ -21,7 +21,17 @@
   <ViewAccessor
     Name="AccSrItemsView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrItemsViewByItemForVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView.SrItemsViewByItemForVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_ITEM_FOR">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SrPurchaseOrderHeaderVO?.PoFor==null?"0":SrPurchaseOrderHeaderVO?.PoFor]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllDepartmentsView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllDepartmentsView"
@@ -29,7 +39,17 @@
   <ViewAccessor
     Name="AccPrgProjectView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PrgProjectView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PrgProjectViewByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PrgProjectView.PrgProjectViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SrPurchaseOrderHeaderVO?.Locationid==null?"0":SrPurchaseOrderHeaderVO?.Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccSrItemsView"
