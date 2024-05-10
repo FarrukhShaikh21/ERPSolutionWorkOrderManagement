@@ -78,25 +78,25 @@
                     <af:panelGridLayout id="pgl5">
                       <af:gridRow marginTop="5px" height="auto" id="gr4">
                         <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.BidCode.hints.label}" id="ol5"/>
+                          <af:outputLabel value="#{bindings.PoCode.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
-                          <af:inputText value="#{bindings.Bidheaderseq.inputValue}"
-                                        label="#{bindings.Bidheaderseq.hints.label}"
-                                        required="#{bindings.Bidheaderseq.hints.mandatory}"
-                                        columns="#{bindings.Bidheaderseq.hints.displayWidth}"
-                                        maximumLength="#{bindings.Bidheaderseq.hints.precision}"
-                                        shortDesc="#{bindings.Bidheaderseq.hints.tooltip}" id="it18" rendered="false">
-                            <f:validator binding="#{bindings.Bidheaderseq.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Bidheaderseq.format}"/>
-                          </af:inputText>
-                          <af:inputText value="#{bindings.BidCode.inputValue}" label="#{bindings.BidCode.hints.label}"
-                                        required="#{bindings.BidCode.hints.mandatory}"
-                                        columns="#{bindings.BidCode.hints.displayWidth}"
-                                        maximumLength="#{bindings.BidCode.hints.precision}"
-                                        shortDesc="#{bindings.BidCode.hints.tooltip}" id="it16" simple="true"
+                          <af:inputText value="#{bindings.PoCode.inputValue}" label="#{bindings.PoCode.hints.label}"
+                                        required="#{bindings.PoCode.hints.mandatory}"
+                                        columns="#{bindings.PoCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.PoCode.hints.precision}"
+                                        shortDesc="#{bindings.PoCode.hints.tooltip}" id="it12" simple="true"
                                         readOnly="true">
-                            <f:validator binding="#{bindings.BidCode.validator}"/>
+                            <f:validator binding="#{bindings.PoCode.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Poheaderseq.inputValue}"
+                                        label="#{bindings.Poheaderseq.hints.label}"
+                                        required="#{bindings.Poheaderseq.hints.mandatory}"
+                                        columns="#{bindings.Poheaderseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Poheaderseq.hints.precision}"
+                                        shortDesc="#{bindings.Poheaderseq.hints.tooltip}" id="it13" rendered="false">
+                            <f:validator binding="#{bindings.Poheaderseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Poheaderseq.format}"/>
                           </af:inputText>
                           <af:inputText value="#{bindings.Companyid.inputValue}"
                                         label="#{bindings.Companyid.hints.label}"

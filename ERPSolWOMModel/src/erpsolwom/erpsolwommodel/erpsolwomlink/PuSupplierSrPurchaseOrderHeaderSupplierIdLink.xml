@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PuSupplierSrPurchaseOrderHeaderSupplierIdLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseOrderHeaderSupplierIdAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseOrderHeaderSupplierIdLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="PuSuppliersVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="PuSuppliersVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO.Supplierid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SrPurchaseOrderHeaderVO"
+    Cardinality="-1"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SrPurchaseOrderHeaderVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO.Supplierid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

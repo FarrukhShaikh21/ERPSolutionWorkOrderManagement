@@ -415,4 +415,9 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseBidCompareLinesSupplierIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseOrderHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseOrderHeaderSupplierIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

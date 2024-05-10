@@ -21,6 +21,10 @@
     Name="AccVuDemandForQVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomqvo.VuDemandForQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwPoType"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomqvo.VwPoType"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovDemandCode"
     ListVOName="AccSrPurchaseDemandHeaderView"
@@ -49,6 +53,24 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="PoFor"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPoType"
+    ListVOName="AccVwPoType"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PoType"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -136,12 +158,6 @@
     EntityUsage="SrPurchaseOrderHeader"
     AliasName="PO_DATE"/>
   <ViewAttribute
-    Name="SupplierSno"
-    PrecisionRule="true"
-    EntityAttrName="SupplierSno"
-    EntityUsage="SrPurchaseOrderHeader"
-    AliasName="SUPPLIER_SNO"/>
-  <ViewAttribute
     Name="Remarks"
     PrecisionRule="true"
     EntityAttrName="Remarks"
@@ -168,14 +184,15 @@
     PrecisionRule="true"
     EntityAttrName="PoType"
     EntityUsage="SrPurchaseOrderHeader"
-    AliasName="PO_TYPE"/>
-  <ViewAttribute
-    Name="LocationId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="LocationId"
-    EntityUsage="SrPurchaseOrderHeader"
-    AliasName="LOCATION_ID"/>
+    AliasName="PO_TYPE"
+    LOVName="LovPoType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Companyid"
     IsNotNull="true"
@@ -209,9 +226,44 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SrPurchaseOrderHeader"
     AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="Locationid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Locationid"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="LOCATIONID"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="TXT_LOCATION_NAME"/>
+  <ViewAttribute
+    Name="txtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="TXT_SUPPLIER_NAME"/>
   <ViewLinkAccessor
     Name="SrPurchaseOrderLinesVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPurLinPoHeadSeqLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrPurchaseOrderHeaderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseOrderHeaderSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

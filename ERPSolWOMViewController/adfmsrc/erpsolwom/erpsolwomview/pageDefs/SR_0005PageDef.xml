@@ -4,6 +4,19 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="SrPurchaseOrderHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseOrderHeaderCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="PoCode">
+      <AttrNames>
+        <Item Value="PoCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="Poheaderseq">
+      <AttrNames>
+        <Item Value="Poheaderseq"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

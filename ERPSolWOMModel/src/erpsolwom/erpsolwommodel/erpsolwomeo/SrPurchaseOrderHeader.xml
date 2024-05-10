@@ -12,7 +12,6 @@
   BindingStyle="OracleName">
   <Attribute
     Name="Poheaderseq"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="POHEADERSEQ"
@@ -72,7 +71,6 @@
   </Attribute>
   <Attribute
     Name="BillTo"
-    IsNotNull="true"
     Precision="200"
     ColumnName="BILL_TO"
     SQLType="VARCHAR"
@@ -85,7 +83,6 @@
   </Attribute>
   <Attribute
     Name="ShipTo"
-    IsNotNull="true"
     Precision="200"
     ColumnName="SHIP_TO"
     SQLType="VARCHAR"
@@ -119,16 +116,10 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PURCHASE_ORDER_HEADER"/>
-  <Attribute
-    Name="SupplierSno"
-    Precision="8"
-    Scale="0"
-    ColumnName="SUPPLIER_SNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SR_PURCHASE_ORDER_HEADER"/>
+    TableName="SR_PURCHASE_ORDER_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Remarks"
     Precision="300"
@@ -149,7 +140,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PURCHASE_ORDER_HEADER">
+    TableName="SR_PURCHASE_ORDER_HEADER"
+    DefaultValue="S">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -162,21 +154,12 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PURCHASE_ORDER_HEADER">
+    TableName="SR_PURCHASE_ORDER_HEADER"
+    DefaultValue="R">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
-  <Attribute
-    Name="LocationId"
-    IsNotNull="true"
-    Precision="5"
-    Scale="0"
-    ColumnName="LOCATION_ID"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SR_PURCHASE_ORDER_HEADER"/>
   <Attribute
     Name="Companyid"
     IsNotNull="true"
@@ -208,9 +191,12 @@
     IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PURCHASE_ORDER_HEADER"/>
+    TableName="SR_PURCHASE_ORDER_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="ModifiedBy"
     Precision="25"
@@ -227,9 +213,62 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_ORDER_HEADER"/>
+  <Attribute
+    Name="Locationid"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="LOCATIONID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_ORDER_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="txtLocationName"
+    Precision="80"
+    ColumnName="TXT_LOCATION_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_ORDER_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtSupplierName"
+    Precision="80"
+    ColumnName="TXT_SUPPLIER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_ORDER_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[PuSuppliers?.SuppName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.txtSupplierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseOrderLines"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPurLinPoHeadSeqAssoc"
@@ -237,6 +276,20 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPurLinPoHeadSeqAssoc.SrPurchaseOrderHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="AllLocations"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrPurchaseOrderHeaderLocationIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrPurchaseOrderHeaderLocationIdAssoc.AllLocations"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationSrPurchaseOrderHeaderLocationIdAssoc.SrPurchaseOrderHeader"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PuSuppliers"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseOrderHeaderSupplierIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseOrderHeaderSupplierIdAssoc.PuSuppliers"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseOrderHeaderSupplierIdAssoc.SrPurchaseOrderHeader"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkSrPurchaseOrderHeader"
     PrimaryKey="true">
@@ -257,4 +310,30 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.PoCode"/>
     </AttrArray>
   </Key>
+  <Key
+    Name="fk_SrPurchaseOrderHeader">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKALL_LOCATIONS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PURCHASE_ORDER_HEADER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.Locationid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SrPurchaseOrderHeader1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKPU_SUPPLIERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PURCHASE_ORDER_HEADER1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.Supplierid"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>
