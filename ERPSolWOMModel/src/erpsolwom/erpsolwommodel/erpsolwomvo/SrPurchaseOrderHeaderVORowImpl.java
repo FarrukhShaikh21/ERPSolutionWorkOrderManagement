@@ -18,6 +18,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SRPURCHASEORDERHEADER = 0;
 
     /**
@@ -78,6 +79,7 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int POHEADERSEQ = AttributesEnum.Poheaderseq.index();
     public static final int POCODE = AttributesEnum.PoCode.index();
@@ -561,6 +563,13 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
      */
     public RowSet getAccPuSuppliersVO() {
         return (RowSet) getAttributeInternal(ACCPUSUPPLIERSVO);
+    }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        if (getPosted().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
     }
 }
 

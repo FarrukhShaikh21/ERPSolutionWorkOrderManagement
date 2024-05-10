@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccSrItemsView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"
@@ -263,9 +268,21 @@
     EntityAttrName="txtTaxAmount"
     EntityUsage="SrPurchaseOrderLines"
     AliasName="TXT_TAX_AMOUNT"/>
+  <ViewAttribute
+    Name="TaxAmount"
+    PrecisionRule="true"
+    EntityAttrName="TaxAmount"
+    EntityUsage="SrPurchaseOrderLines"
+    AliasName="TAX_AMOUNT"/>
   <ViewLinkAccessor
     Name="SrItemsView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseOrderLinesItemIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseOrderHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPurLinPoHeadSeqLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

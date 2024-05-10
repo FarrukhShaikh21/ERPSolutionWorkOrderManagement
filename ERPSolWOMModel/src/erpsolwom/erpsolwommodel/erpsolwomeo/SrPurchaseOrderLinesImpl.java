@@ -44,6 +44,7 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         txtGrossAmount,
         txtNetAmount,
         txtItemName,
+        TaxAmount,
         SrPurchaseOrderHeader,
         SrItems;
         private static AttributesEnum[] vals = null;
@@ -69,6 +70,7 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         }
     }
 
+
     public static final int POLINESSEQ = AttributesEnum.Polinesseq.index();
     public static final int POHEADERSEQ = AttributesEnum.Poheaderseq.index();
     public static final int BIDCOMPARELINESSEQ = AttributesEnum.Bidcomparelinesseq.index();
@@ -91,6 +93,7 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
     public static final int SRPURCHASEORDERHEADER = AttributesEnum.SrPurchaseOrderHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
 
@@ -106,6 +109,7 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderLines");
     }
+
 
     /**
      * Gets the attribute value for Polinesseq, using the alias name Polinesseq.
@@ -460,6 +464,22 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for TaxAmount, using the alias name TaxAmount.
+     * @return the value of TaxAmount
+     */
+    public BigDecimal getTaxAmount() {
+        return (BigDecimal) getAttributeInternal(TAXAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TaxAmount.
+     * @param value value to set the TaxAmount
+     */
+    public void setTaxAmount(BigDecimal value) {
+        setAttributeInternal(TAXAMOUNT, value);
+    }
+
+    /**
      * @return the associated entity SrPurchaseOrderHeaderImpl.
      */
     public SrPurchaseOrderHeaderImpl getSrPurchaseOrderHeader() {
@@ -531,6 +551,12 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation!=DML_DELETE) {
+            populateAttributeAsChanged(NETAMOUNT, gettxtNetAmount());
+           populateAttributeAsChanged(GROSSAMOUNT, gettxtGrossAmount());
+           populateAttributeAsChanged(TAXAMOUNT, gettxtTaxAmount());
+           
+       }
         super.doDML(operation, e);
     }
 }

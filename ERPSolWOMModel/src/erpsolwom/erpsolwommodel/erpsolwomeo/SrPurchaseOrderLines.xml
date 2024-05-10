@@ -281,7 +281,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PURCHASE_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -290,6 +289,22 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderLines.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TaxAmount"
+    Precision="16"
+    Scale="6"
+    ColumnName="TAX_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
