@@ -321,6 +321,16 @@ public class ERPSolWOMBean {
             }
         }
     }  
+    public void doERPSolsPODialogConfirm(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSrPurchaseOrder");
+            binding.execute();
+            List ERPSolerrors = binding.getErrors();
+            if (ERPSolerrors.isEmpty()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Transaction Is Supervised." ));
+            }
+        }
+    } 
     
     public void doERPSolDialogSaleReturnConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {

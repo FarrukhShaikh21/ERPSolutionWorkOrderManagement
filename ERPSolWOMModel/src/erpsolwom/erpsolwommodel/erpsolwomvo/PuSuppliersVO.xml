@@ -400,6 +400,55 @@
       </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="PuSuppliersFindVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PuSuppliersVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Supplierid"
+        ViewAttribute="Supplierid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SuppName"
+        ViewAttribute="SuppName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="MobileNo"
+        ViewAttribute="MobileNo"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrPurchaseBidHeaderView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseBidHeaderSupplierIdLink"

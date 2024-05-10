@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="SrPurchaseOrderHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
               id="SrPurchaseOrderHeaderCRUDIterator"/>
+    <iterator Binds="SrPurchaseOrderLinesDetCURD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseOrderLinesDetCURDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="PoCode">
@@ -23,5 +25,70 @@
         <Item Value="PoDate"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <list IterBinding="SrPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovPoType" id="PoType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SrPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovPoFor" id="PoFor"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovDemandCode"
+                  id="DemandCode"/>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="ReferenceNo">
+      <AttrNames>
+        <Item Value="ReferenceNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="ShipTo">
+      <AttrNames>
+        <Item Value="ShipTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="BillTo">
+      <AttrNames>
+        <Item Value="BillTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <methodAction id="doSuperviseSrPurchaseOrder" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPurchaseOrder" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseOrderHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPurchaseOrder_ERPSolWOMAppModuleDataControl_SrPurchaseOrderHeaderCRUD_doSuperviseSrPurchaseOrder_result"/>
+    <tree IterBinding="SrPurchaseOrderLinesDetCURDIterator" id="SrPurchaseOrderLinesDetCURD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO"
+                      Name="SrPurchaseOrderLinesDetCURD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="ProjectId"/>
+          <Item Value="Quantity"/>
+          <Item Value="PoRate"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="txtNetAmount"/>
+          <Item Value="txtTaxAmount"/>
+          <Item Value="TaxRate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SrPurchaseOrderLinesDetCURDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseOrderLinesDetCURDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

@@ -12,7 +12,15 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVOImpl"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVORowImpl"
+  ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseOrderHeaderVO"
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseOrderHeaderVOClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccSrPurchaseDemandHeaderView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView"
@@ -29,6 +37,20 @@
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccPuSuppliersVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersVOByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO.PuSuppliersVOByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovDemandCode"
     ListVOName="AccSrPurchaseDemandHeaderView"
@@ -107,6 +129,33 @@
       <Item Value="LocationDescription"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccPuSuppliersVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+      <Item Value="MobileNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="PuSuppliersFindVC"
+      Hint="showAndExecute"/>
   </ListBinding>
   <EntityUsage
     Name="SrPurchaseOrderHeader"
@@ -283,7 +332,27 @@
     PrecisionRule="true"
     EntityAttrName="txtSupplierName"
     EntityUsage="SrPurchaseOrderHeader"
-    AliasName="TXT_SUPPLIER_NAME"/>
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LovtxtSupplierName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Posted"
+    PrecisionRule="true"
+    EntityAttrName="Posted"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="POSTED"/>
+  <ViewAttribute
+    Name="PostedDate"
+    PrecisionRule="true"
+    EntityAttrName="PostedDate"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="POSTED_DATE"/>
   <ViewLinkAccessor
     Name="SrPurchaseOrderLinesVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPurLinPoHeadSeqLink"
@@ -301,4 +370,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSrPurchaseOrder"
+      MethodName="doSuperviseSrPurchaseOrder">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>
