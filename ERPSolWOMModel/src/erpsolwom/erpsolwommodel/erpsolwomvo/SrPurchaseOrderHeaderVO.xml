@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPurchaseOrderHeaderVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSrPurchaseDemandHeaderView"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandHeaderView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVuDemandForQVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomqvo.VuDemandForQVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovDemandCode"
+    ListVOName="AccSrPurchaseDemandHeaderView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DemandCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DemandCode"/>
+      <Item Value="DemandDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPoFor"
+    ListVOName="AccVuDemandForQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PoFor"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="SrPurchaseOrderHeader"
+    Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader"/>
+  <ViewAttribute
+    Name="Poheaderseq"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Poheaderseq"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="POHEADERSEQ"/>
+  <ViewAttribute
+    Name="PoCode"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="PoCode"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="PO_CODE"/>
+  <ViewAttribute
+    Name="RfqHeaderCode"
+    PrecisionRule="true"
+    EntityAttrName="RfqHeaderCode"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="RFQ_HEADER_CODE"/>
+  <ViewAttribute
+    Name="Supplierid"
+    PrecisionRule="true"
+    EntityAttrName="Supplierid"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="SUPPLIERID"/>
+  <ViewAttribute
+    Name="ReferenceNo"
+    PrecisionRule="true"
+    EntityAttrName="ReferenceNo"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="REFERENCE_NO"/>
+  <ViewAttribute
+    Name="BillTo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BillTo"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="BILL_TO"/>
+  <ViewAttribute
+    Name="ShipTo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShipTo"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="SHIP_TO"/>
+  <ViewAttribute
+    Name="DemandCode"
+    PrecisionRule="true"
+    EntityAttrName="DemandCode"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="DEMAND_CODE"
+    LOVName="LovDemandCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CompareCode"
+    PrecisionRule="true"
+    EntityAttrName="CompareCode"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="COMPARE_CODE"/>
+  <ViewAttribute
+    Name="PoDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PoDate"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="PO_DATE"/>
+  <ViewAttribute
+    Name="SupplierSno"
+    PrecisionRule="true"
+    EntityAttrName="SupplierSno"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="SUPPLIER_SNO"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="PoFor"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PoFor"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="PO_FOR"
+    LOVName="LovPoFor">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PoType"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PoType"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="PO_TYPE"/>
+  <ViewAttribute
+    Name="LocationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LocationId"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="LOCATION_ID"/>
+  <ViewAttribute
+    Name="Companyid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Companyid"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="COMPANYID"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="ModifiedDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedDate"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="MODIFIED_DATE"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseOrderLinesVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPurLinPoHeadSeqLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -40,6 +40,12 @@
   <ViewUsage
     Name="SrPurchaseBidCompareLinesDetCRUD"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView"/>
+  <ViewUsage
+    Name="SrPurchaseOrderHeaderCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"/>
+  <ViewUsage
+    Name="SrPurchaseOrderLinesDetCURD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
@@ -69,5 +75,11 @@
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkBidComLinCompHeadLink"
     SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseBidCompareHeaderCRUD"
     DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseBidCompareLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkSrPurLinPoHeadSeqLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPurLinPoHeadSeqLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseOrderHeaderCRUD"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseOrderLinesDetCURD"
     Reversed="false"/>
 </AppModule>
