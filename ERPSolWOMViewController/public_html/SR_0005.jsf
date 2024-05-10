@@ -115,15 +115,15 @@
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.BidDate.hints.label}" id="ol9"/>
+                          <af:outputLabel value="#{bindings.PoDate.hints.label}" id="ol9"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7">
-                          <af:inputDate value="#{bindings.BidDate.inputValue}" label="#{bindings.BidDate.hints.label}"
-                                        required="#{bindings.BidDate.hints.mandatory}"
-                                        columns="#{bindings.BidDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.BidDate.hints.tooltip}" id="id3" simple="true">
-                            <f:validator binding="#{bindings.BidDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.BidDate.format}"/>
+                          <af:inputDate value="#{bindings.PoDate.inputValue}" label="#{bindings.PoDate.hints.label}"
+                                        required="#{bindings.PoDate.hints.mandatory}"
+                                        columns="#{bindings.PoDate.hints.displayWidth}"
+                                        shortDesc="#{bindings.PoDate.hints.tooltip}" id="id2">
+                            <f:validator binding="#{bindings.PoDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.PoDate.format}"/>
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>

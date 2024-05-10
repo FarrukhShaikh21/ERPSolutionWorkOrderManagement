@@ -18,5 +18,10 @@
         <Item Value="Poheaderseq"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="PoDate">
+      <AttrNames>
+        <Item Value="PoDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
