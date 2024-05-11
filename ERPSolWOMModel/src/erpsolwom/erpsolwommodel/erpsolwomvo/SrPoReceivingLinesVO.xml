@@ -254,6 +254,13 @@
     EntityAttrName="txtTaxAmount"
     EntityUsage="SrPoReceivingLines"
     AliasName="TXT_TAX_AMOUNT"/>
+  <ViewAttribute
+    Name="Poreceiveseq"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Poreceiveseq"
+    EntityUsage="SrPoReceivingLines"
+    AliasName="PORECEIVESEQ"/>
   <ViewLinkAccessor
     Name="SrPoReceivingHeaderVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoRecLinPoRecHeadLink"

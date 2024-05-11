@@ -43,6 +43,7 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
         txtNetAmount,
         txtGrossAmount,
         txtTaxAmount,
+        Poreceiveseq,
         SrPoReceivingHeaderVO,
         SrItemsView,
         AllAllDepartmentsView,
@@ -93,6 +94,7 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
+    public static final int PORECEIVESEQ = AttributesEnum.Poreceiveseq.index();
     public static final int SRPORECEIVINGHEADERVO = AttributesEnum.SrPoReceivingHeaderVO.index();
     public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
     public static final int ALLALLDEPARTMENTSVIEW = AttributesEnum.AllAllDepartmentsView.index();
@@ -431,6 +433,22 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
      */
     public void settxtTaxAmount(BigDecimal value) {
         setAttributeInternal(TXTTAXAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for PORECEIVESEQ using the alias name Poreceiveseq.
+     * @return the PORECEIVESEQ
+     */
+    public Long getPoreceiveseq() {
+        return (Long) getAttributeInternal(PORECEIVESEQ);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PORECEIVESEQ using the alias name Poreceiveseq.
+     * @param value value to set the PORECEIVESEQ
+     */
+    public void setPoreceiveseq(Long value) {
+        setAttributeInternal(PORECEIVESEQ, value);
     }
 
     /**

@@ -42,6 +42,7 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
         txtTaxAmount,
         txtGrossAmount,
         txtNetAmount,
+        Poreceiveseq,
         SrPoReceivingHeader,
         SrItems;
         private static AttributesEnum[] vals = null;
@@ -88,6 +89,7 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
+    public static final int PORECEIVESEQ = AttributesEnum.Poreceiveseq.index();
     public static final int SRPORECEIVINGHEADER = AttributesEnum.SrPoReceivingHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
 
@@ -423,6 +425,22 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtNetAmount(BigDecimal value) {
         setAttributeInternal(TXTNETAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for Poreceiveseq, using the alias name Poreceiveseq.
+     * @return the value of Poreceiveseq
+     */
+    public Long getPoreceiveseq() {
+        return (Long) getAttributeInternal(PORECEIVESEQ);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Poreceiveseq.
+     * @param value value to set the Poreceiveseq
+     */
+    public void setPoreceiveseq(Long value) {
+        setAttributeInternal(PORECEIVESEQ, value);
     }
 
     /**

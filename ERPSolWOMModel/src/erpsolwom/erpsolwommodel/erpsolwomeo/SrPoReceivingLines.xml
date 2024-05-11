@@ -197,7 +197,6 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PO_RECEIVING_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -209,7 +208,6 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PO_RECEIVING_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -228,6 +226,16 @@
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </Attribute>
+  <Attribute
+    Name="Poreceiveseq"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="PORECEIVESEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
   <AccessorAttribute
     Name="SrPoReceivingHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc"
