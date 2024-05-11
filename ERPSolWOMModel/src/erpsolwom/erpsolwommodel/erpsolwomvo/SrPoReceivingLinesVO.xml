@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingLinesVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <EntityUsage
     Name="SrPoReceivingLines"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines"/>
@@ -122,4 +127,10 @@
     EntityAttrName="TaxAmount"
     EntityUsage="SrPoReceivingLines"
     AliasName="TAX_AMOUNT"/>
+  <ViewLinkAccessor
+    Name="SrPoReceivingHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoRecLinPoRecHeadLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

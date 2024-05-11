@@ -359,4 +359,9 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.RPstoreLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPoReceivingHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllStoresSrPoReceivingHeaderStoreIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

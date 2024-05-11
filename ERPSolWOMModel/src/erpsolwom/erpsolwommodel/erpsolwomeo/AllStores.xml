@@ -562,6 +562,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.RPstoreAssoc.AllStores"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPoReceivingHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.AllStoresSrPoReceivingHeaderStoreIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllStoresSrPoReceivingHeaderStoreIdAssoc.SrPoReceivingHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllStoresSrPoReceivingHeaderStoreIdAssoc.AllStores"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallStores"
     PrimaryKey="true">

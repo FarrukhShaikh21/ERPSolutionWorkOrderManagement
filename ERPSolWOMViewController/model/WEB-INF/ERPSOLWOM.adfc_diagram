@@ -423,7 +423,7 @@
       <property
          name="fromOutcome">ERP-ACT-SR-0003</property>
       <property
-         name="sdm:polyPoints">R46,1458.5,321.34473,B50</property>
+         name="sdm:polyPoints">R42,1458.5,317.84473,B50</property>
    </ControlFlowCase>
    <View
       id="View39">
@@ -448,7 +448,7 @@
       <property
          name="fromOutcome">ERP-ACT-SR-0004</property>
       <property
-         name="sdm:polyPoints">R54,1393.5,328.34473,T50</property>
+         name="sdm:polyPoints">R58,1393.5,331.84473,T50</property>
    </ControlFlowCase>
    <View
       id="View41">
@@ -474,5 +474,55 @@
          name="fromOutcome">ERP-ACT-SR-0005</property>
       <property
          name="sdm:polyPoints">R50,1603.5,324.84473,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View43">
+      <property
+         name="activityId">SR_0006</property>
+      <property
+         name="page">/SR_0006.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SR_0006&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">638.7988</property>
+      <property
+         name="x">1759.5</property>
+   </View>
+   <View
+      id="View44">
+      <property
+         name="activityId">SR_0007</property>
+      <property
+         name="page">/SR_0007.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SR_0007&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">547.7988</property>
+      <property
+         name="x">1874.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase45"
+      from="MethodCall30"
+      to="View44">
+      <property
+         name="fromOutcome">ERP-ACT-SR-0007</property>
+      <property
+         name="sdm:polyPoints">R46,1874.5,321.34473,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase46"
+      from="MethodCall30"
+      to="View43">
+      <property
+         name="fromOutcome">ERP-ACT-SR-0006</property>
+      <property
+         name="sdm:polyPoints">R50,1759.5,324.84473,T50</property>
    </ControlFlowCase>
 </SDM>

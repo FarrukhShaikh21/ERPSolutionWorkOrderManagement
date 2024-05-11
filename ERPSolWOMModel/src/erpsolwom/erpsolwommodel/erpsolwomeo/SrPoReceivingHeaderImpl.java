@@ -41,7 +41,8 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
         txtLocationName,
         txtStoreName,
         SrPoReceivingLines,
-        AllLocations;
+        AllLocations,
+        AllStores;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -85,6 +86,7 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int SRPORECEIVINGLINES = AttributesEnum.SrPoReceivingLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
+    public static final int ALLSTORES = AttributesEnum.AllStores.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -392,6 +394,21 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllLocations(EntityImpl value) {
         setAttributeInternal(ALLLOCATIONS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getAllStores() {
+        return (EntityImpl) getAttributeInternal(ALLSTORES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setAllStores(EntityImpl value) {
+        setAttributeInternal(ALLSTORES, value);
     }
 
 
