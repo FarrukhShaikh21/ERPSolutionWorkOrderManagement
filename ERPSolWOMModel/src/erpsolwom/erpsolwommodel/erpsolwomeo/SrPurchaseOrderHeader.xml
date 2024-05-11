@@ -407,9 +407,29 @@
     Name="PostedDate"
     ColumnName="POSTED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_ORDER_HEADER"/>
+  <Attribute
+    Name="Paymenttermid"
+    Precision="5"
+    ColumnName="PAYMENTTERMID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_ORDER_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.Paymenttermid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseOrderLines"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPurLinPoHeadSeqAssoc"

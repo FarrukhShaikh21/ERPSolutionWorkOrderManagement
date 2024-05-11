@@ -248,10 +248,23 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                        <af:gridCell id="gc19" width="15%" halign="center" valign="middle">
+                          <af:outputLabel value="#{bindings.Paymenttermid.label}" id="ol2"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc18" width="35%">
+                          <af:selectOneChoice value="#{bindings.Paymenttermid.inputValue}"
+                                              label="#{bindings.Paymenttermid.label}"
+                                              required="#{bindings.Paymenttermid.hints.mandatory}"
+                                              shortDesc="#{bindings.Paymenttermid.hints.tooltip}" id="soc5"
+                                              simple="true">
+                            <f:selectItems value="#{bindings.Paymenttermid.items}" id="si5"/>
+                            <f:validator binding="#{bindings.Paymenttermid.validator}"/>
+                          </af:selectOneChoice>
+                        </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc30" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol3"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc32" columnSpan="3" rowSpan="1"
+                        <af:gridCell marginStart="5px" width="35%" id="gc32" columnSpan="1" rowSpan="1"
                                      halign="stretch">
                           <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
                                         required="#{bindings.Remarks.hints.mandatory}"

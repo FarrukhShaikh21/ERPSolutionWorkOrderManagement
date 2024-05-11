@@ -51,6 +51,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccAllPaymentTermsVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllPaymentTermsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovDemandCode"
     ListVOName="AccSrPurchaseDemandHeaderView"
@@ -156,6 +160,25 @@
     <DisplayCriteria
       Name="PuSuppliersFindVC"
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPaymenttermid"
+    ListVOName="AccAllPaymentTermsVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Paymenttermid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Paymenttermid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="SrPurchaseOrderHeader"
@@ -353,6 +376,20 @@
     EntityAttrName="PostedDate"
     EntityUsage="SrPurchaseOrderHeader"
     AliasName="POSTED_DATE"/>
+  <ViewAttribute
+    Name="Paymenttermid"
+    PrecisionRule="true"
+    EntityAttrName="Paymenttermid"
+    EntityUsage="SrPurchaseOrderHeader"
+    AliasName="PAYMENTTERMID"
+    LOVName="LovPaymenttermid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SrPurchaseOrderHeaderRemainingBalanceVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
@@ -379,30 +416,6 @@
     <ViewCriteriaRow
       Name="SrPurchaseOrderHeaderVOCriteria_row_0"
       UpperColumns="1">
-      <ViewCriteriaItem
-        Name="SrPurchaseOrderLinesVO"
-        ViewAttribute="SrPurchaseOrderLinesVO"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="SrPurchaseOrderLinesVONestedCriteria"
-          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="SrPurchaseOrderLinesVONestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="RemainingBalance"
-              ViewAttribute="RemainingBalance"
-              Operator=">"
-              Conjunction="AND"
-              Value="0"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="SrPoReceivingHeaderVO"
         ViewAttribute="SrPoReceivingHeaderVO"
@@ -431,6 +444,30 @@
               Conjunction="AND"
               Value="N"
               UpperColumns="0"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="SrPurchaseOrderLinesVO"
+        ViewAttribute="SrPurchaseOrderLinesVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseOrderLinesVONestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseOrderLinesVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="RemainingBalance"
+              ViewAttribute="RemainingBalance"
+              Operator=">"
+              Conjunction="AND"
+              Value="0"
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>

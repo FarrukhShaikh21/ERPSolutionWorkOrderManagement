@@ -46,6 +46,7 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
         txtSupplierName,
         Posted,
         PostedDate,
+        Paymenttermid,
         SrPurchaseOrderLines,
         AllLocations,
         PuSuppliers,
@@ -97,6 +98,7 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int POSTED = AttributesEnum.Posted.index();
     public static final int POSTEDDATE = AttributesEnum.PostedDate.index();
+    public static final int PAYMENTTERMID = AttributesEnum.Paymenttermid.index();
     public static final int SRPURCHASEORDERLINES = AttributesEnum.SrPurchaseOrderLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
@@ -472,16 +474,32 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for PostedDate, using the alias name PostedDate.
      * @return the value of PostedDate
      */
-    public Timestamp getPostedDate() {
-        return (Timestamp) getAttributeInternal(POSTEDDATE);
+    public Date getPostedDate() {
+        return (Date) getAttributeInternal(POSTEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for PostedDate.
      * @param value value to set the PostedDate
      */
-    public void setPostedDate(Timestamp value) {
+    public void setPostedDate(Date value) {
         setAttributeInternal(POSTEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for Paymenttermid, using the alias name Paymenttermid.
+     * @return the value of Paymenttermid
+     */
+    public String getPaymenttermid() {
+        return (String) getAttributeInternal(PAYMENTTERMID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Paymenttermid.
+     * @param value value to set the Paymenttermid
+     */
+    public void setPaymenttermid(String value) {
+        setAttributeInternal(PAYMENTTERMID, value);
     }
 
     /**

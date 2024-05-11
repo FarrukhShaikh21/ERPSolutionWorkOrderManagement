@@ -91,5 +91,7 @@
             Action="createInsertRow"/>
     <action IterBinding="SrPurchaseOrderLinesDetCURDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <list IterBinding="SrPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovPaymenttermid"
+          id="Paymenttermid" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

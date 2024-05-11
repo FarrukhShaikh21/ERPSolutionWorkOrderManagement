@@ -48,6 +48,7 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
         txtSupplierName,
         Posted,
         PostedDate,
+        Paymenttermid,
         SrPurchaseOrderLinesVO,
         AllLocationsVO,
         PuSuppliersVO,
@@ -56,7 +57,8 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
         AccVuDemandForQVO,
         AccVwPoType,
         AccAllLocationsVO,
-        AccPuSuppliersVO;
+        AccPuSuppliersVO,
+        AccAllPaymentTermsVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -105,6 +107,7 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int POSTED = AttributesEnum.Posted.index();
     public static final int POSTEDDATE = AttributesEnum.PostedDate.index();
+    public static final int PAYMENTTERMID = AttributesEnum.Paymenttermid.index();
     public static final int SRPURCHASEORDERLINESVO = AttributesEnum.SrPurchaseOrderLinesVO.index();
     public static final int ALLLOCATIONSVO = AttributesEnum.AllLocationsVO.index();
     public static final int PUSUPPLIERSVO = AttributesEnum.PuSuppliersVO.index();
@@ -114,6 +117,7 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
     public static final int ACCVWPOTYPE = AttributesEnum.AccVwPoType.index();
     public static final int ACCALLLOCATIONSVO = AttributesEnum.AccAllLocationsVO.index();
     public static final int ACCPUSUPPLIERSVO = AttributesEnum.AccPuSuppliersVO.index();
+    public static final int ACCALLPAYMENTTERMSVO = AttributesEnum.AccAllPaymentTermsVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -485,16 +489,32 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
      * Gets the attribute value for POSTED_DATE using the alias name PostedDate.
      * @return the POSTED_DATE
      */
-    public Timestamp getPostedDate() {
-        return (Timestamp) getAttributeInternal(POSTEDDATE);
+    public Date getPostedDate() {
+        return (Date) getAttributeInternal(POSTEDDATE);
     }
 
     /**
      * Sets <code>value</code> as attribute value for POSTED_DATE using the alias name PostedDate.
      * @param value value to set the POSTED_DATE
      */
-    public void setPostedDate(Timestamp value) {
+    public void setPostedDate(Date value) {
         setAttributeInternal(POSTEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for PAYMENTTERMID using the alias name Paymenttermid.
+     * @return the PAYMENTTERMID
+     */
+    public String getPaymenttermid() {
+        return (String) getAttributeInternal(PAYMENTTERMID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PAYMENTTERMID using the alias name Paymenttermid.
+     * @param value value to set the PAYMENTTERMID
+     */
+    public void setPaymenttermid(String value) {
+        setAttributeInternal(PAYMENTTERMID, value);
     }
 
     /**
@@ -573,6 +593,14 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
     public RowSet getAccPuSuppliersVO() {
         return (RowSet) getAttributeInternal(ACCPUSUPPLIERSVO);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccAllPaymentTermsVO.
+     */
+    public RowSet getAccAllPaymentTermsVO() {
+        return (RowSet) getAttributeInternal(ACCALLPAYMENTTERMSVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         if (getPosted().equals("Y")) {
