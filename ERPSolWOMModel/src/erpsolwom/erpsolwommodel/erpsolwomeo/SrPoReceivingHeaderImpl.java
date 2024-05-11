@@ -314,15 +314,15 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for PostedDate, using the alias name PostedDate.
      * @return the value of PostedDate
      */
-    public Double getPostedDate() {
-        return (Double) getAttributeInternal(POSTEDDATE);
+    public Date getPostedDate() {
+        return (Date) getAttributeInternal(POSTEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for PostedDate.
      * @param value value to set the PostedDate
      */
-    public void setPostedDate(Double value) {
+    public void setPostedDate(Date value) {
         setAttributeInternal(POSTEDDATE, value);
     }
 

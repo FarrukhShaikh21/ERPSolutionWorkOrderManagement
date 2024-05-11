@@ -130,6 +130,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPurchaseOrderLinesItemIdAssoc.SrItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPoReceivingLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc.SrPoReceivingLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc.SrItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SritemsPrimaryKey"
     PrimaryKey="true">

@@ -5,6 +5,7 @@ import erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLinesImpl;
 import java.math.BigDecimal;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -14,6 +15,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
+
 
     public static final int ENTITY_SRPORECEIVINGLINES = 0;
 
@@ -37,7 +39,12 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
         DepartmentId,
         ProjectId,
         TaxAmount,
-        SrPoReceivingHeaderVO;
+        txtItemName,
+        SrPoReceivingHeaderVO,
+        SrItemsView,
+        AllAllDepartmentsView,
+        AccPrgProjectView,
+        AccSrItemsView;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -62,6 +69,7 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int RECEIVESEQ = AttributesEnum.Receiveseq.index();
     public static final int RECEIVELINESSEQ = AttributesEnum.Receivelinesseq.index();
     public static final int SOURCELINESSEQ = AttributesEnum.Sourcelinesseq.index();
@@ -78,7 +86,12 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
     public static final int DEPARTMENTID = AttributesEnum.DepartmentId.index();
     public static final int PROJECTID = AttributesEnum.ProjectId.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int SRPORECEIVINGHEADERVO = AttributesEnum.SrPoReceivingHeaderVO.index();
+    public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
+    public static final int ALLALLDEPARTMENTSVIEW = AttributesEnum.AllAllDepartmentsView.index();
+    public static final int ACCPRGPROJECTVIEW = AttributesEnum.AccPrgProjectView.index();
+    public static final int ACCSRITEMSVIEW = AttributesEnum.AccSrItemsView.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -351,6 +364,22 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_ITEM_NAME using the alias name txtItemName.
+     * @return the TXT_ITEM_NAME
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_ITEM_NAME using the alias name txtItemName.
+     * @param value value to set the TXT_ITEM_NAME
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link SrPoReceivingHeaderVO.
      */
     public Row getSrPoReceivingHeaderVO() {
@@ -363,6 +392,42 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
     public void setSrPoReceivingHeaderVO(Row value) {
         setAttributeInternal(SRPORECEIVINGHEADERVO, value);
     }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link SrItemsView.
+     */
+    public Row getSrItemsView() {
+        return (Row) getAttributeInternal(SRITEMSVIEW);
+    }
+
+    /**
+     * Sets the master-detail link SrItemsView between this object and <code>value</code>.
+     */
+    public void setSrItemsView(Row value) {
+        setAttributeInternal(SRITEMSVIEW, value);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AllAllDepartmentsView.
+     */
+    public RowSet getAllAllDepartmentsView() {
+        return (RowSet) getAttributeInternal(ALLALLDEPARTMENTSVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccPrgProjectView.
+     */
+    public RowSet getAccPrgProjectView() {
+        return (RowSet) getAttributeInternal(ACCPRGPROJECTVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSrItemsView.
+     */
+    public RowSet getAccSrItemsView() {
+        return (RowSet) getAttributeInternal(ACCSRITEMSVIEW);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         if (getSrPoReceivingHeaderVO().getAttribute("Posted").equals("Y")) {

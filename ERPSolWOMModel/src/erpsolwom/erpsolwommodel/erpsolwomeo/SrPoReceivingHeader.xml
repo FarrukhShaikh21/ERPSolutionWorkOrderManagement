@@ -160,7 +160,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PO_RECEIVING_HEADER">
+    TableName="SR_PO_RECEIVING_HEADER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -169,7 +170,7 @@
     Name="PostedDate"
     ColumnName="POSTED_DATE"
     SQLType="DATE"
-    Type="java.lang.Double"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PO_RECEIVING_HEADER"/>
   <Attribute

@@ -169,11 +169,42 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="txtItemName"
+    Precision="80"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrItems?.ItemName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ItemId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPoReceivingHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc"
     AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc.SrPoReceivingHeader"
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc.SrPoReceivingLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrItems"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc.SrItems"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemSrPoReceivingLinesItemIdAssoc.SrPoReceivingLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
@@ -197,4 +228,19 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines.Receiveseq"/>
     </AttrArray>
   </Key>
+  <Key
+    Name="fk_SrPoReceivingLines">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SRITEMS_PRIMARY_KEY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PO_RECEIVING_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines.ItemId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>

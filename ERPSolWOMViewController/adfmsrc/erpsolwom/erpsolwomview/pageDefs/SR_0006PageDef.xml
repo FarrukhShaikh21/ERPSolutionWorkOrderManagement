@@ -68,5 +68,10 @@
             Action="createInsertRow"/>
     <action IterBinding="SrPoReceivingLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSrPOReceiving" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPOReceiving" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPoReceivingHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPOReceiving_ERPSolWOMAppModuleDataControl_SrPoReceivingHeaderCRUD_doSuperviseSrPOReceiving_result"/>
   </bindings>
 </pageDefinition>

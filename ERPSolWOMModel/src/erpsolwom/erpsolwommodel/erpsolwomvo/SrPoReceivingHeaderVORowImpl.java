@@ -14,6 +14,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SRPORECEIVINGHEADER = 0;
 
     /**
@@ -44,7 +45,8 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
         AccInReceivingDocTypesVO,
         AccSrPurchaseOrderHeaderVO,
         AccAllStoresVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -66,6 +68,7 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int PORECEIVESEQ = AttributesEnum.Poreceiveseq.index();
     public static final int RECEIVECODE = AttributesEnum.ReceiveCode.index();
     public static final int RECVDOCTYPEID = AttributesEnum.Recvdoctypeid.index();
@@ -317,15 +320,15 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
      * Gets the attribute value for POSTED_DATE using the alias name PostedDate.
      * @return the POSTED_DATE
      */
-    public Double getPostedDate() {
-        return (Double) getAttributeInternal(POSTEDDATE);
+    public Date getPostedDate() {
+        return (Date) getAttributeInternal(POSTEDDATE);
     }
 
     /**
      * Sets <code>value</code> as attribute value for POSTED_DATE using the alias name PostedDate.
      * @param value value to set the POSTED_DATE
      */
-    public void setPostedDate(Double value) {
+    public void setPostedDate(Date value) {
         setAttributeInternal(POSTEDDATE, value);
     }
 

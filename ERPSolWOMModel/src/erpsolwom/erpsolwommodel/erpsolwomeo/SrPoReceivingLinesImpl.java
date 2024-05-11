@@ -38,7 +38,9 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
         DepartmentId,
         ProjectId,
         TaxAmount,
-        SrPoReceivingHeader;
+        txtItemName,
+        SrPoReceivingHeader,
+        SrItems;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -62,6 +64,7 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
         }
     }
 
+
     public static final int RECEIVESEQ = AttributesEnum.Receiveseq.index();
     public static final int RECEIVELINESSEQ = AttributesEnum.Receivelinesseq.index();
     public static final int SOURCELINESSEQ = AttributesEnum.Sourcelinesseq.index();
@@ -78,7 +81,9 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int DEPARTMENTID = AttributesEnum.DepartmentId.index();
     public static final int PROJECTID = AttributesEnum.ProjectId.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int SRPORECEIVINGHEADER = AttributesEnum.SrPoReceivingHeader.index();
+    public static final int SRITEMS = AttributesEnum.SrItems.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -92,6 +97,7 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines");
     }
+
 
     /**
      * Gets the attribute value for Receiveseq, using the alias name Receiveseq.
@@ -350,6 +356,22 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtItemName, using the alias name txtItemName.
+     * @return the value of txtItemName
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtItemName.
+     * @param value value to set the txtItemName
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
     public SrPoReceivingHeaderImpl getSrPoReceivingHeader() {
@@ -361,6 +383,21 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setSrPoReceivingHeader(SrPoReceivingHeaderImpl value) {
         setAttributeInternal(SRPORECEIVINGHEADER, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getSrItems() {
+        return (EntityImpl) getAttributeInternal(SRITEMS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setSrItems(EntityImpl value) {
+        setAttributeInternal(SRITEMS, value);
     }
 
 
