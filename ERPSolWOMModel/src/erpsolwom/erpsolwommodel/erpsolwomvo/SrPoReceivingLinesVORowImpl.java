@@ -23,7 +23,6 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
-        Receiveseq,
         Receivelinesseq,
         Sourcelinesseq,
         ItemId,
@@ -74,7 +73,6 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
     }
 
 
-    public static final int RECEIVESEQ = AttributesEnum.Receiveseq.index();
     public static final int RECEIVELINESSEQ = AttributesEnum.Receivelinesseq.index();
     public static final int SOURCELINESSEQ = AttributesEnum.Sourcelinesseq.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();
@@ -115,21 +113,6 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
         return (SrPoReceivingLinesImpl) getEntity(ENTITY_SRPORECEIVINGLINES);
     }
 
-    /**
-     * Gets the attribute value for RECEIVESEQ using the alias name Receiveseq.
-     * @return the RECEIVESEQ
-     */
-    public Integer getReceiveseq() {
-        return (Integer) getAttributeInternal(RECEIVESEQ);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for RECEIVESEQ using the alias name Receiveseq.
-     * @param value value to set the RECEIVESEQ
-     */
-    public void setReceiveseq(Integer value) {
-        setAttributeInternal(RECEIVESEQ, value);
-    }
 
     /**
      * Gets the attribute value for RECEIVELINESSEQ using the alias name Receivelinesseq.

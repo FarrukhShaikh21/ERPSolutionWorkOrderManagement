@@ -28,7 +28,11 @@
   <ViewAccessor
     Name="AccInReceivingDocTypesVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.InReceivingDocTypesVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InReceivingDocTypesVOBySR"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.InReceivingDocTypesVO.InReceivingDocTypesVOBySR"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSrPurchaseOrderHeaderVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"

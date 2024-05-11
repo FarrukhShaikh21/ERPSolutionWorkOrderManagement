@@ -262,7 +262,7 @@
                               selectedRowKeys="#{bindings.SrPoReceivingLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SrPoReceivingLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SrPoReceivingLinesDetCRUD.rangeSize}" id="t2"
-                              partialTriggers="::b7 ::b12">
+                              partialTriggers="::b7 ::b12" autoHeightRows="5" scrollPolicy="page">
                       <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.label}" id="c1"
                                  width="200">
                         <af:inputComboboxListOfValues id="txtItemNameId"

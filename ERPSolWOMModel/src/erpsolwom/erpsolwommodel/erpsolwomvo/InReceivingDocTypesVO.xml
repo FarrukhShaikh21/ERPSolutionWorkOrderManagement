@@ -59,4 +59,40 @@
     EntityAttrName="Active"
     EntityUsage="InReceivingDocTypes"
     AliasName="ACTIVE"/>
+  <ViewCriteria
+    Name="InReceivingDocTypesVOBySR"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.InReceivingDocTypesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InReceivingDocTypesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Modifiedby"
+        ViewAttribute="Modifiedby"
+        Operator="="
+        Conjunction="AND"
+        Value="SR"
+        UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

@@ -17,16 +17,6 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Attribute
-    Name="Receiveseq"
-    IsNotNull="true"
-    Precision="10"
-    Scale="0"
-    ColumnName="RECEIVESEQ"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SR_PO_RECEIVING_LINES"/>
-  <Attribute
     Name="Receivelinesseq"
     Precision="10"
     Scale="0"
@@ -268,7 +258,7 @@
       <Attr Name="_DBObjectName" Value="FK_SR_PO_REC_LIN_PO_REC_HEAD"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines.Receiveseq"/>
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines.Poreceiveseq"/>
     </AttrArray>
   </Key>
   <Key

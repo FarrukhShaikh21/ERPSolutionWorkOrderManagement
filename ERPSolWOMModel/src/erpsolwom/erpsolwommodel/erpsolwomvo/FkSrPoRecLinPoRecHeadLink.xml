@@ -31,7 +31,7 @@
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingLinesVO.Receiveseq"/>
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingLinesVO.Poreceiveseq"/>
     </AttrArray>
   </ViewLinkDefEnd>
 </ViewLink>

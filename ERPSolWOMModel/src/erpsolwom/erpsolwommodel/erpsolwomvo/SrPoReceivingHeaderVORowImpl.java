@@ -224,8 +224,8 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
         newRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
         newRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
         newRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
-        newRow.setAttribute("NetAmount", nextRow.getAttribute("NetPrice"));
-        newRow.setAttribute("TaxRate", nextRow.getAttribute("TaxPercent"));
+        newRow.setAttribute("NetAmount", nextRow.getAttribute("NetAmount"));
+        newRow.setAttribute("TaxRate", nextRow.getAttribute("TaxRate"));
 
         //            newRow.setAttribute("RequesterId", nextRow.getAttribute("RequesterId"));
         getSrPoReceivingLinesVO().insertRow(newRow);

@@ -93,13 +93,6 @@
     Name="SrPoReceivingLines"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines"/>
   <ViewAttribute
-    Name="Receiveseq"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="Receiveseq"
-    EntityUsage="SrPoReceivingLines"
-    AliasName="RECEIVESEQ"/>
-  <ViewAttribute
     Name="Receivelinesseq"
     IsNotNull="true"
     PrecisionRule="true"

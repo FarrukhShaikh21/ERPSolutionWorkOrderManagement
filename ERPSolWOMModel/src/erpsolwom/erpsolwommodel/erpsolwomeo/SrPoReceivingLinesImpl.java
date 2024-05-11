@@ -22,7 +22,6 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
-        Receiveseq,
         Receivelinesseq,
         Sourcelinesseq,
         ItemId,
@@ -45,7 +44,8 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
         Poreceiveseq,
         SrPoReceivingHeader,
         SrItems;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -69,7 +69,6 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
 
-    public static final int RECEIVESEQ = AttributesEnum.Receiveseq.index();
     public static final int RECEIVELINESSEQ = AttributesEnum.Receivelinesseq.index();
     public static final int SOURCELINESSEQ = AttributesEnum.Sourcelinesseq.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();
@@ -106,22 +105,6 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
         return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines");
     }
 
-
-    /**
-     * Gets the attribute value for Receiveseq, using the alias name Receiveseq.
-     * @return the value of Receiveseq
-     */
-    public Integer getReceiveseq() {
-        return (Integer) getAttributeInternal(RECEIVESEQ);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for Receiveseq.
-     * @param value value to set the Receiveseq
-     */
-    public void setReceiveseq(Integer value) {
-        setAttributeInternal(RECEIVESEQ, value);
-    }
 
     /**
      * Gets the attribute value for Receivelinesseq, using the alias name Receivelinesseq.
