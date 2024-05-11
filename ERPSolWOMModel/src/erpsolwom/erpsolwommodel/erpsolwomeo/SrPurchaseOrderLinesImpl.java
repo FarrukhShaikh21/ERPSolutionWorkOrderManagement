@@ -45,6 +45,8 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         txtNetAmount,
         txtItemName,
         TaxAmount,
+        PoReceiving,
+        RemainingBalance,
         SrPurchaseOrderHeader,
         SrItems;
         private static AttributesEnum[] vals = null;
@@ -94,6 +96,8 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
+    public static final int PORECEIVING = AttributesEnum.PoReceiving.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int SRPURCHASEORDERHEADER = AttributesEnum.SrPurchaseOrderHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
 
@@ -477,6 +481,38 @@ public class SrPurchaseOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setTaxAmount(BigDecimal value) {
         setAttributeInternal(TAXAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for PoReceiving, using the alias name PoReceiving.
+     * @return the value of PoReceiving
+     */
+    public BigDecimal getPoReceiving() {
+        return (BigDecimal) getAttributeInternal(PORECEIVING);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PoReceiving.
+     * @param value value to set the PoReceiving
+     */
+    public void setPoReceiving(BigDecimal value) {
+        setAttributeInternal(PORECEIVING, value);
+    }
+
+    /**
+     * Gets the attribute value for RemainingBalance, using the alias name RemainingBalance.
+     * @return the value of RemainingBalance
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RemainingBalance.
+     * @param value value to set the RemainingBalance
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
     }
 
     /**

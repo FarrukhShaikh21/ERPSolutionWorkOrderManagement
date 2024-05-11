@@ -32,7 +32,11 @@
   <ViewAccessor
     Name="AccSrPurchaseOrderHeaderVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseOrderHeaderRemainingBalanceVO"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO.SrPurchaseOrderHeaderRemainingBalanceVO"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllStoresVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllStoresVO"
@@ -44,6 +48,20 @@
       <PIMap Variable="P_ADF_LOCATIONID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseOrderLinesVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseOrderLinesReceivingVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO.SrPurchaseOrderLinesReceivingVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_PO_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ReceiveDocumentNo==null?-1:ReceiveDocumentNo]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>

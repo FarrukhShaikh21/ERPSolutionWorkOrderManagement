@@ -5,6 +5,7 @@ import erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingHeaderImpl;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -14,6 +15,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
+
 
     public static final int ENTITY_SRPORECEIVINGHEADER = 0;
 
@@ -44,7 +46,8 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
         AccAllLocationsVO,
         AccInReceivingDocTypesVO,
         AccSrPurchaseOrderHeaderVO,
-        AccAllStoresVO;
+        AccAllStoresVO,
+        AccSrPurchaseOrderLinesVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -68,6 +71,7 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int PORECEIVESEQ = AttributesEnum.Poreceiveseq.index();
     public static final int RECEIVECODE = AttributesEnum.ReceiveCode.index();
@@ -93,6 +97,7 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
     public static final int ACCINRECEIVINGDOCTYPESVO = AttributesEnum.AccInReceivingDocTypesVO.index();
     public static final int ACCSRPURCHASEORDERHEADERVO = AttributesEnum.AccSrPurchaseOrderHeaderVO.index();
     public static final int ACCALLSTORESVO = AttributesEnum.AccAllStoresVO.index();
+    public static final int ACCSRPURCHASEORDERLINESVO = AttributesEnum.AccSrPurchaseOrderLinesVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -138,6 +143,7 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
      */
     public void setReceiveCode(String value) {
         setAttributeInternal(RECEIVECODE, value);
+              
     }
 
     /**
@@ -202,6 +208,28 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
      */
     public void setReceiveDocumentNo(String value) {
         setAttributeInternal(RECEIVEDOCUMENTNO, value);
+        while(getSrPoReceivingLinesVO().getRowCount()>0) {
+        getSrPoReceivingLinesVO().first().remove();
+        }
+        
+        getAccSrPurchaseOrderLinesVO().setNamedWhereClauseParam("P_ADF_PO_CODE", value==null?"0":value);
+        getAccSrPurchaseOrderLinesVO().executeQuery();
+        RowSetIterator rsi=getAccSrPurchaseOrderLinesVO();
+        while(rsi.hasNext()) {
+        Row nextRow =rsi.next();
+        Row newRow=getSrPoReceivingLinesVO().createRow();
+        newRow.setAttribute("Sourcelinesseq", nextRow.getAttribute("Polinesseq"));
+        newRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
+        newRow.setAttribute("PoRate", nextRow.getAttribute("PoRate"));
+        newRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
+        newRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
+        newRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
+        newRow.setAttribute("NetAmount", nextRow.getAttribute("NetPrice"));
+        newRow.setAttribute("TaxRate", nextRow.getAttribute("TaxPercent"));
+
+        //            newRow.setAttribute("RequesterId", nextRow.getAttribute("RequesterId"));
+        getSrPoReceivingLinesVO().insertRow(newRow);
+        } 
     }
 
     /**
@@ -442,6 +470,14 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
     public RowSet getAccAllStoresVO() {
         return (RowSet) getAttributeInternal(ACCALLSTORESVO);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSrPurchaseOrderLinesVO.
+     */
+    public RowSet getAccSrPurchaseOrderLinesVO() {
+        return (RowSet) getAttributeInternal(ACCSRPURCHASEORDERLINESVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         if (getPosted().equals("Y")) {

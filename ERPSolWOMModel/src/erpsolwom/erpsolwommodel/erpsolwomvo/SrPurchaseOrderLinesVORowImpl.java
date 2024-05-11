@@ -16,6 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class SrPurchaseOrderLinesVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SRPURCHASEORDERLINES = 0;
 
     /**
@@ -45,6 +46,8 @@ public class SrPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         txtNetAmount,
         txtTaxAmount,
         TaxAmount,
+        PoReceiving,
+        RemainingBalance,
         SrItemsView,
         SrPurchaseOrderHeaderVO,
         AccSrItemsView,
@@ -74,6 +77,7 @@ public class SrPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int POLINESSEQ = AttributesEnum.Polinesseq.index();
     public static final int POHEADERSEQ = AttributesEnum.Poheaderseq.index();
     public static final int BIDCOMPARELINESSEQ = AttributesEnum.Bidcomparelinesseq.index();
@@ -97,6 +101,8 @@ public class SrPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
+    public static final int PORECEIVING = AttributesEnum.PoReceiving.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
     public static final int SRPURCHASEORDERHEADERVO = AttributesEnum.SrPurchaseOrderHeaderVO.index();
     public static final int ACCSRITEMSVIEW = AttributesEnum.AccSrItemsView.index();
@@ -483,6 +489,38 @@ public class SrPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void setTaxAmount(BigDecimal value) {
         setAttributeInternal(TAXAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for PO_RECEIVING using the alias name PoReceiving.
+     * @return the PO_RECEIVING
+     */
+    public BigDecimal getPoReceiving() {
+        return (BigDecimal) getAttributeInternal(PORECEIVING);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PO_RECEIVING using the alias name PoReceiving.
+     * @param value value to set the PO_RECEIVING
+     */
+    public void setPoReceiving(BigDecimal value) {
+        setAttributeInternal(PORECEIVING, value);
+    }
+
+    /**
+     * Gets the attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @return the REMAINING_BALANCE
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @param value value to set the REMAINING_BALANCE
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
     }
 
     /**

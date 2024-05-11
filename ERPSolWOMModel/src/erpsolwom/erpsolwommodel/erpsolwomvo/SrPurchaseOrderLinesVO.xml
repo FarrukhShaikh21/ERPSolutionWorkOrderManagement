@@ -18,6 +18,10 @@
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_PO_CODE"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccSrItemsView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"
@@ -294,6 +298,79 @@
     EntityAttrName="TaxAmount"
     EntityUsage="SrPurchaseOrderLines"
     AliasName="TAX_AMOUNT"/>
+  <ViewAttribute
+    Name="PoReceiving"
+    PrecisionRule="true"
+    EntityAttrName="PoReceiving"
+    EntityUsage="SrPurchaseOrderLines"
+    AliasName="PO_RECEIVING"/>
+  <ViewAttribute
+    Name="RemainingBalance"
+    PrecisionRule="true"
+    EntityAttrName="RemainingBalance"
+    EntityUsage="SrPurchaseOrderLines"
+    AliasName="REMAINING_BALANCE"/>
+  <ViewCriteria
+    Name="SrPurchaseOrderLinesReceivingVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseOrderLinesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="RemainingBalance"
+        ViewAttribute="RemainingBalance"
+        Operator=">"
+        Conjunction="AND"
+        Value="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SrPurchaseOrderHeaderVO"
+        ViewAttribute="SrPurchaseOrderHeaderVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPurchaseOrderHeaderVONestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPurchaseOrderHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="PoCode"
+              ViewAttribute="PoCode"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_PO_CODE"
+              UpperColumns="0"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrItemsView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseOrderLinesItemIdLink"

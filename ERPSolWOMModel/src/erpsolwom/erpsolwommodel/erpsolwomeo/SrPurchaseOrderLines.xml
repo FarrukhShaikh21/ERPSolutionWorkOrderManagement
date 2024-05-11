@@ -310,6 +310,24 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="PoReceiving"
+    Precision="16"
+    Scale="6"
+    ColumnName="PO_RECEIVING"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PURCHASE_ORDER_LINES"/>
+  <Attribute
+    Name="RemainingBalance"
+    Precision="16"
+    Scale="6"
+    ColumnName="REMAINING_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PURCHASE_ORDER_LINES"/>
   <AccessorAttribute
     Name="SrPurchaseOrderHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPurLinPoHeadSeqAssoc"
