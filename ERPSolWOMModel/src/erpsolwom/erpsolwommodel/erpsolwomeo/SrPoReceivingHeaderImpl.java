@@ -42,7 +42,8 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
         txtStoreName,
         SrPoReceivingLines,
         AllLocations,
-        AllStores;
+        AllStores,
+        SrPurchaseOrderHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -87,6 +88,7 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int SRPORECEIVINGLINES = AttributesEnum.SrPoReceivingLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
+    public static final int SRPURCHASEORDERHEADER = AttributesEnum.SrPurchaseOrderHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -409,6 +411,21 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllStores(EntityImpl value) {
         setAttributeInternal(ALLSTORES, value);
+    }
+
+
+    /**
+     * @return the associated entity SrPurchaseOrderHeaderImpl.
+     */
+    public SrPurchaseOrderHeaderImpl getSrPurchaseOrderHeader() {
+        return (SrPurchaseOrderHeaderImpl) getAttributeInternal(SRPURCHASEORDERHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity SrPurchaseOrderHeaderImpl.
+     */
+    public void setSrPurchaseOrderHeader(SrPurchaseOrderHeaderImpl value) {
+        setAttributeInternal(SRPURCHASEORDERHEADER, value);
     }
 
 

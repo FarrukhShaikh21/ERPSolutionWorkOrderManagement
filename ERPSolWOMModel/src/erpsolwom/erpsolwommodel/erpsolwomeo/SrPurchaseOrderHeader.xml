@@ -431,6 +431,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseOrderHeaderSupplierIdAssoc.SrPurchaseOrderHeader"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrPoReceivingHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoReceiveHeaderPoCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoReceiveHeaderPoCodeAssoc.SrPoReceivingHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoReceiveHeaderPoCodeAssoc.SrPurchaseOrderHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSrPurchaseOrderHeader"
     PrimaryKey="true">

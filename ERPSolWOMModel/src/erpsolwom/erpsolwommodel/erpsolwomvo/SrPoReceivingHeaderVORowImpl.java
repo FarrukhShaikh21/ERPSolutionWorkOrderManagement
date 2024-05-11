@@ -43,6 +43,7 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
         SrPoReceivingLinesVO,
         AllLocationsVO,
         AllStoresVO,
+        SrPurchaseOrderHeaderVO,
         AccAllLocationsVO,
         AccInReceivingDocTypesVO,
         AccSrPurchaseOrderHeaderVO,
@@ -93,6 +94,7 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
     public static final int SRPORECEIVINGLINESVO = AttributesEnum.SrPoReceivingLinesVO.index();
     public static final int ALLLOCATIONSVO = AttributesEnum.AllLocationsVO.index();
     public static final int ALLSTORESVO = AttributesEnum.AllStoresVO.index();
+    public static final int SRPURCHASEORDERHEADERVO = AttributesEnum.SrPurchaseOrderHeaderVO.index();
     public static final int ACCALLLOCATIONSVO = AttributesEnum.AccAllLocationsVO.index();
     public static final int ACCINRECEIVINGDOCTYPESVO = AttributesEnum.AccInReceivingDocTypesVO.index();
     public static final int ACCSRPURCHASEORDERHEADERVO = AttributesEnum.AccSrPurchaseOrderHeaderVO.index();
@@ -441,6 +443,20 @@ public class SrPoReceivingHeaderVORowImpl extends ViewRowImpl {
      */
     public void setAllStoresVO(Row value) {
         setAttributeInternal(ALLSTORESVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link SrPurchaseOrderHeaderVO.
+     */
+    public Row getSrPurchaseOrderHeaderVO() {
+        return (Row) getAttributeInternal(SRPURCHASEORDERHEADERVO);
+    }
+
+    /**
+     * Sets the master-detail link SrPurchaseOrderHeaderVO between this object and <code>value</code>.
+     */
+    public void setSrPurchaseOrderHeaderVO(Row value) {
+        setAttributeInternal(SRPURCHASEORDERHEADERVO, value);
     }
 
     /**

@@ -48,7 +48,8 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
         PostedDate,
         SrPurchaseOrderLines,
         AllLocations,
-        PuSuppliers;
+        PuSuppliers,
+        SrPoReceivingHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -71,6 +72,7 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
 
     public static final int POHEADERSEQ = AttributesEnum.Poheaderseq.index();
     public static final int POCODE = AttributesEnum.PoCode.index();
@@ -98,6 +100,7 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int SRPURCHASEORDERLINES = AttributesEnum.SrPurchaseOrderLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
+    public static final int SRPORECEIVINGHEADER = AttributesEnum.SrPoReceivingHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -111,6 +114,7 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader");
     }
+
 
     /**
      * Gets the attribute value for Poheaderseq, using the alias name Poheaderseq.
@@ -513,6 +517,14 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setPuSuppliers(EntityImpl value) {
         setAttributeInternal(PUSUPPLIERS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSrPoReceivingHeader() {
+        return (RowIterator) getAttributeInternal(SRPORECEIVINGHEADER);
     }
 
 

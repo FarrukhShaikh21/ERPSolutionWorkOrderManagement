@@ -403,6 +403,38 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="SrPoReceivingHeaderVO"
+        ViewAttribute="SrPoReceivingHeaderVO"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPoReceivingHeaderVONestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPoReceivingHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Recvdoctypeid"
+              ViewAttribute="Recvdoctypeid"
+              Operator="="
+              Conjunction="AND"
+              Value="SRPOR"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="Posted"
+              ViewAttribute="Posted"
+              Operator="="
+              Conjunction="AND"
+              Value="N"
+              UpperColumns="0"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
@@ -421,6 +453,11 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseOrderHeaderSupplierIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPoReceivingHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurchaseOrderHeaderSrPoReceiveHeaderPoCodeLink"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ClientInterface
     Name="__clientInterface">
