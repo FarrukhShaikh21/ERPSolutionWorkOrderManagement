@@ -40,6 +40,9 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
         ProjectId,
         TaxAmount,
         txtItemName,
+        txtNetAmount,
+        txtGrossAmount,
+        txtTaxAmount,
         SrPoReceivingHeaderVO,
         SrItemsView,
         AllAllDepartmentsView,
@@ -87,6 +90,9 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
     public static final int PROJECTID = AttributesEnum.ProjectId.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
+    public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
+    public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
     public static final int SRPORECEIVINGHEADERVO = AttributesEnum.SrPoReceivingHeaderVO.index();
     public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
     public static final int ALLALLDEPARTMENTSVIEW = AttributesEnum.AllAllDepartmentsView.index();
@@ -377,6 +383,54 @@ public class SrPoReceivingLinesVORowImpl extends ViewRowImpl {
      */
     public void settxtItemName(String value) {
         setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_NET_AMOUNT using the alias name txtNetAmount.
+     * @return the TXT_NET_AMOUNT
+     */
+    public BigDecimal gettxtNetAmount() {
+        return (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_NET_AMOUNT using the alias name txtNetAmount.
+     * @param value value to set the TXT_NET_AMOUNT
+     */
+    public void settxtNetAmount(BigDecimal value) {
+        setAttributeInternal(TXTNETAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_GROSS_AMOUNT using the alias name txtGrossAmount.
+     * @return the TXT_GROSS_AMOUNT
+     */
+    public BigDecimal gettxtGrossAmount() {
+        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_GROSS_AMOUNT using the alias name txtGrossAmount.
+     * @param value value to set the TXT_GROSS_AMOUNT
+     */
+    public void settxtGrossAmount(BigDecimal value) {
+        setAttributeInternal(TXTGROSSAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_TAX_AMOUNT using the alias name txtTaxAmount.
+     * @return the TXT_TAX_AMOUNT
+     */
+    public BigDecimal gettxtTaxAmount() {
+        return (BigDecimal) getAttributeInternal(TXTTAXAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_TAX_AMOUNT using the alias name txtTaxAmount.
+     * @param value value to set the TXT_TAX_AMOUNT
+     */
+    public void settxtTaxAmount(BigDecimal value) {
+        setAttributeInternal(TXTTAXAMOUNT, value);
     }
 
     /**

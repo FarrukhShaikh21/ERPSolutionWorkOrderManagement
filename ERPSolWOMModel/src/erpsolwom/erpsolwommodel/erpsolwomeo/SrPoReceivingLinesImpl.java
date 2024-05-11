@@ -39,6 +39,9 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
         ProjectId,
         TaxAmount,
         txtItemName,
+        txtTaxAmount,
+        txtGrossAmount,
+        txtNetAmount,
         SrPoReceivingHeader,
         SrItems;
         private static AttributesEnum[] vals = null;
@@ -82,6 +85,9 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int PROJECTID = AttributesEnum.ProjectId.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
+    public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
+    public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int SRPORECEIVINGHEADER = AttributesEnum.SrPoReceivingHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
 
@@ -372,6 +378,54 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtTaxAmount, using the alias name txtTaxAmount.
+     * @return the value of txtTaxAmount
+     */
+    public BigDecimal gettxtTaxAmount() {
+        return (BigDecimal) getAttributeInternal(TXTTAXAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTaxAmount.
+     * @param value value to set the txtTaxAmount
+     */
+    public void settxtTaxAmount(BigDecimal value) {
+        setAttributeInternal(TXTTAXAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtGrossAmount, using the alias name txtGrossAmount.
+     * @return the value of txtGrossAmount
+     */
+    public BigDecimal gettxtGrossAmount() {
+        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGrossAmount.
+     * @param value value to set the txtGrossAmount
+     */
+    public void settxtGrossAmount(BigDecimal value) {
+        setAttributeInternal(TXTGROSSAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtNetAmount, using the alias name txtNetAmount.
+     * @return the value of txtNetAmount
+     */
+    public BigDecimal gettxtNetAmount() {
+        return (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtNetAmount.
+     * @param value value to set the txtNetAmount
+     */
+    public void settxtNetAmount(BigDecimal value) {
+        setAttributeInternal(TXTNETAMOUNT, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
     public SrPoReceivingHeaderImpl getSrPoReceivingHeader() {
@@ -445,6 +499,12 @@ public class SrPoReceivingLinesImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation!=DML_DELETE) {
+            populateAttributeAsChanged(NETAMOUNT, gettxtNetAmount());
+           populateAttributeAsChanged(GROSSAMOUNT, gettxtGrossAmount());
+           populateAttributeAsChanged(TAXAMOUNT, gettxtTaxAmount());
+           
+        }
         super.doDML(operation, e);
     }
 }

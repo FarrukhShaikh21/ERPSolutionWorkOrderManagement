@@ -253,6 +253,129 @@
                       </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.SrPoReceivingLinesDetCRUD.collectionModel}" var="row"
+                              rows="#{bindings.SrPoReceivingLinesDetCRUD.rangeSize}"
+                              emptyText="#{bindings.SrPoReceivingLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.SrPoReceivingLinesDetCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SrPoReceivingLinesDetCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SrPoReceivingLinesDetCRUD.rangeSize}" id="t2"
+                              partialTriggers="::b7 ::b12">
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.label}" id="c1"
+                                 width="200">
+                        <af:inputComboboxListOfValues id="txtItemNameId"
+                                                      popupTitle="Search and Select: #{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.label}"
+                                                      value="#{row.bindings.txtItemName.inputValue}"
+                                                      model="#{row.bindings.txtItemName.listOfValuesModel}"
+                                                      required="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.mandatory}"
+                                                      columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.displayWidth}"
+                                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.tooltip}">
+                          <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.PoRate.label}" id="c2"
+                                 rendered="false">
+                        <af:inputText value="#{row.bindings.PoRate.inputValue}"
+                                      label="#{bindings.SrPoReceivingLinesDetCRUD.hints.PoRate.label}"
+                                      required="#{bindings.SrPoReceivingLinesDetCRUD.hints.PoRate.mandatory}"
+                                      columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.PoRate.displayWidth}"
+                                      maximumLength="#{bindings.SrPoReceivingLinesDetCRUD.hints.PoRate.precision}"
+                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.PoRate.tooltip}" id="it1">
+                          <f:validator binding="#{row.bindings.PoRate.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SrPoReceivingLinesDetCRUD.hints.PoRate.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.Quantity.label}" id="c3">
+                        <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                      label="#{bindings.SrPoReceivingLinesDetCRUD.hints.Quantity.label}"
+                                      required="#{bindings.SrPoReceivingLinesDetCRUD.hints.Quantity.mandatory}"
+                                      columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.Quantity.displayWidth}"
+                                      maximumLength="#{bindings.SrPoReceivingLinesDetCRUD.hints.Quantity.precision}"
+                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.Quantity.tooltip}" id="it2">
+                          <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SrPoReceivingLinesDetCRUD.hints.Quantity.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtGrossAmount.label}" id="c4"
+                                 rendered="false">
+                        <af:inputText value="#{row.bindings.txtGrossAmount.inputValue}"
+                                      label="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtGrossAmount.label}"
+                                      required="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtGrossAmount.mandatory}"
+                                      columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtGrossAmount.displayWidth}"
+                                      maximumLength="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtGrossAmount.precision}"
+                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtGrossAmount.tooltip}"
+                                      id="it3">
+                          <f:validator binding="#{row.bindings.txtGrossAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtGrossAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.TaxRate.label}" id="c5"
+                                 rendered="false">
+                        <af:inputText value="#{row.bindings.TaxRate.inputValue}"
+                                      label="#{bindings.SrPoReceivingLinesDetCRUD.hints.TaxRate.label}"
+                                      required="#{bindings.SrPoReceivingLinesDetCRUD.hints.TaxRate.mandatory}"
+                                      columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.TaxRate.displayWidth}"
+                                      maximumLength="#{bindings.SrPoReceivingLinesDetCRUD.hints.TaxRate.precision}"
+                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.TaxRate.tooltip}" id="it4">
+                          <f:validator binding="#{row.bindings.TaxRate.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SrPoReceivingLinesDetCRUD.hints.TaxRate.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtTaxAmount.label}" id="c6"
+                                 rendered="false">
+                        <af:inputText value="#{row.bindings.txtTaxAmount.inputValue}"
+                                      label="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtTaxAmount.label}"
+                                      required="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtTaxAmount.mandatory}"
+                                      columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtTaxAmount.displayWidth}"
+                                      maximumLength="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtTaxAmount.precision}"
+                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtTaxAmount.tooltip}"
+                                      id="it5">
+                          <f:validator binding="#{row.bindings.txtTaxAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtTaxAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtNetAmount.label}" id="c7"
+                                 rendered="false">
+                        <af:inputText value="#{row.bindings.txtNetAmount.inputValue}"
+                                      label="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtNetAmount.label}"
+                                      required="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtNetAmount.mandatory}"
+                                      columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtNetAmount.displayWidth}"
+                                      maximumLength="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtNetAmount.precision}"
+                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtNetAmount.tooltip}"
+                                      id="it7">
+                          <f:validator binding="#{row.bindings.txtNetAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtNetAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.DepartmentId.label}" id="c8"
+                                 width="200">
+                        <af:selectOneChoice value="#{row.bindings.DepartmentId.inputValue}"
+                                            label="#{row.bindings.DepartmentId.label}"
+                                            required="#{bindings.SrPoReceivingLinesDetCRUD.hints.DepartmentId.mandatory}"
+                                            shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.DepartmentId.tooltip}"
+                                            id="soc1">
+                          <f:selectItems value="#{row.bindings.DepartmentId.items}" id="si1"/>
+                          <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column headerText="#{bindings.SrPoReceivingLinesDetCRUD.hints.ProjectId.label}" id="c9"
+                                 width="200">
+                        <af:selectOneChoice value="#{row.bindings.ProjectId.inputValue}"
+                                            label="#{row.bindings.ProjectId.label}"
+                                            required="#{bindings.SrPoReceivingLinesDetCRUD.hints.ProjectId.mandatory}"
+                                            shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.ProjectId.tooltip}"
+                                            id="soc3">
+                          <f:selectItems value="#{row.bindings.ProjectId.items}" id="si3"/>
+                          <f:validator binding="#{row.bindings.ProjectId.validator}"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                    </af:table>
                   </af:panelCollection>
                 </af:gridCell>
               </af:gridRow>

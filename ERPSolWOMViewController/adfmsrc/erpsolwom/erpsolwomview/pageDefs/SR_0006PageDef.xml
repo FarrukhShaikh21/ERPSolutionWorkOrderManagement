@@ -73,5 +73,21 @@
                   DataControl="ERPSolWOMAppModuleDataControl"
                   InstanceName="data.ERPSolWOMAppModuleDataControl.SrPoReceivingHeaderCRUD"
                   ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPOReceiving_ERPSolWOMAppModuleDataControl_SrPoReceivingHeaderCRUD_doSuperviseSrPOReceiving_result"/>
+    <tree IterBinding="SrPoReceivingLinesDetCRUDIterator" id="SrPoReceivingLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingLinesVO"
+                      Name="SrPoReceivingLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="PoRate"/>
+          <Item Value="Quantity"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="TaxRate"/>
+          <Item Value="txtTaxAmount"/>
+          <Item Value="txtNetAmount"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="ProjectId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -193,6 +193,43 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtTaxAmount"
+    ColumnName="TXT_TAX_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(GrossAmount==null?0:GrossAmount)*(TaxRate==null?0:TaxRate)/100]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="txtGrossAmount"
+    ColumnName="TXT_GROSS_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(PoRate==null?0:PoRate)*(Quantity==null?0:Quantity)]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="txtNetAmount"
+    ColumnName="TXT_NET_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(txtGrossAmount==null?0:txtGrossAmount)+(txtTaxAmount==null?0:txtTaxAmount)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </Attribute>
   <AccessorAttribute
     Name="SrPoReceivingHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc"
