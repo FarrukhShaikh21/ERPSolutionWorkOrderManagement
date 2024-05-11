@@ -123,7 +123,8 @@
                                         label="#{bindings.ReceiveDate.hints.label}"
                                         required="#{bindings.ReceiveDate.hints.mandatory}"
                                         columns="#{bindings.ReceiveDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.ReceiveDate.hints.tooltip}" id="id2" simple="true">
+                                        shortDesc="#{bindings.ReceiveDate.hints.tooltip}" id="id2" simple="true"
+                                        readOnly="#{bindings.ReceiveCode.inputValue!=null}">
                             <f:validator binding="#{bindings.ReceiveDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.ReceiveDate.format}"/>
                           </af:inputDate>
@@ -143,7 +144,8 @@
                                                         required="#{bindings.txtLocationName.hints.mandatory}"
                                                         columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                        simple="true" autoSubmit="true">
+                                                        simple="true" autoSubmit="true"
+                                                        readOnly="#{bindings.ReceiveCode.inputValue!=null}">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
@@ -167,7 +169,7 @@
                                                         required="#{bindings.txtStoreName.hints.mandatory}"
                                                         columns="#{bindings.txtStoreName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtStoreName.hints.tooltip}"
-                                                        simple="true">
+                                                        simple="true" partialTriggers="iclov1">
                             <f:validator binding="#{bindings.txtStoreName.validator}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
@@ -269,7 +271,8 @@
                                                       model="#{row.bindings.txtItemName.listOfValuesModel}"
                                                       required="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.mandatory}"
                                                       columns="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.displayWidth}"
-                                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.tooltip}">
+                                                      shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.txtItemName.tooltip}"
+                                                      readOnly="true">
                           <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
@@ -359,7 +362,7 @@
                                             label="#{row.bindings.DepartmentId.label}"
                                             required="#{bindings.SrPoReceivingLinesDetCRUD.hints.DepartmentId.mandatory}"
                                             shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.DepartmentId.tooltip}"
-                                            id="soc1">
+                                            id="soc1" readOnly="true">
                           <f:selectItems value="#{row.bindings.DepartmentId.items}" id="si1"/>
                           <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
                         </af:selectOneChoice>
@@ -370,7 +373,7 @@
                                             label="#{row.bindings.ProjectId.label}"
                                             required="#{bindings.SrPoReceivingLinesDetCRUD.hints.ProjectId.mandatory}"
                                             shortDesc="#{bindings.SrPoReceivingLinesDetCRUD.hints.ProjectId.tooltip}"
-                                            id="soc3">
+                                            id="soc3" readOnly="true">
                           <f:selectItems value="#{row.bindings.ProjectId.items}" id="si3"/>
                           <f:validator binding="#{row.bindings.ProjectId.validator}"/>
                         </af:selectOneChoice>

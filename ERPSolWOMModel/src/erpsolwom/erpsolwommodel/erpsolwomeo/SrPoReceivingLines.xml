@@ -92,7 +92,6 @@
     TableName="SR_PO_RECEIVING_LINES"/>
   <Attribute
     Name="NetAmount"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="NET_AMOUNT"
@@ -114,7 +113,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"

@@ -114,7 +114,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="25"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
@@ -127,7 +126,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
@@ -180,7 +178,10 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PO_RECEIVING_HEADER"/>
+    TableName="SR_PO_RECEIVING_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="txtLocationName"
     Precision="80"
