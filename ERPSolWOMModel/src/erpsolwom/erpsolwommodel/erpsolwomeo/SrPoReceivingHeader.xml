@@ -204,6 +204,23 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtStoreName"
+    Precision="80"
+    ColumnName="TXT_STORE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_RECEIVING_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingHeader.txtStoreName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SrPoReceivingLines"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc"

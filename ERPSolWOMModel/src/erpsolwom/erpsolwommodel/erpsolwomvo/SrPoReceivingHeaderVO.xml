@@ -17,6 +17,28 @@
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccInReceivingDocTypesVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.InReceivingDocTypesVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSrPurchaseOrderHeaderVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllStoresVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllStoresVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllStoresByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.AllStoresVO.AllStoresByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"
     ListVOName="AccAllLocationsVO"
@@ -42,6 +64,69 @@
     <DisplayCriteria
       Name="AllLocationsVOFindVC"/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_Recvdoctypeid"
+    ListVOName="AccInReceivingDocTypesVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Recvdoctypeid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Recvdoctypeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovReceiveDocumentNo"
+    ListVOName="AccSrPurchaseOrderHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ReceiveDocumentNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PoCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PoCode"/>
+      <Item Value="PoDate"/>
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtStoreName"
+    ListVOName="AccAllStoresVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtStoreName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPoReceivingHeader"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingHeader"/>
@@ -66,7 +151,15 @@
     PrecisionRule="true"
     EntityAttrName="Recvdoctypeid"
     EntityUsage="SrPoReceivingHeader"
-    AliasName="RECVDOCTYPEID"/>
+    AliasName="RECVDOCTYPEID"
+    LOVName="LOV_Recvdoctypeid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Storeid"
     PrecisionRule="true"
@@ -85,7 +178,15 @@
     PrecisionRule="true"
     EntityAttrName="ReceiveDocumentNo"
     EntityUsage="SrPoReceivingHeader"
-    AliasName="RECEIVE_DOCUMENT_NO"/>
+    AliasName="RECEIVE_DOCUMENT_NO"
+    LOVName="LovReceiveDocumentNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Remarks"
     PrecisionRule="true"
@@ -154,6 +255,20 @@
     EntityUsage="SrPoReceivingHeader"
     AliasName="TXT_LOCATION_NAME"
     LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtStoreName"
+    PrecisionRule="true"
+    EntityAttrName="txtStoreName"
+    EntityUsage="SrPoReceivingHeader"
+    AliasName="TXT_STORE_NAME"
+    LOVName="LovtxtStoreName">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

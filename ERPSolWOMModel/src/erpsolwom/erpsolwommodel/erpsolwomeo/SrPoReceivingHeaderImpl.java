@@ -39,6 +39,7 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
         PostedDate,
         ReceiveDate,
         txtLocationName,
+        txtStoreName,
         SrPoReceivingLines,
         AllLocations;
         private static AttributesEnum[] vals = null;
@@ -81,6 +82,7 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int POSTEDDATE = AttributesEnum.PostedDate.index();
     public static final int RECEIVEDATE = AttributesEnum.ReceiveDate.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int SRPORECEIVINGLINES = AttributesEnum.SrPoReceivingLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
 
@@ -352,6 +354,22 @@ public class SrPoReceivingHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtLocationName(String value) {
         setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtStoreName, using the alias name txtStoreName.
+     * @return the value of txtStoreName
+     */
+    public String gettxtStoreName() {
+        return (String) getAttributeInternal(TXTSTORENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtStoreName.
+     * @param value value to set the txtStoreName
+     */
+    public void settxtStoreName(String value) {
+        setAttributeInternal(TXTSTORENAME, value);
     }
 
     /**

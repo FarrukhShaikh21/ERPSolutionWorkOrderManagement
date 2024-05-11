@@ -31,5 +31,9 @@
     </attributeValues>
     <listOfValues IterBinding="SrPoReceivingHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
                   id="txtLocationName"/>
+    <list IterBinding="SrPoReceivingHeaderCRUDIterator" StaticList="false" Uses="LOV_Recvdoctypeid" id="Recvdoctypeid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="SrPoReceivingHeaderCRUDIterator" StaticList="false" Uses="LovReceiveDocumentNo"
+                  id="ReceiveDocumentNo"/>
   </bindings>
 </pageDefinition>
