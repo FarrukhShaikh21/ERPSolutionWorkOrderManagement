@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPoReceivingLines"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SR_PO_RECEIVING_LINES"
+  AliasName="SrPoReceivingLines"
+  BindingStyle="OracleName"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLinesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="Receiveseq"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="RECEIVESEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="Receivelinesseq"
+    Precision="10"
+    Scale="0"
+    ColumnName="RECEIVELINESSEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Sourcelinesseq"
+    Precision="10"
+    Scale="0"
+    ColumnName="SOURCELINESSEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="ItemId"
+    Precision="10"
+    Scale="0"
+    ColumnName="ITEM_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="PoRate"
+    Precision="16"
+    Scale="6"
+    ColumnName="PO_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="Quantity"
+    Precision="16"
+    Scale="6"
+    ColumnName="QUANTITY"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="GrossAmount"
+    Precision="16"
+    Scale="6"
+    ColumnName="GROSS_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="TaxRate"
+    Precision="16"
+    Scale="6"
+    ColumnName="TAX_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="NetAmount"
+    IsNotNull="true"
+    Precision="16"
+    Scale="6"
+    ColumnName="NET_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="25"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_RECEIVING_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="25"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_RECEIVING_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Modifieddate"
+    ColumnName="MODIFIEDDATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="DepartmentId"
+    Precision="25"
+    ColumnName="DEPARTMENT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_RECEIVING_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProjectId"
+    Precision="5"
+    Scale="0"
+    ColumnName="PROJECT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <Attribute
+    Name="TaxAmount"
+    Precision="16"
+    Scale="6"
+    ColumnName="TAX_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_RECEIVING_LINES"/>
+  <AccessorAttribute
+    Name="SrPoReceivingHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc.SrPoReceivingHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoRecLinPoRecHeadAssoc.SrPoReceivingLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSrPoReceivingLines"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SR_PO_RECEIVING_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines.Receivelinesseq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkSrPoRecLinPoRecHead">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SR_PO_RECEIVING_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PO_REC_LIN_PO_REC_HEAD"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoReceivingLines.Receiveseq"/>
+    </AttrArray>
+  </Key>
+</Entity>

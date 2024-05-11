@@ -46,6 +46,12 @@
   <ViewUsage
     Name="SrPurchaseOrderLinesDetCURD"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderLinesVO"/>
+  <ViewUsage
+    Name="SrPoReceivingHeaderCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingHeaderVO"/>
+  <ViewUsage
+    Name="SrPoReceivingLinesDetCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingLinesVO"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
@@ -81,5 +87,11 @@
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPurLinPoHeadSeqLink"
     SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseOrderHeaderCRUD"
     DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseOrderLinesDetCURD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkSrPoRecLinPoRecHeadLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoRecLinPoRecHeadLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoReceivingHeaderCRUD"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoReceivingLinesDetCRUD"
     Reversed="false"/>
 </AppModule>

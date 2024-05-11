@@ -482,21 +482,18 @@
         ViewAttribute="Locationid"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="LocationDescription"
         ViewAttribute="LocationDescription"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="LocShortname"
         ViewAttribute="LocShortname"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
@@ -528,6 +525,11 @@
   <ViewLinkAccessor
     Name="SrPurchaseOrderHeaderVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrPurchaseOrderHeaderLocationIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPoReceivingHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrPoReceivingHeaderLocationidLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

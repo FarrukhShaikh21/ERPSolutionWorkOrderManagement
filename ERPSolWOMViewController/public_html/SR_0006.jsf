@@ -1,0 +1,522 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="SR_0006.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
+        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.BidCode.inputValue})"
+                   dialogListener="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolsBIDialogConfirm}" type="yesNo">
+          <f:facet name="buttonBar"/>
+        </af:dialog>
+      </af:popup>
+      <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+        <f:facet name="erptempmain">
+          <af:panelHeader text=" " id="ph1" partialTriggers="b4 b3 b2 b1 b6 b5 ::d2">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:panelGridLayout id="pgl3">
+              <af:gridRow id="gr3">
+                <af:gridCell id="gc5" halign="stretch" valign="middle" styleClass="ERPSolFormEntryAreaHeader">
+                  <af:panelGridLayout id="pgl4">
+                    <af:gridRow height="30px" id="gr1">
+                      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" valign="middle">
+                        <af:outputText value="Master Information" id="ot1" styleClass="ERPSolFormEntryAreaFont"/>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow height="auto" id="gr2" marginTop="10px">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="stretch">
+                  <af:panelBox id="pb1" showDisclosure="false"
+                               inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
+                    <f:facet name="toolbar">
+                      <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.doSuperviseSrPurchaseBID.execute}"
+                                   text="doSuperviseSrPurchaseBID"
+                                   disabled="#{!bindings.doSuperviseSrPurchaseBID.enabled}" id="b8" rendered="false"/>
+                        <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-WOM"
+                                   icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
+                        <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
+                                   iconPosition="top"
+                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRRFQ}"/>
+                        <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
+                                   icon="#{resource['images:imgFind.png']}"/>
+                        <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                   disabled="#{!bindings.Previous.enabled || bindings.RebateId.inputValue==null}" partialSubmit="true" id="b4"
+                                   icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                   icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete Demand"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
+                                   icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New BID"
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
+                                   icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
+                                   id="b6"
+                                   icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+                          <af:resetActionListener/>
+                        </af:button>
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
+                                   icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
+                        <af:spacer width="50" height="10" id="s6"/>
+                        <af:button text="Supervise Transaction" id="b9"
+                                   visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowSubmit=='Y'}"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   icon="#{resource['images:imgSupervise.png']}" iconPosition="top">
+                          <af:showPopupBehavior popupId="::p1" triggerType="action"/>
+                        </af:button>
+                      </af:toolbar>
+                    </f:facet>
+                    <af:panelGridLayout id="pgl5">
+                      <af:gridRow marginTop="5px" height="auto" id="gr4">
+                        <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.ReceiveCode.hints.label}" id="ol5"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Poreceiveseq.inputValue}"
+                                        label="#{bindings.Poreceiveseq.hints.label}"
+                                        required="#{bindings.Poreceiveseq.hints.mandatory}"
+                                        columns="#{bindings.Poreceiveseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Poreceiveseq.hints.precision}"
+                                        shortDesc="#{bindings.Poreceiveseq.hints.tooltip}" id="it12" rendered="false">
+                            <f:validator binding="#{bindings.Poreceiveseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Poreceiveseq.format}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.ReceiveCode.inputValue}"
+                                        label="#{bindings.ReceiveCode.hints.label}"
+                                        required="#{bindings.ReceiveCode.hints.mandatory}"
+                                        columns="#{bindings.ReceiveCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.ReceiveCode.hints.precision}"
+                                        shortDesc="#{bindings.ReceiveCode.hints.tooltip}" id="it13" simple="true"
+                                        readOnly="true">
+                            <f:validator binding="#{bindings.ReceiveCode.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Companyid.inputValue}"
+                                        label="#{bindings.Companyid.hints.label}"
+                                        required="#{bindings.Companyid.hints.mandatory}"
+                                        columns="#{bindings.Companyid.hints.displayWidth}"
+                                        maximumLength="#{bindings.Companyid.hints.precision}"
+                                        shortDesc="#{bindings.Companyid.hints.tooltip}" id="it17" rendered="false">
+                            <f:validator binding="#{bindings.Companyid.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
+                                        required="#{bindings.Posted.hints.mandatory}"
+                                        columns="#{bindings.Posted.hints.displayWidth}"
+                                        maximumLength="#{bindings.Posted.hints.precision}"
+                                        shortDesc="#{bindings.Posted.hints.tooltip}" id="it6" rendered="false">
+                            <f:validator binding="#{bindings.Posted.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.ReceiveDate.hints.label}" id="ol9"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7">
+                          <af:inputDate value="#{bindings.ReceiveDate.inputValue}"
+                                        label="#{bindings.ReceiveDate.hints.label}"
+                                        required="#{bindings.ReceiveDate.hints.mandatory}"
+                                        columns="#{bindings.ReceiveDate.hints.displayWidth}"
+                                        shortDesc="#{bindings.ReceiveDate.hints.tooltip}" id="id2" simple="true">
+                            <f:validator binding="#{bindings.ReceiveDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ReceiveDate.format}"/>
+                          </af:inputDate>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" id="gr6">
+                        <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.txtLocationName.hints.label}" id="ol6"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" halign="stretch"
+                                     valign="middle">
+                          <af:inputComboboxListOfValues id="iclov1"
+                                                        popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                        value="#{bindings.txtLocationName.inputValue}"
+                                                        label="#{bindings.txtLocationName.hints.label}"
+                                                        model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                        required="#{bindings.txtLocationName.hints.mandatory}"
+                                                        columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                        shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                        simple="true" autoSubmit="true">
+                            <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
+                          </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol13"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
+                          <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                        popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
+                                                        value="#{bindings.txtSupplierName.inputValue}"
+                                                        label="#{bindings.txtSupplierName.hints.label}"
+                                                        model="#{bindings.txtSupplierName.listOfValuesModel}"
+                                                        required="#{bindings.txtSupplierName.hints.mandatory}"
+                                                        columns="#{bindings.txtSupplierName.hints.displayWidth}"
+                                                        shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
+                                                        simple="true" autoSubmit="true">
+                            <f:validator binding="#{bindings.txtSupplierName.validator}"/>
+                          </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                        <af:gridCell id="gc23" width="15%" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.RfqHeaderCode.hints.label}" id="ol4"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc22" width="35%">
+                          <af:inputComboboxListOfValues id="rfqHeaderCodeId"
+                                                        popupTitle="Search and Select: #{bindings.RfqHeaderCode.hints.label}"
+                                                        value="#{bindings.RfqHeaderCode.inputValue}"
+                                                        label="#{bindings.RfqHeaderCode.hints.label}"
+                                                        model="#{bindings.RfqHeaderCode.listOfValuesModel}"
+                                                        required="#{bindings.RfqHeaderCode.hints.mandatory}"
+                                                        columns="#{bindings.RfqHeaderCode.hints.displayWidth}"
+                                                        shortDesc="#{bindings.RfqHeaderCode.hints.tooltip}"
+                                                        simple="true" autoSubmit="true"
+                                                        partialTriggers="txtSupplierNameId">
+                            <f:validator binding="#{bindings.RfqHeaderCode.validator}"/>
+                          </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.DemandCode.hints.label}" id="ol12"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" id="gc31" columnSpan="1" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.DemandCode.inputValue}"
+                                        label="#{bindings.DemandCode.hints.label}"
+                                        required="#{bindings.DemandCode.hints.mandatory}"
+                                        columns="#{bindings.DemandCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.DemandCode.hints.precision}"
+                                        shortDesc="#{bindings.DemandCode.hints.tooltip}" id="it8" simple="true"
+                                        readOnly="true">
+                            <f:validator binding="#{bindings.DemandCode.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" id="gr5">
+                        <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.EffectiveFrom.hints.label}" id="ol1"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
+                          <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
+                                        label="#{bindings.EffectiveFrom.hints.label}"
+                                        required="#{bindings.EffectiveFrom.hints.mandatory}"
+                                        columns="#{bindings.EffectiveFrom.hints.displayWidth}"
+                                        shortDesc="#{bindings.EffectiveFrom.hints.tooltip}" id="id5" simple="true">
+                            <f:validator binding="#{bindings.EffectiveFrom.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.EffectiveFrom.format}"/>
+                          </af:inputDate>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.EffectiveTo.hints.label}" id="ol11"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
+                                     valign="middle">
+                          <af:inputDate value="#{bindings.EffectiveTo.inputValue}"
+                                        label="#{bindings.EffectiveTo.hints.label}"
+                                        required="#{bindings.EffectiveTo.hints.mandatory}"
+                                        columns="#{bindings.EffectiveTo.hints.displayWidth}"
+                                        shortDesc="#{bindings.EffectiveTo.hints.tooltip}" id="id6" simple="true">
+                            <f:validator binding="#{bindings.EffectiveTo.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.EffectiveTo.format}"/>
+                          </af:inputDate>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                        <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.SupplierQuoteNo.hints.label}" id="ol7"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="35%" id="gc17" columnSpan="1" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.SupplierQuoteNo.inputValue}"
+                                        label="#{bindings.SupplierQuoteNo.hints.label}"
+                                        required="#{bindings.SupplierQuoteNo.hints.mandatory}"
+                                        columns="#{bindings.SupplierQuoteNo.hints.displayWidth}"
+                                        maximumLength="#{bindings.SupplierQuoteNo.hints.precision}"
+                                        shortDesc="#{bindings.SupplierQuoteNo.hints.tooltip}" id="it3" simple="true">
+                            <f:validator binding="#{bindings.SupplierQuoteNo.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell id="gc33" width="15%" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.ResponseDate.hints.label}" id="ol10"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc34" width="35%" halign="stretch">
+                          <af:inputDate value="#{bindings.ResponseDate.inputValue}"
+                                        label="#{bindings.ResponseDate.hints.label}"
+                                        required="#{bindings.ResponseDate.hints.mandatory}"
+                                        columns="#{bindings.ResponseDate.hints.displayWidth}"
+                                        shortDesc="#{bindings.ResponseDate.hints.tooltip}" id="id1" simple="true">
+                            <f:validator binding="#{bindings.ResponseDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ResponseDate.format}"/>
+                          </af:inputDate>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                        <af:gridCell marginStart="5px" width="15%" id="gc30" valign="middle" halign="center">
+                          <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol3"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="75%" id="gc32" columnSpan="3" rowSpan="1"
+                                     halign="stretch">
+                          <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
+                                        required="#{bindings.Remarks.hints.mandatory}"
+                                        columns="#{bindings.Remarks.hints.displayWidth}"
+                                        maximumLength="#{bindings.Remarks.hints.precision}"
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it20" simple="true"
+                                        contentStyle="width:100%">
+                            <f:validator binding="#{bindings.Remarks.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                  </af:panelBox>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:panelGridLayout id="pgl1">
+              <af:gridRow id="gr30">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc28"
+                             styleClass="ERPSolFormEntryAreaHeader" halign="stretch" valign="stretch">
+                  <af:panelGridLayout id="pgl2">
+                    <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr12">
+                      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29" halign="stretch"
+                                   valign="stretch">
+                        <af:outputText value="Detail Information" id="ot6" styleClass="ERPSolFormEntryAreaFont"/>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch" valign="stretch">
+                  <af:panelTabbed position="above" id="pt2" styleClass="AFStretchWidth">
+                    <af:showDetailItem id="tab1" text="Item Detail" styleClass="AFStretchWidth">
+                      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                          <af:toolbar id="t3"/>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.SrPurchaseBidLinesDetCRUD.collectionModel}" var="row"
+                                  rows="#{bindings.SrPurchaseBidLinesDetCRUD.rangeSize}"
+                                  emptyText="#{bindings.SrPurchaseBidLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.SrPurchaseBidLinesDetCRUD.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.SrPurchaseBidLinesDetCRUD.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.SrPurchaseBidLinesDetCRUD.rangeSize}"
+                                  id="t2">
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtItemName.label}" id="c1">
+                            <af:inputText value="#{row.bindings.txtItemName.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtItemName.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtItemName.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtItemName.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtItemName.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtItemName.tooltip}"
+                                          id="it1" readOnly="true">
+                              <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.ProjectId.label}" id="c2">
+                            <af:selectOneChoice value="#{row.bindings.ProjectId.inputValue}"
+                                                label="#{row.bindings.ProjectId.label}"
+                                                required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.ProjectId.mandatory}"
+                                                shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.ProjectId.tooltip}"
+                                                id="soc1" readOnly="true">
+                              <f:selectItems value="#{row.bindings.ProjectId.items}" id="si1"/>
+                              <f:validator binding="#{row.bindings.ProjectId.validator}"/>
+                            </af:selectOneChoice>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.DepartmentId.label}"
+                                     id="c3">
+                            <af:inputComboboxListOfValues id="departmentIdId"
+                                                          popupTitle="Search and Select: #{bindings.SrPurchaseBidLinesDetCRUD.hints.DepartmentId.label}"
+                                                          value="#{row.bindings.DepartmentId.inputValue}"
+                                                          model="#{row.bindings.DepartmentId.listOfValuesModel}"
+                                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.DepartmentId.mandatory}"
+                                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.DepartmentId.displayWidth}"
+                                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.DepartmentId.tooltip}"
+                                                          readOnly="true">
+                              <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                            </af:inputComboboxListOfValues>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Quantity.label}" id="c4">
+                            <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Quantity.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Quantity.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Quantity.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Quantity.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Quantity.tooltip}"
+                                          id="it2" readOnly="true">
+                              <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Quantity.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.BidPrice.label}" id="c5">
+                            <af:inputText value="#{row.bindings.BidPrice.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.BidPrice.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.BidPrice.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.BidPrice.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.BidPrice.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.BidPrice.tooltip}"
+                                          id="it4">
+                              <f:validator binding="#{row.bindings.BidPrice.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.SrPurchaseBidLinesDetCRUD.hints.BidPrice.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.TaxPercent.label}" id="c6">
+                            <af:inputText value="#{row.bindings.TaxPercent.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.TaxPercent.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.TaxPercent.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.TaxPercent.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.TaxPercent.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.TaxPercent.tooltip}"
+                                          id="it5">
+                              <f:validator binding="#{row.bindings.TaxPercent.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.SrPurchaseBidLinesDetCRUD.hints.TaxPercent.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtTaxAmount.label}"
+                                     id="c7">
+                            <af:inputText value="#{row.bindings.txtTaxAmount.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtTaxAmount.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtTaxAmount.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtTaxAmount.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtTaxAmount.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtTaxAmount.tooltip}"
+                                          id="it7" readOnly="true">
+                              <f:validator binding="#{row.bindings.txtTaxAmount.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtTaxAmount.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtNetAmount.label}"
+                                     id="c8">
+                            <af:inputText value="#{row.bindings.txtNetAmount.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtNetAmount.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtNetAmount.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtNetAmount.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtNetAmount.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtNetAmount.tooltip}"
+                                          id="it9" readOnly="true">
+                              <f:validator binding="#{row.bindings.txtNetAmount.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.SrPurchaseBidLinesDetCRUD.hints.txtNetAmount.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.SupplierItemName.label}"
+                                     id="c9">
+                            <af:inputText value="#{row.bindings.SupplierItemName.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.SupplierItemName.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.SupplierItemName.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.SupplierItemName.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.SupplierItemName.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.SupplierItemName.tooltip}"
+                                          id="it10">
+                              <f:validator binding="#{row.bindings.SupplierItemName.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Remarks.label}" id="c10">
+                            <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                          label="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Remarks.label}"
+                                          required="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Remarks.mandatory}"
+                                          columns="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Remarks.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Remarks.precision}"
+                                          shortDesc="#{bindings.SrPurchaseBidLinesDetCRUD.hints.Remarks.tooltip}"
+                                          id="it11">
+                              <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                        </af:table>
+                      </af:panelCollection>
+                    </af:showDetailItem>
+                    <af:showDetailItem id="tab2" text="Supplier Detail">
+                      <af:panelCollection id="pc2">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                          <af:toolbar id="t5">
+                            <af:button actionListener="#{bindings.CreateInsert2.execute}"
+                                       disabled="#{!bindings.CreateInsert2.enabled}" id="b13"
+                                       icon="#{resource['images:imgAdd.png']}"/>
+                            <af:button actionListener="#{bindings.Delete2.execute}"
+                                       disabled="#{!bindings.Delete2.enabled}" id="b15"
+                                       icon="#{resource['images:imgDelete.png']}"/>
+                          </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.SrPurchaseRfqSupplierDetCRUD.collectionModel}" var="row"
+                                  rows="#{bindings.SrPurchaseRfqSupplierDetCRUD.rangeSize}"
+                                  emptyText="#{bindings.SrPurchaseRfqSupplierDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.SrPurchaseRfqSupplierDetCRUD.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.SrPurchaseRfqSupplierDetCRUD.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.SrPurchaseRfqSupplierDetCRUD.rangeSize}"
+                                  id="t4" partialTriggers="::b13 ::b15" autoHeightRows="5" scrollPolicy="page">
+                          <af:column headerText="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.Supplierid.label}"
+                                     id="c11" width="200">
+                            <af:selectOneChoice value="#{row.bindings.Supplierid.inputValue}"
+                                                label="#{row.bindings.Supplierid.label}"
+                                                required="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.Supplierid.mandatory}"
+                                                shortDesc="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.Supplierid.tooltip}"
+                                                id="soc3">
+                              <f:selectItems value="#{row.bindings.Supplierid.items}" id="si3"/>
+                              <f:validator binding="#{row.bindings.Supplierid.validator}"/>
+                            </af:selectOneChoice>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.ContactNo.label}"
+                                     id="c12">
+                            <af:inputText value="#{row.bindings.ContactNo.inputValue}"
+                                          label="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.ContactNo.label}"
+                                          required="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.ContactNo.mandatory}"
+                                          columns="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.ContactNo.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.ContactNo.precision}"
+                                          shortDesc="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.ContactNo.tooltip}"
+                                          id="it14">
+                              <f:validator binding="#{row.bindings.ContactNo.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.SupplierRemarks.label}"
+                                     id="c13">
+                            <af:inputText value="#{row.bindings.SupplierRemarks.inputValue}"
+                                          label="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.SupplierRemarks.label}"
+                                          required="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.SupplierRemarks.mandatory}"
+                                          columns="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.SupplierRemarks.displayWidth}"
+                                          maximumLength="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.SupplierRemarks.precision}"
+                                          shortDesc="#{bindings.SrPurchaseRfqSupplierDetCRUD.hints.SupplierRemarks.tooltip}"
+                                          id="it15">
+                              <f:validator binding="#{row.bindings.SupplierRemarks.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                        </af:table>
+                      </af:panelCollection>
+                    </af:showDetailItem>
+                  </af:panelTabbed>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:panelHeader>
+        </f:facet>
+        <f:facet name="erptempleft"/>
+      </af:pageTemplate>
+    </af:form>
+    <f:facet name="metaContainer">
+      <af:resource type="javascript">function jserpcontrolEnterKey(erpevt) {
+
+      var _keyCode = erpevt.getKeyCode();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+          var comp = erpevt.getSource();
+          AdfCustomEvent.queue(comp, "ERPEnterEvent", {erpvalue:comp.getSubmittedValue()}, true);
+          erpevt.cancel();
+      }
+   }</af:resource>
+    </f:facet>
+  </af:document>
+</f:view>
