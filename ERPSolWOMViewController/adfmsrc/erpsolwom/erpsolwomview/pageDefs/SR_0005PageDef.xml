@@ -93,5 +93,10 @@
             Action="removeCurrentRow"/>
     <list IterBinding="SrPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovPaymenttermid"
           id="Paymenttermid" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

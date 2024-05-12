@@ -51,7 +51,7 @@
                 <af:column id="c14">
                   <af:button actionListener="#{bindings.doGeneratePOFromBidCompare.execute}"
                              text="Generate Po"
-                             disabled="#{!bindings.doGeneratePOFromBidCompare.enabled}" id="b15"/>
+                             disabled="#{bindings.Posted.inputValue=='N'}" id="b15"/>
                 </af:column>
                 <af:column headerText="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.label}" id="c13"
                            rendered="false">
@@ -218,7 +218,7 @@
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
                                    iconPosition="top"
-                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRRFQ}"/>
+                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRBIDCOMP}"/>
                         <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
                                    icon="#{resource['images:imgFind.png']}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
