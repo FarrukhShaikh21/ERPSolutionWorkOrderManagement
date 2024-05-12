@@ -98,5 +98,10 @@
         <Item Value="Companyid"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SrPurchaseOrderHeaderCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -25,7 +25,14 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_ORDER_HEADER"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PoCode"
     IsUnique="true"
@@ -42,6 +49,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.PoCode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -60,6 +69,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.RfqHeaderCode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -96,6 +107,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.ReferenceNo_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -114,6 +127,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.BillTo_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -132,6 +147,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.ShipTo_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -147,6 +164,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.DemandCode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
    </Attribute> 
@@ -162,6 +181,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.CompareCode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -179,6 +200,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.PoDate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -217,6 +240,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.PoFor_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -237,6 +262,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeader.PoType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -402,6 +429,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="PostedDate"

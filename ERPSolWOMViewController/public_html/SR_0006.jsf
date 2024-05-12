@@ -136,6 +136,14 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" halign="stretch"
                                      valign="middle">
+                          <af:inputText value="#{bindings.Locationid.inputValue}"
+                                        label="#{bindings.Locationid.hints.label}"
+                                        required="#{bindings.Locationid.hints.mandatory}"
+                                        columns="#{bindings.Locationid.hints.displayWidth}"
+                                        maximumLength="#{bindings.Locationid.hints.precision}"
+                                        shortDesc="#{bindings.Locationid.hints.tooltip}" id="it9" rendered="false">
+                            <f:validator binding="#{bindings.Locationid.validator}"/>
+                          </af:inputText>
                           <af:inputComboboxListOfValues id="iclov1"
                                                         popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
                                                         value="#{bindings.txtLocationName.inputValue}"
@@ -171,6 +179,7 @@
                                                         shortDesc="#{bindings.txtStoreName.hints.tooltip}"
                                                         simple="true" partialTriggers="iclov1">
                             <f:validator binding="#{bindings.txtStoreName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolGetAutoSuggestedStoreValues}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
                       </af:gridRow>

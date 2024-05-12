@@ -146,6 +146,7 @@ public class VwBidCompareForPoGenerateVORowImpl extends ViewRowImpl implements V
                 cs.executeUpdate();
                 
                     this.getDBTransaction().commit();
+                    this.getViewObject().executeQuery();
                     JboException jbo=new JboException(cs.getString(1));
                     jbo.setSeverity(JboException.SEVERITY_WARNING);
                     throw jbo;
