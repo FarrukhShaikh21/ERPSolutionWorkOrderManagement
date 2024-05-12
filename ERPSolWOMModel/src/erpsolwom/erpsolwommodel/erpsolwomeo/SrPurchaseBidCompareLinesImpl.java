@@ -45,9 +45,12 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
         Quantity,
         txtSupplierName,
         Rfqlinesseqno,
+        GeneratePo,
+        PoGenerated,
         SrPurchaseBidCompareHeader,
         SrItems,
-        PuSuppliers;
+        PuSuppliers,
+        VwBidCompareForPoGenerate;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -93,9 +96,12 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int QUANTITY = AttributesEnum.Quantity.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int RFQLINESSEQNO = AttributesEnum.Rfqlinesseqno.index();
+    public static final int GENERATEPO = AttributesEnum.GeneratePo.index();
+    public static final int POGENERATED = AttributesEnum.PoGenerated.index();
     public static final int SRPURCHASEBIDCOMPAREHEADER = AttributesEnum.SrPurchaseBidCompareHeader.index();
     public static final int SRITEMS = AttributesEnum.SrItems.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
+    public static final int VWBIDCOMPAREFORPOGENERATE = AttributesEnum.VwBidCompareForPoGenerate.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -448,6 +454,38 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for GeneratePo, using the alias name GeneratePo.
+     * @return the value of GeneratePo
+     */
+    public String getGeneratePo() {
+        return (String) getAttributeInternal(GENERATEPO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GeneratePo.
+     * @param value value to set the GeneratePo
+     */
+    public void setGeneratePo(String value) {
+        setAttributeInternal(GENERATEPO, value);
+    }
+
+    /**
+     * Gets the attribute value for PoGenerated, using the alias name PoGenerated.
+     * @return the value of PoGenerated
+     */
+    public String getPoGenerated() {
+        return (String) getAttributeInternal(POGENERATED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PoGenerated.
+     * @param value value to set the PoGenerated
+     */
+    public void setPoGenerated(String value) {
+        setAttributeInternal(POGENERATED, value);
+    }
+
+    /**
      * @return the associated entity erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl.
      */
     public SrPurchaseBidCompareHeaderImpl getSrPurchaseBidCompareHeader() {
@@ -488,6 +526,21 @@ public class SrPurchaseBidCompareLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setPuSuppliers(EntityImpl value) {
         setAttributeInternal(PUSUPPLIERS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getVwBidCompareForPoGenerate() {
+        return (EntityImpl) getAttributeInternal(VWBIDCOMPAREFORPOGENERATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setVwBidCompareForPoGenerate(EntityImpl value) {
+        setAttributeInternal(VWBIDCOMPAREFORPOGENERATE, value);
     }
 
 

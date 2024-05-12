@@ -255,6 +255,54 @@
     EntityAttrName="Rfqlinesseqno"
     EntityUsage="SrPurchaseBidCompareLines"
     AliasName="RFQLINESSEQNO"/>
+  <ViewAttribute
+    Name="PoGenerated"
+    PrecisionRule="true"
+    EntityAttrName="PoGenerated"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="PO_GENERATED"/>
+  <ViewAttribute
+    Name="GeneratePo"
+    PrecisionRule="true"
+    EntityAttrName="GeneratePo"
+    EntityUsage="SrPurchaseBidCompareLines"
+    AliasName="GENERATE_PO"/>
+  <ViewCriteria
+    Name="SrPurchaseBidCompareLinesViewIsSelectVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseBidCompareLinesViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="IsSelect"
+        ViewAttribute="IsSelect"
+        Operator="="
+        Conjunction="AND"
+        Value="Y"
+        UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrItemsView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrItemSrPurchaseBidCompLinesItemIdLink"
@@ -273,6 +321,18 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="VwBidCompareForPoGenerateVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <SortCriteria>
+    <Sort
+      Attribute="ItemId"/>
+    <Sort
+      Attribute="Supplierid"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="ItemId"/>

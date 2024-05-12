@@ -10,6 +10,176 @@
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                popupFetchListener="#{pageFlowScope.ERPSolWOMPageFlowBean.doQueryBidCompareForPoGenerate}"
+                contentDelivery="lazyUncached">
+        <af:dialog id="d3">
+          <f:facet name="buttonBar"/>
+          <af:panelSplitter id="ps1" splitterPosition="400" disabled="true">
+            <f:facet name="first">
+              <af:table value="#{bindings.VwBidCompareForPoGenerateRO.collectionModel}" var="row"
+                        rows="#{bindings.VwBidCompareForPoGenerateRO.rangeSize}"
+                        emptyText="#{bindings.VwBidCompareForPoGenerateRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.VwBidCompareForPoGenerateRO.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.VwBidCompareForPoGenerateRO.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.VwBidCompareForPoGenerateRO.rangeSize}" id="t4"
+                        columnStretching="column:c12" partialTriggers="::pt1:b13" scrollPolicy="page"
+                        autoHeightRows="10">
+                <af:column headerText="#{bindings.VwBidCompareForPoGenerateRO.hints.Supplierid.label}" id="c11"
+                           rendered="false">
+                  <af:inputText value="#{row.bindings.Supplierid.inputValue}"
+                                label="#{bindings.VwBidCompareForPoGenerateRO.hints.Supplierid.label}"
+                                required="#{bindings.VwBidCompareForPoGenerateRO.hints.Supplierid.mandatory}"
+                                columns="#{bindings.VwBidCompareForPoGenerateRO.hints.Supplierid.displayWidth}"
+                                maximumLength="#{bindings.VwBidCompareForPoGenerateRO.hints.Supplierid.precision}"
+                                shortDesc="#{bindings.VwBidCompareForPoGenerateRO.hints.Supplierid.tooltip}" id="it9">
+                    <f:validator binding="#{row.bindings.Supplierid.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.VwBidCompareForPoGenerateRO.hints.SuppName.label}" id="c12">
+                  <af:inputText value="#{row.bindings.SuppName.inputValue}"
+                                label="#{bindings.VwBidCompareForPoGenerateRO.hints.SuppName.label}"
+                                required="#{bindings.VwBidCompareForPoGenerateRO.hints.SuppName.mandatory}"
+                                columns="#{bindings.VwBidCompareForPoGenerateRO.hints.SuppName.displayWidth}"
+                                maximumLength="#{bindings.VwBidCompareForPoGenerateRO.hints.SuppName.precision}"
+                                shortDesc="#{bindings.VwBidCompareForPoGenerateRO.hints.SuppName.tooltip}" id="it10"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.SuppName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column id="c14">
+                  <af:button text="Generate PO" id="b12"/>
+                </af:column>
+                <af:column headerText="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.label}" id="c13"
+                           rendered="false">
+                  <af:inputText value="#{row.bindings.Bidcompareheaderseq.inputValue}"
+                                label="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.label}"
+                                required="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.mandatory}"
+                                columns="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.displayWidth}"
+                                maximumLength="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.precision}"
+                                shortDesc="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.tooltip}"
+                                id="it11">
+                    <f:validator binding="#{row.bindings.Bidcompareheaderseq.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </f:facet>
+            <f:facet name="second">
+              <af:table value="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.collectionModel}" var="row"
+                        rows="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.rangeSize}"
+                        emptyText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.rangeSize}"
+                        id="t5" partialTriggers="::pt1:b13" autoHeightRows="5" styleClass="AFStretchWidth"
+                        scrollPolicy="page" columnStretching="last">
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.txtItemName.label}"
+                           id="c15" width="200">
+                  <af:inputText value="#{row.bindings.txtItemName.inputValue}"
+                                label="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.txtItemName.label}"
+                                required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.txtItemName.mandatory}"
+                                columns="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.txtItemName.displayWidth}"
+                                maximumLength="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.txtItemName.precision}"
+                                shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.txtItemName.tooltip}"
+                                id="it13" readOnly="true">
+                    <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidRate.label}" id="c16">
+                  <af:inputText value="#{row.bindings.BidRate.inputValue}"
+                                label="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidRate.label}"
+                                required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidRate.mandatory}"
+                                columns="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidRate.displayWidth}"
+                                maximumLength="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidRate.precision}"
+                                shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidRate.tooltip}"
+                                id="it14" readOnly="true">
+                    <f:validator binding="#{row.bindings.BidRate.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidRate.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.Quantity.label}" id="c17">
+                  <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                label="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.Quantity.label}"
+                                required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.Quantity.mandatory}"
+                                columns="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.Quantity.displayWidth}"
+                                maximumLength="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.Quantity.precision}"
+                                shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.Quantity.tooltip}"
+                                id="it15" readOnly="true">
+                    <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.Quantity.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.TaxRate.label}" id="c18">
+                  <af:inputText value="#{row.bindings.TaxRate.inputValue}"
+                                label="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.TaxRate.label}"
+                                required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.TaxRate.mandatory}"
+                                columns="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.TaxRate.displayWidth}"
+                                maximumLength="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.TaxRate.precision}"
+                                shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.TaxRate.tooltip}"
+                                id="it16" readOnly="true">
+                    <f:validator binding="#{row.bindings.TaxRate.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.TaxRate.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.NetAmount.label}"
+                           id="c19">
+                  <af:inputText value="#{row.bindings.NetAmount.inputValue}"
+                                label="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.NetAmount.label}"
+                                required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.NetAmount.mandatory}"
+                                columns="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.NetAmount.displayWidth}"
+                                maximumLength="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.NetAmount.precision}"
+                                shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.NetAmount.tooltip}"
+                                id="it18" readOnly="true">
+                    <f:validator binding="#{row.bindings.NetAmount.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.NetAmount.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.DepartmentId.label}"
+                           id="c20" width="200">
+                  <af:selectOneChoice value="#{row.bindings.DepartmentId.inputValue}"
+                                      label="#{row.bindings.DepartmentId.label}"
+                                      required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.DepartmentId.mandatory}"
+                                      shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.DepartmentId.tooltip}"
+                                      id="soc5" readOnly="true">
+                    <f:selectItems value="#{row.bindings.DepartmentId.items}" id="si6"/>
+                    <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.ProjectId.label}"
+                           id="c21">
+                  <af:selectOneChoice value="#{row.bindings.ProjectId.inputValue}"
+                                      label="#{row.bindings.ProjectId.label}"
+                                      required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.ProjectId.mandatory}"
+                                      shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.ProjectId.tooltip}"
+                                      id="soc6" readOnly="true">
+                    <f:selectItems value="#{row.bindings.ProjectId.items}" id="si7"/>
+                    <f:validator binding="#{row.bindings.ProjectId.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidCriteriaSno.label}"
+                           id="c22" rendered="false">
+                  <af:selectOneChoice value="#{row.bindings.BidCriteriaSno.inputValue}"
+                                      label="#{row.bindings.BidCriteriaSno.label}"
+                                      required="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidCriteriaSno.mandatory}"
+                                      shortDesc="#{bindings.SrPurchaseBidCompareLinesPoGenerateRO.hints.BidCriteriaSno.tooltip}"
+                                      id="soc7" readOnly="true">
+                    <f:selectItems value="#{row.bindings.BidCriteriaSno.items}" id="si8"/>
+                    <f:validator binding="#{row.bindings.BidCriteriaSno.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </af:panelSplitter>
+        </af:dialog>
+      </af:popup>
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="erptempmain">
           <af:panelHeader text=" " id="ph1" partialTriggers="b4 b3 b2 b1 b6 b5 ::d2">
@@ -37,6 +207,8 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
+                                   disabled="#{!bindings.ExecuteWithParams.enabled}" id="b13" rendered="false"/>
                         <af:button actionListener="#{bindings.doSuperviseSrPurchaseComp.execute}"
                                    text="doSuperviseSrPurchaseComp"
                                    disabled="#{!bindings.doSuperviseSrPurchaseComp.enabled}" id="b7" rendered="false"/>
@@ -81,6 +253,16 @@
                           <af:outputLabel value="#{bindings.BidCompareCode.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Bidcompareheaderseq.inputValue}"
+                                        label="#{bindings.Bidcompareheaderseq.hints.label}"
+                                        required="#{bindings.Bidcompareheaderseq.hints.mandatory}"
+                                        columns="#{bindings.Bidcompareheaderseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Bidcompareheaderseq.hints.precision}"
+                                        shortDesc="#{bindings.Bidcompareheaderseq.hints.tooltip}" id="it19"
+                                        rendered="false">
+                            <f:validator binding="#{bindings.Bidcompareheaderseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Bidcompareheaderseq.format}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.BidCompareCode.inputValue}"
                                         label="#{bindings.BidCompareCode.hints.label}"
                                         required="#{bindings.BidCompareCode.hints.mandatory}"
@@ -174,7 +356,11 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle" halign="center"/>
                         <af:gridCell marginStart="5px" width="35%" id="gc31" columnSpan="1" rowSpan="1"
-                                     halign="stretch"/>
+                                     halign="stretch">
+                          <af:button text="Generate PO" id="b8">
+                            <af:showPopupBehavior popupId="::p2"/>
+                          </af:button>
+                        </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
                         <af:gridCell marginStart="5px" width="15%" id="gc30" valign="middle" halign="center">

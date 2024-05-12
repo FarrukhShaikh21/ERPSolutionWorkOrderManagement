@@ -9,6 +9,10 @@
               id="SrPurchaseBidCompareHeaderCRUDIterator"/>
     <iterator Binds="SrPurchaseBidCompareLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
               id="SrPurchaseBidCompareLinesDetCRUDIterator"/>
+    <iterator Binds="VwBidCompareForPoGenerateRO" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="VwBidCompareForPoGenerateROIterator"/>
+    <iterator Binds="SrPurchaseBidCompareLinesPoGenerateRO" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseBidCompareLinesPoGenerateROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="BidCompareCode">
@@ -78,5 +82,40 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="VwBidCompareForPoGenerateROIterator" id="VwBidCompareForPoGenerateRO">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.VwBidCompareForPoGenerateVO"
+                      Name="VwBidCompareForPoGenerateRO0">
+        <AttrNames>
+          <Item Value="Supplierid"/>
+          <Item Value="SuppName"/>
+          <Item Value="Bidcompareheaderseq"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SrPurchaseBidCompareLinesPoGenerateROIterator" id="SrPurchaseBidCompareLinesPoGenerateRO">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView"
+                      Name="SrPurchaseBidCompareLinesPoGenerateRO0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="BidRate"/>
+          <Item Value="Quantity"/>
+          <Item Value="TaxRate"/>
+          <Item Value="NetAmount"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="ProjectId"/>
+          <Item Value="BidCriteriaSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SrPurchaseBidCompareHeaderCRUDIterator" id="Bidcompareheaderseq">
+      <AttrNames>
+        <Item Value="Bidcompareheaderseq"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="VwBidCompareForPoGenerateROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_BIDCOMPHEADSEQ" NDValue="#{bindings.Bidcompareheaderseq.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
   </bindings>
 </pageDefinition>

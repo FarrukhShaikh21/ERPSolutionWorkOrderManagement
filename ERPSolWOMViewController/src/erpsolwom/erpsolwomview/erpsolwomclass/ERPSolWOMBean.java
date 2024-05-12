@@ -41,6 +41,7 @@ import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
+import oracle.adf.view.rich.event.PopupFetchEvent;
 import oracle.adf.view.rich.render.ClientEvent;
 
 import oracle.jbo.ApplicationModule;
@@ -1202,5 +1203,10 @@ public class ERPSolWOMBean {
 
     public String getERPIteratorName() {
         return ERPIteratorName;
+    }
+    public void doQueryBidCompareForPoGenerate(PopupFetchEvent pfe){
+        OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("ExecuteWithParams");
+        binding.execute();
+                
     }
 }

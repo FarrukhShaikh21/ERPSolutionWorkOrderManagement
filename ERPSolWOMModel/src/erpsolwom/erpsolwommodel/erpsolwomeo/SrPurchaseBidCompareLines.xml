@@ -317,6 +317,32 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="SR_PURCHASE_BID_COMPARE_LINES"/>
+  <Attribute
+    Name="GeneratePo"
+    Precision="1"
+    ColumnName="GENERATE_PO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_BID_COMPARE_LINES"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PoGenerated"
+    Precision="1"
+    ColumnName="PO_GENERATED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PURCHASE_BID_COMPARE_LINES"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseBidCompareHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkBidComLinCompHeadAssoc"
@@ -336,6 +362,13 @@
     Association="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidCompareLinesSupplierIdAssoc"
     AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidCompareLinesSupplierIdAssoc.PuSuppliers"
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.PuSupplierSrPurchaseBidCompareLinesSupplierIdAssoc.SrPurchaseBidCompareLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="VwBidCompareForPoGenerate"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqAssoc.VwBidCompareForPoGenerate"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqAssoc.SrPurchaseBidCompareLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key

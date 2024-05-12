@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolwom.erpsolwommodel.erpsolwomassoc.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolwom.erpsolwommodel.erpsolwomlink.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="VwBidCompareForPoGenerateVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.VwBidCompareForPoGenerateVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="VwBidCompareForPoGenerateVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.VwBidCompareForPoGenerateVO.Bidcompareheaderseq"/>
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.VwBidCompareForPoGenerateVO.Supplierid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SrPurchaseBidCompareLinesView"
+    Cardinality="-1"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SrPurchaseBidCompareLinesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView.Bidcompareheaderseq"/>
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView.Supplierid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

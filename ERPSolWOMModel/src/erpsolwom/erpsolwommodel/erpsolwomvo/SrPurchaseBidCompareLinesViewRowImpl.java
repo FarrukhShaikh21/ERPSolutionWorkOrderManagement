@@ -15,6 +15,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SrPurchaseBidCompareLinesViewRowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_SRPURCHASEBIDCOMPARELINES = 0;
 
     /**
@@ -42,13 +44,17 @@ public class SrPurchaseBidCompareLinesViewRowImpl extends ViewRowImpl {
         Quantity,
         txtSupplierName,
         Rfqlinesseqno,
+        PoGenerated,
+        GeneratePo,
         SrItemsView,
         SrPurchaseBidCompareHeaderView,
         PuSuppliersVO,
+        VwBidCompareForPoGenerateVO,
         AccAllDepartmentsView,
         AccPrgProjectView,
         AccSrBidCriteriaVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -70,6 +76,8 @@ public class SrPurchaseBidCompareLinesViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int BIDCOMPARELINESSEQ = AttributesEnum.Bidcomparelinesseq.index();
     public static final int BIDCOMPAREHEADERSEQ = AttributesEnum.Bidcompareheaderseq.index();
     public static final int BIDLINESSEQ = AttributesEnum.Bidlinesseq.index();
@@ -91,9 +99,12 @@ public class SrPurchaseBidCompareLinesViewRowImpl extends ViewRowImpl {
     public static final int QUANTITY = AttributesEnum.Quantity.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int RFQLINESSEQNO = AttributesEnum.Rfqlinesseqno.index();
+    public static final int POGENERATED = AttributesEnum.PoGenerated.index();
+    public static final int GENERATEPO = AttributesEnum.GeneratePo.index();
     public static final int SRITEMSVIEW = AttributesEnum.SrItemsView.index();
     public static final int SRPURCHASEBIDCOMPAREHEADERVIEW = AttributesEnum.SrPurchaseBidCompareHeaderView.index();
     public static final int PUSUPPLIERSVO = AttributesEnum.PuSuppliersVO.index();
+    public static final int VWBIDCOMPAREFORPOGENERATEVO = AttributesEnum.VwBidCompareForPoGenerateVO.index();
     public static final int ACCALLDEPARTMENTSVIEW = AttributesEnum.AccAllDepartmentsView.index();
     public static final int ACCPRGPROJECTVIEW = AttributesEnum.AccPrgProjectView.index();
     public static final int ACCSRBIDCRITERIAVO = AttributesEnum.AccSrBidCriteriaVO.index();
@@ -449,6 +460,38 @@ public class SrPurchaseBidCompareLinesViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for PO_GENERATED using the alias name PoGenerated.
+     * @return the PO_GENERATED
+     */
+    public String getPoGenerated() {
+        return (String) getAttributeInternal(POGENERATED);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PO_GENERATED using the alias name PoGenerated.
+     * @param value value to set the PO_GENERATED
+     */
+    public void setPoGenerated(String value) {
+        setAttributeInternal(POGENERATED, value);
+    }
+
+    /**
+     * Gets the attribute value for GENERATE_PO using the alias name GeneratePo.
+     * @return the GENERATE_PO
+     */
+    public String getGeneratePo() {
+        return (String) getAttributeInternal(GENERATEPO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for GENERATE_PO using the alias name GeneratePo.
+     * @param value value to set the GENERATE_PO
+     */
+    public void setGeneratePo(String value) {
+        setAttributeInternal(GENERATEPO, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link SrItemsView.
      */
     public Row getSrItemsView() {
@@ -488,6 +531,20 @@ public class SrPurchaseBidCompareLinesViewRowImpl extends ViewRowImpl {
      */
     public void setPuSuppliersVO(Row value) {
         setAttributeInternal(PUSUPPLIERSVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link VwBidCompareForPoGenerateVO.
+     */
+    public Row getVwBidCompareForPoGenerateVO() {
+        return (Row) getAttributeInternal(VWBIDCOMPAREFORPOGENERATEVO);
+    }
+
+    /**
+     * Sets the master-detail link VwBidCompareForPoGenerateVO between this object and <code>value</code>.
+     */
+    public void setVwBidCompareForPoGenerateVO(Row value) {
+        setAttributeInternal(VWBIDCOMPAREFORPOGENERATEVO, value);
     }
 
     /**

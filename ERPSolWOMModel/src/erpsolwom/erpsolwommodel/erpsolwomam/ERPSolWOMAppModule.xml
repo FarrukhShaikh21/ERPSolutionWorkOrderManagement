@@ -52,6 +52,16 @@
   <ViewUsage
     Name="SrPoReceivingLinesDetCRUD"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoReceivingLinesVO"/>
+  <ViewUsage
+    Name="VwBidCompareForPoGenerateRO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.VwBidCompareForPoGenerateVO"/>
+  <ViewUsage
+    Name="SrPurchaseBidCompareLinesPoGenerateRO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView">
+    <ViewCriteriaUsage
+      Name="SrPurchaseBidCompareLinesViewIsSelectVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidCompareLinesView.SrPurchaseBidCompareLinesViewIsSelectVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
@@ -93,5 +103,11 @@
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoRecLinPoRecHeadLink"
     SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoReceivingHeaderCRUD"
     DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoReceivingLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomlink.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.VwBidCompareForPoGenerateRO"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseBidCompareLinesPoGenerateRO"
     Reversed="false"/>
 </AppModule>
