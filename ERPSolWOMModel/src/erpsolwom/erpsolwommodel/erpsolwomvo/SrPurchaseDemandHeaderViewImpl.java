@@ -69,5 +69,21 @@ public class SrPurchaseDemandHeaderViewImpl extends ViewObjectImpl implements Sr
     public void setP_ADF_LOCATIONID(String value) {
         ensureVariableManager().setVariableValue("P_ADF_LOCATIONID", value);
     }
+
+    /**
+     * Returns the variable value for P_ADF_DEMAND_FOR.
+     * @return variable value for P_ADF_DEMAND_FOR
+     */
+    public String getP_ADF_DEMAND_FOR() {
+        return (String) ensureVariableManager().getVariableValue("P_ADF_DEMAND_FOR");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_DEMAND_FOR.
+     * @param value value to bind as P_ADF_DEMAND_FOR
+     */
+    public void setP_ADF_DEMAND_FOR(String value) {
+        ensureVariableManager().setVariableValue("P_ADF_DEMAND_FOR", value);
+    }
 }
 

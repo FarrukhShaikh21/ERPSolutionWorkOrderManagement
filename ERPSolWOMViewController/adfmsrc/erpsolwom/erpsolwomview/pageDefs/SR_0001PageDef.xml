@@ -45,7 +45,10 @@
     <action IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="SrPurchaseDemandHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSolWOMAppModuleDataControl.SrPurchaseDemandHeaderCRUD"
+            DataControl="ERPSolWOMAppModuleDataControl">
+      <NamedData NDName="Posted" NDValue="#{'N'}" NDType="java.lang.String"/>
+    </action>
     <tree IterBinding="SrPurchaseDemandLinesDetCRUDIterator" id="SrPurchaseDemandLinesDetCRUD">
       <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseDemandLinesView"
                       Name="SrPurchaseDemandLinesDetCRUD0">

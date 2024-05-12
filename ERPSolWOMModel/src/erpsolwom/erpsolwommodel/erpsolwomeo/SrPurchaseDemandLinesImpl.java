@@ -440,6 +440,9 @@ public class SrPurchaseDemandLinesImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation!=DML_DELETE) {
+            populateAttributeAsChanged(APPROVEQUANTITY, getDemandQuantity());
+       }
         super.doDML(operation, e);
     }
 }

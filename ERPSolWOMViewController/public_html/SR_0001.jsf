@@ -47,7 +47,7 @@
                                    iconPosition="top"
                                    action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRDemand}"/>
                         <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
-                                   icon="#{resource['images:imgFind.png']}"/>
+                                   icon="#{resource['images:imgFind.png']}" rendered="false"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled || bindings.RebateId.inputValue==null}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
@@ -206,10 +206,10 @@
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                   disabled="#{!bindings.CreateInsert1.enabled}" id="b8"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b8"
                                    icon="#{resource['images:imgAdd.png']}"/>
                         <af:button actionListener="#{bindings.Delete1.execute}"
-                                   disabled="#{!bindings.Delete1.enabled}" id="b12"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b12"
                                    icon="#{resource['images:imgDelete.png']}"/>
                       </af:toolbar>
                     </f:facet>
@@ -250,7 +250,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SrPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
-                                 id="c3">
+                                 id="c3" rendered="false">
                         <af:inputText value="#{row.bindings.ApproveQuantity.inputValue}"
                                       label="#{bindings.SrPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
                                       required="#{bindings.SrPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.mandatory}"

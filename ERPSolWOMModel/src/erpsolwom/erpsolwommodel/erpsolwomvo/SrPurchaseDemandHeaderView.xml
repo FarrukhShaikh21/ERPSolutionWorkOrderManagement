@@ -25,6 +25,10 @@
     Name="P_ADF_LOCATIONID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_DEMAND_FOR"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
@@ -210,6 +214,22 @@
     <ViewCriteriaRow
       Name="SrPurchaseDemandHeaderViewCriteria_row_0"
       UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DemandFor"
+        ViewAttribute="DemandFor"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_DEMAND_FOR"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Posted"
+        ViewAttribute="Posted"
+        Operator="="
+        Conjunction="AND"
+        Value="Y"
+        UpperColumns="0"
+        Required="Optional"/>
       <ViewCriteriaItem
         Name="Locationid"
         ViewAttribute="Locationid"

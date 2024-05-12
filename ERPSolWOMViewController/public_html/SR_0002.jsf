@@ -135,7 +135,8 @@
                         <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
                           <af:selectOneChoice value="#{bindings.RfqFor.inputValue}" label="#{bindings.RfqFor.label}"
                                               required="#{bindings.RfqFor.hints.mandatory}"
-                                              shortDesc="#{bindings.RfqFor.hints.tooltip}" id="soc4" simple="true">
+                                              shortDesc="#{bindings.RfqFor.hints.tooltip}" id="soc4" simple="true"
+                                              autoSubmit="true">
                             <f:selectItems value="#{bindings.RfqFor.items}" id="si4"/>
                             <f:validator binding="#{bindings.RfqFor.validator}"/>
                           </af:selectOneChoice>
@@ -172,7 +173,7 @@
                                                         required="#{bindings.DemandCode.hints.mandatory}"
                                                         columns="#{bindings.DemandCode.hints.displayWidth}"
                                                         shortDesc="#{bindings.DemandCode.hints.tooltip}" simple="true"
-                                                        partialTriggers="iclov1" autoSubmit="true">
+                                                        partialTriggers="iclov1 soc4" autoSubmit="true">
                             <f:validator binding="#{bindings.DemandCode.validator}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
@@ -324,10 +325,10 @@
                         <f:facet name="toolbar">
                           <af:toolbar id="t3">
                             <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                       disabled="#{!bindings.CreateInsert1.enabled}" id="b8"
+                                       disabled="#{bindings.Posted.inputValue=='Y'}" id="b8"
                                        icon="#{resource['images:imgAdd.png']}"/>
                             <af:button actionListener="#{bindings.Delete1.execute}"
-                                       disabled="#{!bindings.Delete1.enabled}" id="b12"
+                                       disabled="#{bindings.Posted.inputValue=='Y'}" id="b12"
                                        icon="#{resource['images:imgDelete.png']}"/>
                           </af:toolbar>
                         </f:facet>

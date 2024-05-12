@@ -52,6 +52,10 @@
         <TransientExpression
           trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
       </PIMap>
+      <PIMap Variable="P_ADF_DEMAND_FOR">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[RfqFor==null?"-1":RfqFor]]></TransientExpression>
+      </PIMap>
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
