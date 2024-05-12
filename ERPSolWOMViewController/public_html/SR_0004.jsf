@@ -359,7 +359,7 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc26" valign="middle" halign="center"/>
                         <af:gridCell marginStart="5px" width="35%" id="gc31" columnSpan="1" rowSpan="1"
                                      halign="stretch">
-                          <af:button text="Generate PO" id="b8">
+                          <af:button text="Generate PO" id="b8" disabled="#{bindings.BidCompareCode.inputValue==null}">
                             <af:showPopupBehavior popupId="::p2"/>
                           </af:button>
                         </af:gridCell>
@@ -415,9 +415,9 @@
                               selectedRowKeys="#{bindings.SrPurchaseBidCompareLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SrPurchaseBidCompareLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SrPurchaseBidCompareLinesDetCRUD.rangeSize}"
-                              id="t2" partialTriggers=":::rfqHeaderCodeId">
+                              id="t2" partialTriggers=":::rfqHeaderCodeId" autoHeightRows="5" scrollPolicy="page">
                       <af:column headerText="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtItemName.label}"
-                                 id="c1">
+                                 id="c1" width="200">
                         <af:inputText value="#{row.bindings.txtItemName.inputValue}"
                                       label="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtItemName.label}"
                                       required="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtItemName.mandatory}"
@@ -429,7 +429,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.label}"
-                                 id="c6" width="120">
+                                 id="c6" width="200">
                         <af:inputText value="#{row.bindings.txtSupplierName.inputValue}"
                                       label="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.label}"
                                       required="#{bindings.SrPurchaseBidCompareLinesDetCRUD.hints.txtSupplierName.mandatory}"

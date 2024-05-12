@@ -188,6 +188,8 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PURCHASE_BID_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

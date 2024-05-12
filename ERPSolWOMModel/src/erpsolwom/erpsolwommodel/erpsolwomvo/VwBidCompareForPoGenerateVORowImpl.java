@@ -132,12 +132,12 @@ public class VwBidCompareForPoGenerateVORowImpl extends ViewRowImpl implements V
         return (RowIterator) getAttributeInternal(SRPURCHASEBIDCOMPARELINESVIEW);
     }
     public void doGeneratePOFromBidCompare() {
-        System.out.println("begin ?:=pkg_service_request.FUNC_SUBMIT_BID_COMPARE('" +
+        System.out.println("begin ?:=pkg_service_request.FUNC_GENERATE_PO_BID_COMPARE('" +
                                                                 getBidcompareheaderseq() + "'," +
                                                                 "'"+getSupplierid() + "','" +
                                                                 ERPSolGlobClassModel.doGetUserCode() + "'); END;");
             CallableStatement cs =
-                this.getDBTransaction().createCallableStatement("begin ?:=pkg_service_request.FUNC_SUBMIT_BID_COMPARE('" +
+                this.getDBTransaction().createCallableStatement("begin ?:=pkg_service_request.FUNC_GENERATE_PO_BID_COMPARE('" +
                                                                 getBidcompareheaderseq() + "'," +
                                                                 "'"+getSupplierid() + "','" +
                                                                 ERPSolGlobClassModel.doGetUserCode() + "'); END;", 1);

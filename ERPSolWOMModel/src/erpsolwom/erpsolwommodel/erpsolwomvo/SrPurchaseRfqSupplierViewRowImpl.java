@@ -286,5 +286,12 @@ public class SrPurchaseRfqSupplierViewRowImpl extends ViewRowImpl {
     public RowSet getAccPuSuppliersVO() {
         return (RowSet) getAttributeInternal(ACCPUSUPPLIERSVO);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        if (getSrPurchaseRfqHeaderView().getAttribute("Posted").equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

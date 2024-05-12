@@ -2,6 +2,8 @@ package erpsolwom.erpsolwommodel.erpsolwomvo;
 
 import erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseBidCompareHeaderImpl;
 
+import java.math.BigDecimal;
+
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
@@ -204,7 +206,7 @@ public class SrPurchaseBidCompareHeaderViewRowImpl extends ViewRowImpl {
         newRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
         newRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
         newRow.setAttribute("NetAmount", nextRow.getAttribute("NetPrice"));
-        newRow.setAttribute("TaxRate", nextRow.getAttribute("TaxPercent"));
+        newRow.setAttribute("TaxRate", nextRow.getAttribute("TaxPercent")==null?new BigDecimal(0):nextRow.getAttribute("TaxPercent"));
 
         //            newRow.setAttribute("RequesterId", nextRow.getAttribute("RequesterId"));
         getSrPurchaseBidCompareLinesView().insertRow(newRow);

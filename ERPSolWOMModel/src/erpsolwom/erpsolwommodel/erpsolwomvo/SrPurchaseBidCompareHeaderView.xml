@@ -42,7 +42,8 @@
   <ViewAccessor
     Name="AccSrPurchaseBidLinesView"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidLinesView"
-    RowLevelBinds="true">
+    RowLevelBinds="true"
+    OrderBy="SrPurchaseBidLines.ITEM_ID">
     <ViewCriteriaUsage
       Name="SrPurchaseBidLinesByRFQHeaderCodeVC"
       FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseBidLinesView.SrPurchaseBidLinesByRFQHeaderCodeVC"/>

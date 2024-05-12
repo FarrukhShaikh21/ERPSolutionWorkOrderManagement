@@ -468,10 +468,10 @@
                         <f:facet name="toolbar">
                           <af:toolbar id="t5">
                             <af:button actionListener="#{bindings.CreateInsert2.execute}"
-                                       disabled="#{!bindings.CreateInsert2.enabled}" id="b13"
+                                       disabled="#{bindings.Posted.inputValue=='Y'}" id="b13"
                                        icon="#{resource['images:imgAdd.png']}"/>
                             <af:button actionListener="#{bindings.Delete2.execute}"
-                                       disabled="#{!bindings.Delete2.enabled}" id="b15"
+                                       disabled="#{bindings.Posted.inputValue=='Y'}" id="b15"
                                        icon="#{resource['images:imgDelete.png']}"/>
                           </af:toolbar>
                         </f:facet>
