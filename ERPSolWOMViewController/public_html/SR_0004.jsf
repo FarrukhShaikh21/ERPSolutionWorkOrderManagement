@@ -13,7 +13,7 @@
       <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
                 popupFetchListener="#{pageFlowScope.ERPSolWOMPageFlowBean.doQueryBidCompareForPoGenerate}"
                 contentDelivery="lazyUncached">
-        <af:dialog id="d3">
+        <af:dialog id="d3" type="ok">
           <f:facet name="buttonBar"/>
           <af:panelSplitter id="ps1" splitterPosition="400" disabled="true">
             <f:facet name="first">
@@ -24,7 +24,7 @@
                         selectedRowKeys="#{bindings.VwBidCompareForPoGenerateRO.collectionModel.selectedRow}"
                         selectionListener="#{bindings.VwBidCompareForPoGenerateRO.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.VwBidCompareForPoGenerateRO.rangeSize}" id="t4"
-                        columnStretching="column:c12" partialTriggers="::pt1:b13" scrollPolicy="page"
+                        columnStretching="column:c12" partialTriggers="::pt1:b13 b15" scrollPolicy="page"
                         autoHeightRows="10">
                 <af:column headerText="#{bindings.VwBidCompareForPoGenerateRO.hints.Supplierid.label}" id="c11"
                            rendered="false">
@@ -49,7 +49,9 @@
                   </af:inputText>
                 </af:column>
                 <af:column id="c14">
-                  <af:button text="Generate PO" id="b12"/>
+                  <af:button actionListener="#{bindings.doGeneratePOFromBidCompare.execute}"
+                             text="Generate Po"
+                             disabled="#{!bindings.doGeneratePOFromBidCompare.enabled}" id="b15"/>
                 </af:column>
                 <af:column headerText="#{bindings.VwBidCompareForPoGenerateRO.hints.Bidcompareheaderseq.label}" id="c13"
                            rendered="false">

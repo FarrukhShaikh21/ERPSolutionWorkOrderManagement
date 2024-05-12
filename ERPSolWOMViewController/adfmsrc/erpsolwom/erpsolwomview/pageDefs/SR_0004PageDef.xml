@@ -117,5 +117,10 @@
       <NamedData NDName="P_ADF_BIDCOMPHEADSEQ" NDValue="#{bindings.Bidcompareheaderseq.inputValue}"
                  NDType="java.lang.Integer"/>
     </action>
+    <methodAction IterBinding="VwBidCompareForPoGenerateROIterator" id="doGeneratePOFromBidCompare"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doGeneratePOFromBidCompare"
+                  IsViewObjectMethod="false" DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="bindings.VwBidCompareForPoGenerateROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doGeneratePOFromBidCompare_doGeneratePOFromBidCompare_doGeneratePOFromBidCompare_result"/>
   </bindings>
 </pageDefinition>

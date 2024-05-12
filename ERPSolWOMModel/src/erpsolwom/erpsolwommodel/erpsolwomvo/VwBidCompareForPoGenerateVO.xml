@@ -12,7 +12,14 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.VwBidCompareForPoGenerateVORowImpl"
+  RowInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.VwBidCompareForPoGenerateVORow"
+  ClientRowProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.VwBidCompareForPoGenerateVORowClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_BIDCOMPHEADSEQ"
     Kind="viewcriteria"
@@ -81,4 +88,14 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientRowInterface
+    Name="__rowClientInterface">
+    <Method
+      Name="doGeneratePOFromBidCompare"
+      MethodName="doGeneratePOFromBidCompare">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
 </ViewObject>
