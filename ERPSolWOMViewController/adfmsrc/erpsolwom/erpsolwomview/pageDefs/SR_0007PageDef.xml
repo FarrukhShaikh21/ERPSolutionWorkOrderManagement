@@ -49,5 +49,30 @@
         <Item Value="AdvanceAmount"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSuperviseSrPOAdvance" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPOAdvance" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPurchaseAdvanceCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPOAdvance_ERPSolWOMAppModuleDataControl_SrPurchaseAdvanceCRUD_doSuperviseSrPOAdvance_result"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SrPurchaseAdvanceCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
   </bindings>
 </pageDefinition>

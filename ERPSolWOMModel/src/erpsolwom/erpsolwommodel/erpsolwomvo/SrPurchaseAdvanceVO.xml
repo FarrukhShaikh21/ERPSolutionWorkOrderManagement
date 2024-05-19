@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVOImpl"
+  ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseAdvanceVO"
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseAdvanceVOClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
@@ -96,12 +102,17 @@
       <Item Value="PoCode"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="PoCode"/>
+      <Item Value="Supplierid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="PoCode"/>
       <Item Value="PoDate"/>
+      <Item Value="txtSupplierName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -267,6 +278,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="REMARKS"/>
   <ViewLinkAccessor
     Name="AllLocationsVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPurchaseAdvanceLocationIdLink"
@@ -279,4 +296,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSrPOAdvance"
+      MethodName="doSuperviseSrPOAdvance">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

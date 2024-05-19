@@ -5,8 +5,8 @@
     <af:messages id="m1"/>
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
-        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.ReceiveCode.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolsPORECialogConfirm}" type="yesNo">
+        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.AdvanceCode.inputValue})"
+                   dialogListener="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolsPOAdvialogConfirm}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
@@ -37,18 +37,18 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
-                        <af:button actionListener="#{bindings.doSuperviseSrPOReceiving.execute}"
-                                   text="doSuperviseSrPOReceiving"
-                                   disabled="#{!bindings.doSuperviseSrPOReceiving.enabled}" id="b8" rendered="false"/>
+                        <af:button actionListener="#{bindings.doSuperviseSrPOAdvance.execute}"
+                                   text="doSuperviseSrPOAdvance" disabled="#{!bindings.doSuperviseSrPOAdvance.enabled}"
+                                   id="b7" rendered="false"/>
                         <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-WOM"
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
                                    iconPosition="top"
-                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRPOREC}"/>
+                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRPOAdv}"/>
                         <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
                                    icon="#{resource['images:imgFind.png']}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled || bindings.ReceiveCode.inputValue==null}" partialSubmit="true" id="b4"
+                                   disabled="#{!bindings.Previous.enabled || bindings.AdvanceCode.inputValue==null}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
@@ -56,7 +56,7 @@
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Receiving"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Receiving"
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Advance"
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
@@ -152,7 +152,7 @@
                                                         columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtLocationName.hints.tooltip}"
                                                         simple="true" autoSubmit="true"
-                                                        readOnly="#{bindings.ReceiveCode.inputValue!=null}">
+                                                        readOnly="#{bindings.AdvanceCode.inputValue!=null}">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
@@ -162,7 +162,7 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
                           <af:selectOneChoice label="Label 1" value="#{bindings.AdvanceType.inputValue}" id="soc1"
-                                              simple="true">
+                                              simple="true" autoSubmit="true">
                             <af:selectItem label="Open" value="O" id="si1"/>
                             <af:selectItem label="Purchase Order" value="P" id="si2"/>
                           </af:selectOneChoice>
@@ -182,7 +182,8 @@
                                                         required="#{bindings.txtSupplierName.hints.mandatory}"
                                                         columns="#{bindings.txtSupplierName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
-                                                        simple="true">
+                                                        simple="true" partialTriggers="iclov1 soc1"
+                                                        disabled="#{bindings.AdvanceType.inputValue=='P'}">
                             <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
@@ -197,13 +198,15 @@
                                                         model="#{bindings.PoCode.listOfValuesModel}"
                                                         required="#{bindings.PoCode.hints.mandatory}"
                                                         columns="#{bindings.PoCode.hints.displayWidth}"
-                                                        shortDesc="#{bindings.PoCode.hints.tooltip}" simple="true">
+                                                        shortDesc="#{bindings.PoCode.hints.tooltip}" simple="true"
+                                                        partialTriggers="soc1"
+                                                        disabled="#{bindings.AdvanceType.inputValue=='O'}">
                             <f:validator binding="#{bindings.PoCode.validator}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow id="gr5">
-                        <af:gridCell id="gc8" width="15%" halign="stretch">
+                        <af:gridCell id="gc8" width="15%" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.AdvanceAmount.hints.label}" id="ol7"/>
                         </af:gridCell>
                         <af:gridCell id="gc9" width="35%">

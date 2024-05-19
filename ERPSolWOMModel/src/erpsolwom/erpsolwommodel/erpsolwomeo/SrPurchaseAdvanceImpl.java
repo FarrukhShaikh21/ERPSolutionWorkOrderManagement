@@ -42,6 +42,7 @@ public class SrPurchaseAdvanceImpl extends ERPSolGlobalsEntityImpl {
         Locationid,
         txtLocationName,
         txtSupplierName,
+        Remarks,
         AllLocations,
         PuSuppliers;
         private static AttributesEnum[] vals = null;
@@ -88,6 +89,7 @@ public class SrPurchaseAdvanceImpl extends ERPSolGlobalsEntityImpl {
     public static final int LOCATIONID = AttributesEnum.Locationid.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
 
@@ -427,6 +429,22 @@ public class SrPurchaseAdvanceImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for Remarks, using the alias name Remarks.
+     * @return the value of Remarks
+     */
+    public String getRemarks() {
+        return (String) getAttributeInternal(REMARKS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Remarks.
+     * @param value value to set the Remarks
+     */
+    public void setRemarks(String value) {
+        setAttributeInternal(REMARKS, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
     public EntityImpl getAllLocations() {
@@ -498,6 +516,19 @@ public class SrPurchaseAdvanceImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            String pkValue=" sr_purchase_advance_id('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getAdvanceDate()+"','YYYY-MM-DD'))";
+            System.out.println(pkValue + "pk value");
+            String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+            populateAttributeAsChanged(ADVANCECODE, result);
+        }
+        else if (operation==DML_UPDATE) {
+            if (getPosted().equals("Y")) {
+                populateAttributeAsChanged(MODIFIEDBY, ERPSolGlobClassModel.doGetUserCode());
+               populateAttributeAsChanged(POSTEDDATE, oracle.jbo.domain.Date.getCurrentDate());
+               
+           }
+        }
         super.doDML(operation, e);
     }
 }

@@ -385,13 +385,13 @@ public class ERPSolWOMBean {
             }
         }
     }
-    public void doERPSolPickDialogConfirm(DialogEvent erpsolde) {
+    public void doERPSolsPOAdvialogConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
-            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doReadyForWarehouse");
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSrPOAdvance");
             binding.execute();
             List ERPSolerrors = binding.getErrors();
             if (ERPSolerrors.isEmpty()) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(    "Transaction Is Ready For Warehouse." ));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Transaction Is Supervised."));
            }
         }
     }
@@ -1188,6 +1188,50 @@ public class ERPSolWOMBean {
         doErpSolOpenReportTab(pReportUrl);
         return null;
     }
+    public String doERPSolExecuteSRPOAdv() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SrPurchaseAdvanceCRUDIterator");
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOSrPOADV");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOSrPOADV", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOSrPOADV", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SR' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"SR_PURCHASE_ADVANCE";
+        vo.executeQuery();    
+        
+        
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        AttributeBinding ERPDemandHeadSeq       =(AttributeBinding)ERPSolbc.getControlBinding("Advanceseqno");
+        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+
+        vo.executeQuery();
+        
+        String reportParameter="";
+        
+        reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        reportParameter+="&P_ADVANCESEQNO="+ERPDemandHeadSeq.getInputValue();
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
+    
     
     public void setERPSolReportName(String ERPSolReportName) {
         this.ERPSolReportName = ERPSolReportName;
