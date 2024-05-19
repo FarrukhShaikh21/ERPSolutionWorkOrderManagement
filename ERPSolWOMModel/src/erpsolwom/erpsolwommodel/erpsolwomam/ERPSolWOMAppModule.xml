@@ -65,6 +65,9 @@
   <ViewUsage
     Name="AllStoresAutoSuggestRO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllStoresVO"/>
+  <ViewUsage
+    Name="SrPurchaseAdvanceCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"

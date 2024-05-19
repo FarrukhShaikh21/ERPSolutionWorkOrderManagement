@@ -532,4 +532,9 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationSrPoReceivingHeaderLocationidLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseAdvanceVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPurchaseAdvanceLocationIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPurchaseAdvanceVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllLocationsVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccPuSuppliersVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersVOByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO.PuSuppliersVOByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPurchaseOrderHeaderVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAllLocationsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AllLocationsVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccPuSuppliersVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="PuSuppliersFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPoCode"
+    ListVOName="AccSrPurchaseOrderHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PoCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PoCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PoCode"/>
+      <Item Value="PoDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="SrPurchaseAdvance"
+    Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseAdvance"/>
+  <ViewAttribute
+    Name="Advanceseqno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Advanceseqno"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="ADVANCESEQNO"/>
+  <ViewAttribute
+    Name="AdvanceCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AdvanceCode"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="ADVANCE_CODE"/>
+  <ViewAttribute
+    Name="AdvanceDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AdvanceDate"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="ADVANCE_DATE"/>
+  <ViewAttribute
+    Name="AdvanceType"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AdvanceType"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="ADVANCE_TYPE"/>
+  <ViewAttribute
+    Name="Supplierid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Supplierid"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="SUPPLIERID"/>
+  <ViewAttribute
+    Name="PoCode"
+    PrecisionRule="true"
+    EntityAttrName="PoCode"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="PO_CODE"
+    LOVName="LovPoCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AdvanceAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AdvanceAmount"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="ADVANCE_AMOUNT"/>
+  <ViewAttribute
+    Name="BalanceAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BalanceAmount"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="BALANCE_AMOUNT"/>
+  <ViewAttribute
+    Name="AppliedAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AppliedAmount"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="APPLIED_AMOUNT"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="ModifiedDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedDate"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="Posted"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Posted"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="POSTED"/>
+  <ViewAttribute
+    Name="PostedDate"
+    PrecisionRule="true"
+    EntityAttrName="PostedDate"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="POSTED_DATE"/>
+  <ViewAttribute
+    Name="Locationid"
+    PrecisionRule="true"
+    EntityAttrName="Locationid"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="LOCATIONID"/>
+  <ViewAttribute
+    Name="Companyid"
+    PrecisionRule="true"
+    EntityAttrName="Companyid"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="COMPANYID"/>
+  <ViewAttribute
+    Name="Doctypeid"
+    PrecisionRule="true"
+    EntityAttrName="Doctypeid"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="DOCTYPEID"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="TXT_LOCATION_NAME"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="SrPurchaseAdvance"
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LovtxtSupplierName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="AllLocationsVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPurchaseAdvanceLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseAdvanceSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -5,6 +5,49 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SrPurchaseAdvanceCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPurchaseAdvanceCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceCode">
+      <AttrNames>
+        <Item Value="AdvanceCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Advanceseqno">
+      <AttrNames>
+        <Item Value="Advanceseqno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceDate">
+      <AttrNames>
+        <Item Value="AdvanceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseAdvanceCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseAdvanceCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceType">
+      <AttrNames>
+        <Item Value="AdvanceType"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPurchaseAdvanceCRUDIterator" StaticList="false" Uses="LovPoCode" id="PoCode"/>
+    <attributeValues IterBinding="SrPurchaseAdvanceCRUDIterator" id="AdvanceAmount">
+      <AttrNames>
+        <Item Value="AdvanceAmount"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>
