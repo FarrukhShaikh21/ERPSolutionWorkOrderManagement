@@ -491,6 +491,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoReceiveHeaderPoCodeAssoc.SrPurchaseOrderHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseAdvance"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPurchaseAdvancePOCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPurchaseAdvancePOCodeAssoc.SrPurchaseAdvance"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPurchaseAdvancePOCodeAssoc.SrPurchaseOrderHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSrPurchaseOrderHeader"
     PrimaryKey="true">

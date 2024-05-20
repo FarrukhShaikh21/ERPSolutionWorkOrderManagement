@@ -15,9 +15,11 @@
   PageIterMode="Full"
   ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVOImpl"
   ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPurchaseAdvanceVO"
-  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseAdvanceVOClient">
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPurchaseAdvanceVOClient"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVORowImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="AccAllLocationsVO"
@@ -40,7 +42,20 @@
   <ViewAccessor
     Name="AccSrPurchaseOrderHeaderVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseOrderHeaderByLocationVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO.SrPurchaseOrderHeaderByLocationVC"/>
+    <ViewCriteriaUsage
+      Name="SrPurchaseOrderHeaderVOAvailableForAdvanceVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO.SrPurchaseOrderHeaderVOAvailableForAdvanceVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"
     ListVOName="AccAllLocationsVO"
@@ -293,6 +308,12 @@
   <ViewLinkAccessor
     Name="PuSuppliersVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrPurchaseAdvanceSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseOrderHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurchaseOrderHeaderSrPurchaseAdvancePOCodeLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

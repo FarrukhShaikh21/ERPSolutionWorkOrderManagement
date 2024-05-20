@@ -50,7 +50,8 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
         SrPurchaseOrderLines,
         AllLocations,
         PuSuppliers,
-        SrPoReceivingHeader;
+        SrPoReceivingHeader,
+        SrPurchaseAdvance;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -103,6 +104,7 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
     public static final int SRPORECEIVINGHEADER = AttributesEnum.SrPoReceivingHeader.index();
+    public static final int SRPURCHASEADVANCE = AttributesEnum.SrPurchaseAdvance.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -543,6 +545,14 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public RowIterator getSrPoReceivingHeader() {
         return (RowIterator) getAttributeInternal(SRPORECEIVINGHEADER);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSrPurchaseAdvance() {
+        return (RowIterator) getAttributeInternal(SRPURCHASEADVANCE);
     }
 
 

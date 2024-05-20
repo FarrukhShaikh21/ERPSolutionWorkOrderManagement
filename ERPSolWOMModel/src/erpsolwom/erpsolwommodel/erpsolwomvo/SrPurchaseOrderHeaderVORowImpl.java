@@ -53,6 +53,7 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
         AllLocationsVO,
         PuSuppliersVO,
         SrPoReceivingHeaderVO,
+        SrPurchaseAdvanceVO,
         AccSrPurchaseDemandHeaderView,
         AccVuDemandForQVO,
         AccVwPoType,
@@ -112,6 +113,7 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
     public static final int ALLLOCATIONSVO = AttributesEnum.AllLocationsVO.index();
     public static final int PUSUPPLIERSVO = AttributesEnum.PuSuppliersVO.index();
     public static final int SRPORECEIVINGHEADERVO = AttributesEnum.SrPoReceivingHeaderVO.index();
+    public static final int SRPURCHASEADVANCEVO = AttributesEnum.SrPurchaseAdvanceVO.index();
     public static final int ACCSRPURCHASEDEMANDHEADERVIEW = AttributesEnum.AccSrPurchaseDemandHeaderView.index();
     public static final int ACCVUDEMANDFORQVO = AttributesEnum.AccVuDemandForQVO.index();
     public static final int ACCVWPOTYPE = AttributesEnum.AccVwPoType.index();
@@ -557,6 +559,13 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
      */
     public RowIterator getSrPoReceivingHeaderVO() {
         return (RowIterator) getAttributeInternal(SRPORECEIVINGHEADERVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPurchaseAdvanceVO.
+     */
+    public RowIterator getSrPurchaseAdvanceVO() {
+        return (RowIterator) getAttributeInternal(SRPURCHASEADVANCEVO);
     }
 
     /**
