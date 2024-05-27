@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkSrPoInvAdvInvPaySeqLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvAdvInvPaySeqAssoc">
+  <ViewLinkDefEnd
+    Name="SrPoInvoicePayHeaderView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayHeaderView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SrPoInvoicePayHeaderView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayHeaderView.Invoicepayseq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SrPoInvoicePayAdvanceView"
+    Cardinality="-1"
+    Owner="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayAdvanceView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SrPoInvoicePayAdvanceView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayAdvanceView.Invoicepayseq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

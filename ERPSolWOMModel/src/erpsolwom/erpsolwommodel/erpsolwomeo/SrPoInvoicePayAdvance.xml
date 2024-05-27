@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPoInvoicePayAdvance"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SR_PO_INVOICE_PAY_ADVANCE"
+  AliasName="SrPoInvoicePayAdvance"
+  BindingStyle="OracleName"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayAdvanceImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="Payadvanceseq"
+    IsNotNull="true"
+    ColumnName="PAYADVANCESEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Invoicepayseq"
+    IsNotNull="true"
+    ColumnName="INVOICEPAYSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE"/>
+  <Attribute
+    Name="AdvanceCode"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="ADVANCE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AdvanceAmount"
+    IsNotNull="true"
+    Precision="16"
+    Scale="6"
+    ColumnName="ADVANCE_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE"/>
+  <Attribute
+    Name="Remarks"
+    Precision="500"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="25"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE"/>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="25"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE"/>
+  <Attribute
+    Name="Posted"
+    Precision="1"
+    ColumnName="POSTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PostedDate"
+    ColumnName="POSTED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SR_PO_INVOICE_PAY_ADVANCE"/>
+  <AccessorAttribute
+    Name="SrPoInvoicePayHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvAdvInvPaySeqAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvAdvInvPaySeqAssoc.SrPoInvoicePayHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvAdvInvPaySeqAssoc.SrPoInvoicePayAdvance"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSrPoInvoicePayAdvance"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SR_PO_INVOICE_PAY_ADVANCE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayAdvance.Payadvanceseq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkSrPoInvAdvInvPaySeq">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SR_PO_INVOICE_PAY_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PO_INV_ADV_INV_PAY_SEQ"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayAdvance.Invoicepayseq"/>
+    </AttrArray>
+  </Key>
+</Entity>
