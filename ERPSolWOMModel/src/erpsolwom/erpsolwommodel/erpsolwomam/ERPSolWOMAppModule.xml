@@ -68,6 +68,15 @@
   <ViewUsage
     Name="SrPurchaseAdvanceCRUD"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"/>
+  <ViewUsage
+    Name="SrPoInvoicePayHeaderCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayHeaderView"/>
+  <ViewUsage
+    Name="SrPoInvoicePayAdvanceDetCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayAdvanceView"/>
+  <ViewUsage
+    Name="SrPoInvoicePayLinesDetCRUD"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayLinesView"/>
   <ViewLinkUsage
     Name="FkPurDemLinDemHeadSeqLink1"
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkPurDemLinDemHeadSeqLink"
@@ -115,5 +124,17 @@
     ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomlink.VuBidCompForPoGenSrBidCompLinesItemCompHeaderSeqLink"
     SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.VwBidCompareForPoGenerateRO"
     DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPurchaseBidCompareLinesPoGenerateRO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkSrPoInvAdvInvPaySeqLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvAdvInvPaySeqLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoInvoicePayHeaderCRUD"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoInvoicePayAdvanceDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkSrPoInvPyLinInvPySeqLink1"
+    ViewLinkObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvPyLinInvPySeqLink"
+    SrcViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoInvoicePayHeaderCRUD"
+    DstViewUsageName="erpsolwom.erpsolwommodel.erpsolwomam.ERPSolWOMAppModule.SrPoInvoicePayLinesDetCRUD"
     Reversed="false"/>
 </AppModule>

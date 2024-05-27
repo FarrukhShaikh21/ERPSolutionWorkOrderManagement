@@ -117,4 +117,16 @@
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvPyLinInvPySeqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.PuSupplierSrInvoicePayHeaderSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPoInvoicePayHeaderLocationidLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

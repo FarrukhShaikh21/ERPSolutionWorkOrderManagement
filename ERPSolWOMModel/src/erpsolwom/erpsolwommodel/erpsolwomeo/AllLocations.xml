@@ -914,6 +914,13 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationsSrPurchaseAdvanceLocationIdAssoc.AllLocations"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPoInvoicePayHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationsSrPoInvoicePayHeaderLocationidAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationsSrPoInvoicePayHeaderLocationidAssoc.SrPoInvoicePayHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.AllLocationsSrPoInvoicePayHeaderLocationidAssoc.AllLocations"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallLocations"
     PrimaryKey="true">

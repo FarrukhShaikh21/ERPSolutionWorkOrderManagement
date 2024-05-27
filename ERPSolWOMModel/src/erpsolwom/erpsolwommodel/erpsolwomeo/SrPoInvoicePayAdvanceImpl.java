@@ -285,6 +285,12 @@ public class SrPoInvoicePayAdvanceImpl extends ERPSolGlobalsEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
+        // TODO Implement this method
+        setERPSolPKColumnName("Payadvanceseq");
+        setERPSolPKSeqName("SR_PO_INVOICE_PAY_ADVANCE_SEQ");
+        //        setERPISGenertePK("NO");
+        //        SequenceImpl seq = new SequenceImpl("SO_SALES_ORDER_SEQ", getDBTransaction());
+        //        setSalesorderseq(seq.getSequenceNumber());
         super.create(attributeList);
     }
 
