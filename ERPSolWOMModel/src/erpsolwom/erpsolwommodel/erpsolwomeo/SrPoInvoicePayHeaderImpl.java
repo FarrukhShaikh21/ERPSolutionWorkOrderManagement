@@ -37,6 +37,8 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
         Posted,
         PostedDate,
         Doctypeid,
+        txtLocationName,
+        txtSupplierName,
         SrPoInvoicePayAdvance,
         SrPoInvoicePayLines,
         PuSuppliers,
@@ -79,6 +81,8 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int POSTED = AttributesEnum.Posted.index();
     public static final int POSTEDDATE = AttributesEnum.PostedDate.index();
     public static final int DOCTYPEID = AttributesEnum.Doctypeid.index();
+    public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SRPOINVOICEPAYADVANCE = AttributesEnum.SrPoInvoicePayAdvance.index();
     public static final int SRPOINVOICEPAYLINES = AttributesEnum.SrPoInvoicePayLines.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
@@ -320,6 +324,38 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setDoctypeid(String value) {
         setAttributeInternal(DOCTYPEID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtLocationName, using the alias name txtLocationName.
+     * @return the value of txtLocationName
+     */
+    public String gettxtLocationName() {
+        return (String) getAttributeInternal(TXTLOCATIONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtLocationName.
+     * @param value value to set the txtLocationName
+     */
+    public void settxtLocationName(String value) {
+        setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
     }
 
     /**
