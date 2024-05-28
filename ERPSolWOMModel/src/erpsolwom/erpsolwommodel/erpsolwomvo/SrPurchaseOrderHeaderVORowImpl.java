@@ -54,6 +54,8 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
         PuSuppliersVO,
         SrPoReceivingHeaderVO,
         SrPurchaseAdvanceVO,
+        SrPoInvoicePayHeaderView,
+        SrPoInvoiceHeaderVO,
         AccSrPurchaseDemandHeaderView,
         AccVuDemandForQVO,
         AccVwPoType,
@@ -114,6 +116,8 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
     public static final int PUSUPPLIERSVO = AttributesEnum.PuSuppliersVO.index();
     public static final int SRPORECEIVINGHEADERVO = AttributesEnum.SrPoReceivingHeaderVO.index();
     public static final int SRPURCHASEADVANCEVO = AttributesEnum.SrPurchaseAdvanceVO.index();
+    public static final int SRPOINVOICEPAYHEADERVIEW = AttributesEnum.SrPoInvoicePayHeaderView.index();
+    public static final int SRPOINVOICEHEADERVO = AttributesEnum.SrPoInvoiceHeaderVO.index();
     public static final int ACCSRPURCHASEDEMANDHEADERVIEW = AttributesEnum.AccSrPurchaseDemandHeaderView.index();
     public static final int ACCVUDEMANDFORQVO = AttributesEnum.AccVuDemandForQVO.index();
     public static final int ACCVWPOTYPE = AttributesEnum.AccVwPoType.index();
@@ -566,6 +570,20 @@ public class SrPurchaseOrderHeaderVORowImpl extends ViewRowImpl {
      */
     public RowIterator getSrPurchaseAdvanceVO() {
         return (RowIterator) getAttributeInternal(SRPURCHASEADVANCEVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPoInvoicePayHeaderView.
+     */
+    public RowIterator getSrPoInvoicePayHeaderView() {
+        return (RowIterator) getAttributeInternal(SRPOINVOICEPAYHEADERVIEW);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SrPoInvoiceHeaderVO.
+     */
+    public RowIterator getSrPoInvoiceHeaderVO() {
+        return (RowIterator) getAttributeInternal(SRPOINVOICEHEADERVO);
     }
 
     /**

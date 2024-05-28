@@ -39,10 +39,12 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
         Doctypeid,
         txtLocationName,
         txtSupplierName,
+        PoCode,
         SrPoInvoicePayAdvance,
         SrPoInvoicePayLines,
         PuSuppliers,
-        AllLocations;
+        AllLocations,
+        SrPurchaseOrderHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -83,10 +85,12 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int DOCTYPEID = AttributesEnum.Doctypeid.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int POCODE = AttributesEnum.PoCode.index();
     public static final int SRPOINVOICEPAYADVANCE = AttributesEnum.SrPoInvoicePayAdvance.index();
     public static final int SRPOINVOICEPAYLINES = AttributesEnum.SrPoInvoicePayLines.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
+    public static final int SRPURCHASEORDERHEADER = AttributesEnum.SrPurchaseOrderHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -359,6 +363,22 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for PoCode, using the alias name PoCode.
+     * @return the value of PoCode
+     */
+    public String getPoCode() {
+        return (String) getAttributeInternal(POCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PoCode.
+     * @param value value to set the PoCode
+     */
+    public void setPoCode(String value) {
+        setAttributeInternal(POCODE, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSrPoInvoicePayAdvance() {
@@ -400,6 +420,21 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllLocations(EntityImpl value) {
         setAttributeInternal(ALLLOCATIONS, value);
+    }
+
+
+    /**
+     * @return the associated entity SrPurchaseOrderHeaderImpl.
+     */
+    public SrPurchaseOrderHeaderImpl getSrPurchaseOrderHeader() {
+        return (SrPurchaseOrderHeaderImpl) getAttributeInternal(SRPURCHASEORDERHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity SrPurchaseOrderHeaderImpl.
+     */
+    public void setSrPurchaseOrderHeader(SrPurchaseOrderHeaderImpl value) {
+        setAttributeInternal(SRPURCHASEORDERHEADER, value);
     }
 
 

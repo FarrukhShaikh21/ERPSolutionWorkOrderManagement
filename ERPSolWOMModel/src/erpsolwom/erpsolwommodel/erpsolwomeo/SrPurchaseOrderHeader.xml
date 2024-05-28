@@ -498,6 +498,20 @@
     AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPurchaseAdvancePOCodeAssoc.SrPurchaseOrderHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPoInvoicePayHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoicePayHeaderPoCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoicePayHeaderPoCodeAssoc.SrPoInvoicePayHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoicePayHeaderPoCodeAssoc.SrPurchaseOrderHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPoInvoiceHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoiceHeaderPoCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoiceHeaderPoCodeAssoc.SrPoInvoiceHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoiceHeaderPoCodeAssoc.SrPurchaseOrderHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSrPurchaseOrderHeader"
     PrimaryKey="true">

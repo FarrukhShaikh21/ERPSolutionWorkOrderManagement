@@ -51,7 +51,9 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
         AllLocations,
         PuSuppliers,
         SrPoReceivingHeader,
-        SrPurchaseAdvance;
+        SrPurchaseAdvance,
+        SrPoInvoicePayHeader,
+        SrPoInvoiceHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -105,6 +107,8 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
     public static final int SRPORECEIVINGHEADER = AttributesEnum.SrPoReceivingHeader.index();
     public static final int SRPURCHASEADVANCE = AttributesEnum.SrPurchaseAdvance.index();
+    public static final int SRPOINVOICEPAYHEADER = AttributesEnum.SrPoInvoicePayHeader.index();
+    public static final int SRPOINVOICEHEADER = AttributesEnum.SrPoInvoiceHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -553,6 +557,22 @@ public class SrPurchaseOrderHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public RowIterator getSrPurchaseAdvance() {
         return (RowIterator) getAttributeInternal(SRPURCHASEADVANCE);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSrPoInvoicePayHeader() {
+        return (RowIterator) getAttributeInternal(SRPOINVOICEPAYHEADER);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSrPoInvoiceHeader() {
+        return (RowIterator) getAttributeInternal(SRPOINVOICEHEADER);
     }
 
 

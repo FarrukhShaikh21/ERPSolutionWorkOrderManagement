@@ -567,6 +567,74 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="SrPurchaseOrderHeaderAvailableForPaymentVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseOrderHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SrPoInvoiceHeaderVO"
+        ViewAttribute="SrPoInvoiceHeaderVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPoInvoiceHeaderVONestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoiceHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPoInvoiceHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SrPoInvoicePayLinesView"
+              ViewAttribute="SrPoInvoicePayLinesView"
+              Operator="NOT EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="SrPoInvoicePayLinesViewNestedCriteria"
+                ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayLinesView"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="SrPoInvoicePayLinesViewNestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="InvoiceCode"
+                    ViewAttribute="InvoiceCode"
+                    Operator="ISNOTBLANK"
+                    Conjunction="AND"
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrPurchaseOrderLinesVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPurLinPoHeadSeqLink"
@@ -592,6 +660,16 @@
   <ViewLinkAccessor
     Name="SrPurchaseAdvanceVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurchaseOrderHeaderSrPurchaseAdvancePOCodeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPoInvoicePayHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurchaseOrderHeaderSrPoInvoicePayHeaderPoCodeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPoInvoiceHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurchaseOrderHeaderSrPoInvoiceHeaderPoCodeLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ClientInterface

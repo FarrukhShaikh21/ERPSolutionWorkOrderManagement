@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrPoInvoiceHeader"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SR_PO_INVOICE_HEADER"
+  AliasName="SrPoInvoiceHeader"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Poinvoiceseq"
+    IsNotNull="true"
+    ColumnName="POINVOICESEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_PO_INVOICE_HEADER"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="InvoiceCode"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="INVOICE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReceiveCode"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="RECEIVE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InvoiceDate"
+    IsNotNull="true"
+    ColumnName="INVOICE_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_PO_INVOICE_HEADER"/>
+  <Attribute
+    Name="Locationid"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="LOCATIONID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Remarks"
+    Precision="300"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Companyid"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="COMPANYID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="25"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_PO_INVOICE_HEADER"/>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="25"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_PO_INVOICE_HEADER"/>
+  <Attribute
+    Name="Posted"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="POSTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PostedDate"
+    ColumnName="POSTED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SR_PO_INVOICE_HEADER"/>
+  <Attribute
+    Name="Doctypeid"
+    Precision="15"
+    ColumnName="DOCTYPEID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Supplierid"
+    Precision="15"
+    ColumnName="SUPPLIERID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PoCode"
+    Precision="20"
+    ColumnName="PO_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="SrPoInvoiceLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvLinPoInvseqAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvLinPoInvseqAssoc.SrPoInvoiceLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvLinPoInvseqAssoc.SrPoInvoiceHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPoInvoicePayLines"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPoInvoiceHeaderSrPoInvoicePayLinesInvoiceCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPoInvoiceHeaderSrPoInvoicePayLinesInvoiceCodeAssoc.SrPoInvoicePayLines"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPoInvoiceHeaderSrPoInvoicePayLinesInvoiceCodeAssoc.SrPoInvoiceHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrPurchaseOrderHeader"
+    Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoiceHeaderPoCodeAssoc"
+    AssociationEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoiceHeaderPoCodeAssoc.SrPurchaseOrderHeader"
+    AssociationOtherEnd="erpsolwom.erpsolwommodel.erpsolwomassoc.SrPurchaseOrderHeaderSrPoInvoiceHeaderPoCodeAssoc.SrPoInvoiceHeader"
+    Type="erpsolwom.erpsolwommodel.erpsolwomeo.SrPurchaseOrderHeaderImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkSrPoInvoiceHeader"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SR_PO_INVOICE_HEADER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoiceHeader.Poinvoiceseq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UnqSrPoInvoiceHeader">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="UNQ_SR_PO_INVOICE_HEADER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoiceHeader.InvoiceCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SrPoInvoiceHeader">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UNQ_SR_PURCHASE_ORDER_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SR_PO_INVOICE_HEADER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoiceHeader.PoCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -21,6 +21,10 @@
     Name="AccPuSuppliersVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.PuSuppliersVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSrPurchaseOrderHeaderVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtLocationName"
     ListVOName="AccAllLocationsVO"
@@ -70,6 +74,32 @@
     </AttrArray>
     <DisplayCriteria
       Name="PuSuppliersFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPoCode"
+    ListVOName="AccSrPurchaseOrderHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PoCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PoCode"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PoCode"/>
+      <Item Value="PoDate"/>
+      <Item Value="txtLocationName"/>
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="SrPoInvoicePayHeader"
@@ -197,6 +227,21 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="PoCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PoCode"
+    EntityUsage="SrPoInvoicePayHeader"
+    AliasName="PO_CODE"
+    LOVName="LovPoCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SrPoInvoicePayAdvanceView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvAdvInvPaySeqLink"
@@ -216,6 +261,12 @@
   <ViewLinkAccessor
     Name="AllLocationsVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPoInvoicePayHeaderLocationidLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPurchaseOrderHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPurchaseOrderHeaderSrPoInvoicePayHeaderPoCodeLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
