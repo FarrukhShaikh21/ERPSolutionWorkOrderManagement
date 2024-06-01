@@ -25,6 +25,10 @@
     Name="P_ADF_PO_CODE"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_SUPPLIERID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
@@ -336,6 +340,14 @@
         Conjunction="AND"
         Value="0"
         Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Posted"
+        ViewAttribute="Posted"
+        Operator="="
+        Conjunction="AND"
+        Value="Y"
+        UpperColumns="0"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria
@@ -365,10 +377,18 @@
       Name="SrPurchaseAdvanceVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="Supplierid"
+        ViewAttribute="Supplierid"
+        Operator="="
+        Conjunction="OR"
+        Value=":P_ADF_SUPPLIERID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="PoCode"
         ViewAttribute="PoCode"
         Operator="="
-        Conjunction="AND"
+        Conjunction="OR"
         Value=":P_ADF_PO_CODE"
         UpperColumns="0"
         IsBindVarValue="true"

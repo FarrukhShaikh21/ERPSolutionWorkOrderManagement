@@ -48,7 +48,6 @@
   </Attribute>
   <Attribute
     Name="AdvanceCode"
-    IsNotNull="true"
     Precision="20"
     ColumnName="ADVANCE_CODE"
     SQLType="VARCHAR"
@@ -69,7 +68,6 @@
   </Attribute>
   <Attribute
     Name="AdvanceAmount"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="ADVANCE_AMOUNT"

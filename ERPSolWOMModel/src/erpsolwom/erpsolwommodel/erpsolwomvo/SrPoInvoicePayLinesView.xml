@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayLinesViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <EntityUsage
     Name="SrPoInvoicePayLines"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayLines"/>
@@ -77,6 +82,12 @@
   <ViewLinkAccessor
     Name="SrPoInvoiceHeaderVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPoInvoiceHeaderSrPoInvoicePayLinesInvoiceCodeLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrPoInvoicePayHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvPyLinInvPySeqLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

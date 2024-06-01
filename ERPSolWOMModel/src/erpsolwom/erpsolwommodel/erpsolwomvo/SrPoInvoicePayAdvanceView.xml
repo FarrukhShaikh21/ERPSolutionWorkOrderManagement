@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayAdvanceViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccSrPurchaseAdvanceVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"
@@ -106,4 +111,10 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SrPoInvoicePayAdvance"
     AliasName="MODIFIED_DATE"/>
+  <ViewLinkAccessor
+    Name="SrPoInvoicePayHeaderView"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvAdvInvPaySeqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

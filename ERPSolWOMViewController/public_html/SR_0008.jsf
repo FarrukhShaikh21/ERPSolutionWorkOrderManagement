@@ -44,11 +44,11 @@
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
                                    iconPosition="top"
-                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRPOREC}"/>
+                                   action="#{pageFlowScope.ERPSolWOMPageFlowBean.doERPSolExecuteSRPOINVPAY}"/>
                         <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
                                    icon="#{resource['images:imgFind.png']}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled || bindings.ReceiveCode.inputValue==null}" partialSubmit="true" id="b4"
+                                   disabled="#{!bindings.Previous.enabled || bindings.InvoicePayCode.inputValue==null}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
@@ -310,9 +310,10 @@
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                   disabled="#{!bindings.CreateInsert1.enabled}" id="b7"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b7"
                                    icon="#{resource['images:imgAdd.png']}"/>
-                        <af:button actionListener="#{bindings.Delete1.execute}" disabled="#{!bindings.Delete1.enabled}"
+                        <af:button actionListener="#{bindings.Delete1.execute}"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}"
                                    id="b12" icon="#{resource['images:imgDelete.png']}"/>
                       </af:toolbar>
                     </f:facet>
@@ -323,7 +324,8 @@
                               selectedRowKeys="#{bindings.SrPoInvoicePayLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SrPoInvoicePayLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SrPoInvoicePayLinesDetCRUD.rangeSize}" id="t2"
-                              columnStretching="last" partialTriggers="::b7 ::b12 ::poCodeId">
+                              columnStretching="last" partialTriggers="::b7 ::b12 ::poCodeId"
+                              styleClass="AFStretchWidth" autoHeightRows="6" scrollPolicy="page">
                       <af:column headerText="#{bindings.SrPoInvoicePayLinesDetCRUD.hints.InvoiceCode.label}" id="c1"
                                  width="120">
                         <af:inputText value="#{row.bindings.InvoiceCode.inputValue}"
@@ -367,10 +369,10 @@
                     <f:facet name="toolbar">
                       <af:toolbar id="t5">
                         <af:button actionListener="#{bindings.CreateInsert2.execute}"
-                                   disabled="#{!bindings.CreateInsert2.enabled}" id="b13"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b13"
                                    icon="#{resource['images:imgAdd.png']}"/>
                         <af:button actionListener="#{bindings.Delete2.execute}"
-                                   disabled="#{!bindings.Delete2.enabled}" id="b15"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b15"
                                    icon="#{resource['images:imgDelete.png']}"/>
                       </af:toolbar>
                     </f:facet>
@@ -381,16 +383,18 @@
                               selectedRowKeys="#{bindings.SrPoInvoicePayAdvanceDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SrPoInvoicePayAdvanceDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SrPoInvoicePayAdvanceDetCRUD.rangeSize}"
-                              id="t4" columnStretching="last" partialTriggers="::b13 ::b15">
+                              id="t4" columnStretching="last" partialTriggers="::b13 ::b15 ::poCodeId"
+                              styleClass="AFStretchWidth" scrollPolicy="page" autoHeightRows="6">
                       <af:column headerText="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceCode.label}" id="c4"
-                                 width="120">
+                                 width="140" displayIndex="-1">
                         <af:inputComboboxListOfValues id="advanceCodeId"
                                                       popupTitle="Search and Select: #{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceCode.label}"
                                                       value="#{row.bindings.AdvanceCode.inputValue}"
                                                       model="#{row.bindings.AdvanceCode.listOfValuesModel}"
                                                       required="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceCode.mandatory}"
                                                       columns="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceCode.displayWidth}"
-                                                      shortDesc="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceCode.tooltip}">
+                                                      shortDesc="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceCode.tooltip}"
+                                                      readOnly="true">
                           <f:validator binding="#{row.bindings.AdvanceCode.validator}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
@@ -402,7 +406,7 @@
                                       columns="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceAmount.displayWidth}"
                                       maximumLength="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceAmount.precision}"
                                       shortDesc="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceAmount.tooltip}"
-                                      id="it4">
+                                      id="it4" readOnly="true">
                           <f:validator binding="#{row.bindings.AdvanceAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SrPoInvoicePayAdvanceDetCRUD.hints.AdvanceAmount.format}"/>

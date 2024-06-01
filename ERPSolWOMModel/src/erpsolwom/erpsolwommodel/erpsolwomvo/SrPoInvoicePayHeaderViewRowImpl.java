@@ -419,13 +419,15 @@ public class SrPoInvoicePayHeaderViewRowImpl extends ViewRowImpl {
         }
         
         getAccSrPurchaseAdvanceVO().setNamedWhereClauseParam("P_ADF_PO_CODE", value==null?"0":value);
+        getAccSrPurchaseAdvanceVO().setNamedWhereClauseParam("P_ADF_SUPPLIERID", value==null?"0":getSupplierid());
+        
         getAccSrPurchaseAdvanceVO().executeQuery();
         rsi=getAccSrPurchaseAdvanceVO();
         while(rsi.hasNext()) {
         Row nextRow =rsi.next();
         Row newRow=getSrPoInvoicePayAdvanceView().createRow();
         newRow.setAttribute("AdvanceCode", nextRow.getAttribute("AdvanceCode"));
-        newRow.setAttribute("BalanceAmount", nextRow.getAttribute("BalanceAmount"));
+        newRow.setAttribute("AdvanceAmount", nextRow.getAttribute("BalanceAmount"));
         //            newRow.setAttribute("RequesterId", nextRow.getAttribute("RequesterId"));
         getSrPoInvoicePayAdvanceView().insertRow(newRow);
         }

@@ -32,7 +32,11 @@
   <ViewAccessor
     Name="AccSrPurchaseOrderHeaderVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseOrderHeaderAvailableForPaymentVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO.SrPurchaseOrderHeaderAvailableForPaymentVC"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSrPurchaseAdvanceVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"
@@ -300,6 +304,7 @@
   <ViewAttribute
     Name="txtBalance"
     PrecisionRule="true"
+    IsPersistent="false"
     EntityAttrName="txtBalance"
     EntityUsage="SrPoInvoicePayHeader"
     AliasName="TXT_BALANCE"/>
