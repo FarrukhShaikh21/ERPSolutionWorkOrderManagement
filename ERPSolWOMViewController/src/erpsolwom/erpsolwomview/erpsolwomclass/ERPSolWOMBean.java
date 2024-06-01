@@ -396,6 +396,19 @@ public class ERPSolWOMBean {
         }
     }
     
+    public void doERPSolsPOInvPayDialogConfirm(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSrPOInvPay");
+            binding.execute();
+            List ERPSolerrors = binding.getErrors();
+            if (ERPSolerrors.isEmpty()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Transaction Is Supervised."));
+           }
+        }
+    }
+    
+    
+    
     public void setERPSolImeiPopup(RichPopup ERPSolImeiPopup) {
         this.ERPSolImeiPopup = ERPSolImeiPopup;
     }

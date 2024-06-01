@@ -31,10 +31,9 @@ public class SrPoInvoicePayAdvanceImpl extends ERPSolGlobalsEntityImpl {
         CreatedDate,
         ModifiedBy,
         ModifiedDate,
-        Posted,
-        PostedDate,
         SrPoInvoicePayHeader;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -67,8 +66,6 @@ public class SrPoInvoicePayAdvanceImpl extends ERPSolGlobalsEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.ModifiedDate.index();
-    public static final int POSTED = AttributesEnum.Posted.index();
-    public static final int POSTEDDATE = AttributesEnum.PostedDate.index();
     public static final int SRPOINVOICEPAYHEADER = AttributesEnum.SrPoInvoicePayHeader.index();
 
     /**
@@ -229,37 +226,6 @@ public class SrPoInvoicePayAdvanceImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(MODIFIEDDATE, value);
     }
 
-    /**
-     * Gets the attribute value for Posted, using the alias name Posted.
-     * @return the value of Posted
-     */
-    public String getPosted() {
-        return (String) getAttributeInternal(POSTED);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for Posted.
-     * @param value value to set the Posted
-     */
-    public void setPosted(String value) {
-        setAttributeInternal(POSTED, value);
-    }
-
-    /**
-     * Gets the attribute value for PostedDate, using the alias name PostedDate.
-     * @return the value of PostedDate
-     */
-    public Date getPostedDate() {
-        return (Date) getAttributeInternal(POSTEDDATE);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for PostedDate.
-     * @param value value to set the PostedDate
-     */
-    public void setPostedDate(Date value) {
-        setAttributeInternal(POSTEDDATE, value);
-    }
 
     /**
      * @return the associated entity SrPoInvoicePayHeaderImpl.

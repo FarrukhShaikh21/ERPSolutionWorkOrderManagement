@@ -13,6 +13,30 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSrPurchaseAdvanceVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovAdvanceCode"
+    ListVOName="AccSrPurchaseAdvanceVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AdvanceCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AdvanceCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AdvanceCode"/>
+      <Item Value="BalanceAmount"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrPoInvoicePayAdvance"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayAdvance"/>
@@ -36,7 +60,15 @@
     PrecisionRule="true"
     EntityAttrName="AdvanceCode"
     EntityUsage="SrPoInvoicePayAdvance"
-    AliasName="ADVANCE_CODE"/>
+    AliasName="ADVANCE_CODE"
+    LOVName="LovAdvanceCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AdvanceAmount"
     IsNotNull="true"
@@ -74,16 +106,4 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SrPoInvoicePayAdvance"
     AliasName="MODIFIED_DATE"/>
-  <ViewAttribute
-    Name="Posted"
-    PrecisionRule="true"
-    EntityAttrName="Posted"
-    EntityUsage="SrPoInvoicePayAdvance"
-    AliasName="POSTED"/>
-  <ViewAttribute
-    Name="PostedDate"
-    PrecisionRule="true"
-    EntityAttrName="PostedDate"
-    EntityUsage="SrPoInvoicePayAdvance"
-    AliasName="POSTED_DATE"/>
 </ViewObject>

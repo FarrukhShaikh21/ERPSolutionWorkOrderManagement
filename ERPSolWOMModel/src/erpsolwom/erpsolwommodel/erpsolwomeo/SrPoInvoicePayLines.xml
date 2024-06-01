@@ -18,24 +18,21 @@
   </DesignTime>
   <Attribute
     Name="Paylinesseq"
-    IsNotNull="true"
     ColumnName="PAYLINESSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PO_INVOICE_PAY_LINES"
     PrimaryKey="true"/>
   <Attribute
     Name="Invoicepayseq"
-    IsNotNull="true"
     ColumnName="INVOICEPAYSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SR_PO_INVOICE_PAY_LINES"/>
   <Attribute
     Name="InvoiceCode"
-    IsNotNull="true"
     Precision="20"
     ColumnName="INVOICE_CODE"
     SQLType="VARCHAR"
@@ -45,17 +42,33 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayLines.InvoiceCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="InvoiceAmount"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="INVOICE_AMOUNT"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SR_PO_INVOICE_PAY_LINES"/>
+    TableName="SR_PO_INVOICE_PAY_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayLines.InvoiceAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Remarks"
     Precision="500"
@@ -67,6 +80,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreatedBy"
@@ -79,14 +98,29 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PO_INVOICE_PAY_LINES"/>
+    TableName="SR_PO_INVOICE_PAY_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ModifiedBy"
     Precision="25"
@@ -98,33 +132,27 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayLines.ModifiedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SR_PO_INVOICE_PAY_LINES"/>
-  <Attribute
-    Name="Posted"
-    Precision="1"
-    ColumnName="POSTED"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
     TableName="SR_PO_INVOICE_PAY_LINES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="1"/>
-    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
-  <Attribute
-    Name="PostedDate"
-    ColumnName="POSTED_DATE"
-    SQLType="DATE"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    TableName="SR_PO_INVOICE_PAY_LINES"/>
   <AccessorAttribute
     Name="SrPoInvoicePayHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvPyLinInvPySeqAssoc"
@@ -171,4 +199,8 @@
       <Item Value="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayLines.InvoiceCode"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolwom.erpsolwommodel.ERPSolWOMModelBundle"/>
+  </ResourceBundle>
 </Entity>

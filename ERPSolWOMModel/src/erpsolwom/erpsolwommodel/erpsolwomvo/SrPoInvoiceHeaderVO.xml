@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_PO_CODE"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SrPoInvoiceHeader"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoiceHeader"/>
@@ -122,6 +126,73 @@
     EntityAttrName="PoCode"
     EntityUsage="SrPoInvoiceHeader"
     AliasName="PO_CODE"/>
+  <ViewAttribute
+    Name="txtSumNetAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSumNetAmount"
+    EntityUsage="SrPoInvoiceHeader"
+    AliasName="TXT_SUM_NET_AMOUNT"/>
+  <ViewCriteria
+    Name="SrPoInvoiceHeaderByPoCodeVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoiceHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPoInvoiceHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PoCode"
+        ViewAttribute="PoCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_PO_CODE"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SrPoInvoicePayLinesView"
+        ViewAttribute="SrPoInvoicePayLinesView"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SrPoInvoicePayLinesViewNestedCriteria"
+          ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayLinesView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SrPoInvoicePayLinesViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SrPoInvoicePayLinesViewNestedCriteria_SrPoInvoicePayLinesViewNestedCriteria_row_0_Paylinesseq"
+              ViewAttribute="Paylinesseq"
+              Operator="ISNOTBLANK"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SrPoInvoiceLinesVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvLinPoInvseqLink"

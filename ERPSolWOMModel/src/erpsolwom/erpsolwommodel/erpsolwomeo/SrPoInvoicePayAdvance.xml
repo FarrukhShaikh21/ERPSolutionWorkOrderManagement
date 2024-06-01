@@ -168,39 +168,6 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
-  <Attribute
-    Name="Posted"
-    Precision="1"
-    ColumnName="POSTED"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="SR_PO_INVOICE_PAY_ADVANCE"
-    DefaultValue="N">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="1"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="PostedDate"
-    ColumnName="POSTED_DATE"
-    SQLType="DATE"
-    Type="oracle.jbo.domain.Date"
-    ColumnType="DATE"
-    TableName="SR_PO_INVOICE_PAY_ADVANCE">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
   <AccessorAttribute
     Name="SrPoInvoicePayHeader"
     Association="erpsolwom.erpsolwommodel.erpsolwomeo.FkSrPoInvAdvInvPaySeqAssoc"

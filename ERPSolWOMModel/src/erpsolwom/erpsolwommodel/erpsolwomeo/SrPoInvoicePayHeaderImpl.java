@@ -3,6 +3,8 @@ package erpsolwom.erpsolwommodel.erpsolwomeo;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
@@ -40,6 +42,11 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
         txtLocationName,
         txtSupplierName,
         PoCode,
+        ReferenceNo,
+        PaymentAmount,
+        txtAdvanceAmount,
+        txtInvoiceAmount,
+        txtBalance,
         SrPoInvoicePayAdvance,
         SrPoInvoicePayLines,
         PuSuppliers,
@@ -86,6 +93,11 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int POCODE = AttributesEnum.PoCode.index();
+    public static final int REFERENCENO = AttributesEnum.ReferenceNo.index();
+    public static final int PAYMENTAMOUNT = AttributesEnum.PaymentAmount.index();
+    public static final int TXTADVANCEAMOUNT = AttributesEnum.txtAdvanceAmount.index();
+    public static final int TXTINVOICEAMOUNT = AttributesEnum.txtInvoiceAmount.index();
+    public static final int TXTBALANCE = AttributesEnum.txtBalance.index();
     public static final int SRPOINVOICEPAYADVANCE = AttributesEnum.SrPoInvoicePayAdvance.index();
     public static final int SRPOINVOICEPAYLINES = AttributesEnum.SrPoInvoicePayLines.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
@@ -376,6 +388,86 @@ public class SrPoInvoicePayHeaderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setPoCode(String value) {
         setAttributeInternal(POCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for ReferenceNo, using the alias name ReferenceNo.
+     * @return the value of ReferenceNo
+     */
+    public String getReferenceNo() {
+        return (String) getAttributeInternal(REFERENCENO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ReferenceNo.
+     * @param value value to set the ReferenceNo
+     */
+    public void setReferenceNo(String value) {
+        setAttributeInternal(REFERENCENO, value);
+    }
+
+    /**
+     * Gets the attribute value for PaymentAmount, using the alias name PaymentAmount.
+     * @return the value of PaymentAmount
+     */
+    public BigDecimal getPaymentAmount() {
+        return (BigDecimal) getAttributeInternal(PAYMENTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PaymentAmount.
+     * @param value value to set the PaymentAmount
+     */
+    public void setPaymentAmount(BigDecimal value) {
+        setAttributeInternal(PAYMENTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtAdvanceAmount, using the alias name txtAdvanceAmount.
+     * @return the value of txtAdvanceAmount
+     */
+    public BigDecimal gettxtAdvanceAmount() {
+        return (BigDecimal) getAttributeInternal(TXTADVANCEAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtAdvanceAmount.
+     * @param value value to set the txtAdvanceAmount
+     */
+    public void settxtAdvanceAmount(BigDecimal value) {
+        setAttributeInternal(TXTADVANCEAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtInvoiceAmount, using the alias name txtInvoiceAmount.
+     * @return the value of txtInvoiceAmount
+     */
+    public BigDecimal gettxtInvoiceAmount() {
+        return (BigDecimal) getAttributeInternal(TXTINVOICEAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtInvoiceAmount.
+     * @param value value to set the txtInvoiceAmount
+     */
+    public void settxtInvoiceAmount(BigDecimal value) {
+        setAttributeInternal(TXTINVOICEAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBalance, using the alias name txtBalance.
+     * @return the value of txtBalance
+     */
+    public BigDecimal gettxtBalance() {
+        return (BigDecimal) getAttributeInternal(TXTBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBalance.
+     * @param value value to set the txtBalance
+     */
+    public void settxtBalance(BigDecimal value) {
+        setAttributeInternal(TXTBALANCE, value);
     }
 
     /**

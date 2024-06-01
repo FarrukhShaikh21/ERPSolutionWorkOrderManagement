@@ -122,4 +122,10 @@
     EntityAttrName="TaxAmount"
     EntityUsage="SrPoInvoiceLines"
     AliasName="TAX_AMOUNT"/>
+  <ViewLinkAccessor
+    Name="SrPoInvoiceHeaderVO"
+    ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvLinPoInvseqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

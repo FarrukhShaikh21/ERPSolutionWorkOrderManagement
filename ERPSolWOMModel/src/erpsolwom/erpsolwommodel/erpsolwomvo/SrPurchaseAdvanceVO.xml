@@ -21,6 +21,10 @@
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_PO_CODE"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
@@ -299,6 +303,78 @@
     EntityAttrName="Remarks"
     EntityUsage="SrPurchaseAdvance"
     AliasName="REMARKS"/>
+  <ViewCriteria
+    Name="SrPurchaseAdvanceRemainingBalanceVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseAdvanceVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="BalanceAmount"
+        ViewAttribute="BalanceAmount"
+        Operator=">"
+        Conjunction="AND"
+        Value="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="SrPurchaseAdvanceByPoCodeVC"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrPurchaseAdvanceVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PoCode"
+        ViewAttribute="PoCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_PO_CODE"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="AllLocationsVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.AllLocationsSrPurchaseAdvanceLocationIdLink"

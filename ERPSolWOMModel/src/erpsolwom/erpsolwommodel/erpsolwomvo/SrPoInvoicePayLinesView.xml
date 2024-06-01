@@ -74,18 +74,6 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SrPoInvoicePayLines"
     AliasName="MODIFIED_DATE"/>
-  <ViewAttribute
-    Name="Posted"
-    PrecisionRule="true"
-    EntityAttrName="Posted"
-    EntityUsage="SrPoInvoicePayLines"
-    AliasName="POSTED"/>
-  <ViewAttribute
-    Name="PostedDate"
-    PrecisionRule="true"
-    EntityAttrName="PostedDate"
-    EntityUsage="SrPoInvoicePayLines"
-    AliasName="POSTED_DATE"/>
   <ViewLinkAccessor
     Name="SrPoInvoiceHeaderVO"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomlink.SrPoInvoiceHeaderSrPoInvoicePayLinesInvoiceCodeLink"

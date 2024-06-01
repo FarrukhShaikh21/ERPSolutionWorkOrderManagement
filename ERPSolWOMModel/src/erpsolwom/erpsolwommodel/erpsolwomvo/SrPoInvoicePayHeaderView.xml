@@ -12,7 +12,15 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayHeaderViewImpl"
+  ComponentInterface="erpsolwom.erpsolwommodel.erpsolwomvo.common.SrPoInvoicePayHeaderView"
+  ClientProxyName="erpsolwom.erpsolwommodel.erpsolwomvo.client.SrPoInvoicePayHeaderViewClient"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayHeaderViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccAllLocationsVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
@@ -25,6 +33,25 @@
     Name="AccSrPurchaseOrderHeaderVO"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseOrderHeaderVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSrPurchaseAdvanceVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPurchaseAdvanceByPoCodeVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO.SrPurchaseAdvanceByPoCodeVC"/>
+    <ViewCriteriaUsage
+      Name="SrPurchaseAdvanceRemainingBalanceVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPurchaseAdvanceVO.SrPurchaseAdvanceRemainingBalanceVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSrPoInvoiceHeaderVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoiceHeaderVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SrPoInvoiceHeaderByPoCodeVC"
+      FullName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoiceHeaderVO.SrPoInvoiceHeaderByPoCodeVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtLocationName"
     ListVOName="AccAllLocationsVO"
@@ -242,6 +269,40 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ReferenceNo"
+    PrecisionRule="true"
+    EntityAttrName="ReferenceNo"
+    EntityUsage="SrPoInvoicePayHeader"
+    AliasName="REFERENCE_NO"/>
+  <ViewAttribute
+    Name="PaymentAmount"
+    PrecisionRule="true"
+    EntityAttrName="PaymentAmount"
+    EntityUsage="SrPoInvoicePayHeader"
+    AliasName="PAYMENT_AMOUNT"/>
+  <ViewAttribute
+    Name="txtAdvanceAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtAdvanceAmount"
+    EntityUsage="SrPoInvoicePayHeader"
+    AliasName="TXT_ADVANCE_AMOUNT"/>
+  <ViewAttribute
+    Name="txtInvoiceAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtInvoiceAmount"
+    EntityUsage="SrPoInvoicePayHeader"
+    AliasName="TXT_INVOICE_AMOUNT"/>
+  <ViewAttribute
+    Name="txtBalance"
+    PrecisionRule="true"
+    EntityAttrName="txtBalance"
+    EntityUsage="SrPoInvoicePayHeader"
+    AliasName="TXT_BALANCE"/>
   <ViewLinkAccessor
     Name="SrPoInvoicePayAdvanceView"
     ViewLink="erpsolwom.erpsolwommodel.erpsolwomvo.FkSrPoInvAdvInvPaySeqLink"
@@ -270,4 +331,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSrPOInvPay"
+      MethodName="doSuperviseSrPOInvPay">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

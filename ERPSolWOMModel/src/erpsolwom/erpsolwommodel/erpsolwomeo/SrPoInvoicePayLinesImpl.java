@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -32,8 +33,6 @@ public class SrPoInvoicePayLinesImpl extends ERPSolGlobalsEntityImpl {
         CreatedDate,
         ModifiedBy,
         ModifiedDate,
-        Posted,
-        PostedDate,
         SrPoInvoicePayHeader,
         SrPoInvoiceHeader;
         private static AttributesEnum[] vals = null;
@@ -69,8 +68,6 @@ public class SrPoInvoicePayLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int MODIFIEDBY = AttributesEnum.ModifiedBy.index();
     public static final int MODIFIEDDATE = AttributesEnum.ModifiedDate.index();
-    public static final int POSTED = AttributesEnum.Posted.index();
-    public static final int POSTEDDATE = AttributesEnum.PostedDate.index();
     public static final int SRPOINVOICEPAYHEADER = AttributesEnum.SrPoInvoicePayHeader.index();
     public static final int SRPOINVOICEHEADER = AttributesEnum.SrPoInvoiceHeader.index();
 
@@ -92,15 +89,15 @@ public class SrPoInvoicePayLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Paylinesseq, using the alias name Paylinesseq.
      * @return the value of Paylinesseq
      */
-    public BigDecimal getPaylinesseq() {
-        return (BigDecimal) getAttributeInternal(PAYLINESSEQ);
+    public Integer getPaylinesseq() {
+        return (Integer) getAttributeInternal(PAYLINESSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Paylinesseq.
      * @param value value to set the Paylinesseq
      */
-    public void setPaylinesseq(BigDecimal value) {
+    public void setPaylinesseq(Integer value) {
         setAttributeInternal(PAYLINESSEQ, value);
     }
 
@@ -108,15 +105,15 @@ public class SrPoInvoicePayLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Invoicepayseq, using the alias name Invoicepayseq.
      * @return the value of Invoicepayseq
      */
-    public BigDecimal getInvoicepayseq() {
-        return (BigDecimal) getAttributeInternal(INVOICEPAYSEQ);
+    public Integer getInvoicepayseq() {
+        return (Integer) getAttributeInternal(INVOICEPAYSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Invoicepayseq.
      * @param value value to set the Invoicepayseq
      */
-    public void setInvoicepayseq(BigDecimal value) {
+    public void setInvoicepayseq(Integer value) {
         setAttributeInternal(INVOICEPAYSEQ, value);
     }
 
@@ -188,15 +185,15 @@ public class SrPoInvoicePayLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for CreatedDate, using the alias name CreatedDate.
      * @return the value of CreatedDate
      */
-    public Timestamp getCreatedDate() {
-        return (Timestamp) getAttributeInternal(CREATEDDATE);
+    public Date getCreatedDate() {
+        return (Date) getAttributeInternal(CREATEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CreatedDate.
      * @param value value to set the CreatedDate
      */
-    public void setCreatedDate(Timestamp value) {
+    public void setCreatedDate(Date value) {
         setAttributeInternal(CREATEDDATE, value);
     }
 
@@ -220,49 +217,18 @@ public class SrPoInvoicePayLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ModifiedDate, using the alias name ModifiedDate.
      * @return the value of ModifiedDate
      */
-    public Timestamp getModifiedDate() {
-        return (Timestamp) getAttributeInternal(MODIFIEDDATE);
+    public Date getModifiedDate() {
+        return (Date) getAttributeInternal(MODIFIEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ModifiedDate.
      * @param value value to set the ModifiedDate
      */
-    public void setModifiedDate(Timestamp value) {
+    public void setModifiedDate(Date value) {
         setAttributeInternal(MODIFIEDDATE, value);
     }
 
-    /**
-     * Gets the attribute value for Posted, using the alias name Posted.
-     * @return the value of Posted
-     */
-    public String getPosted() {
-        return (String) getAttributeInternal(POSTED);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for Posted.
-     * @param value value to set the Posted
-     */
-    public void setPosted(String value) {
-        setAttributeInternal(POSTED, value);
-    }
-
-    /**
-     * Gets the attribute value for PostedDate, using the alias name PostedDate.
-     * @return the value of PostedDate
-     */
-    public Timestamp getPostedDate() {
-        return (Timestamp) getAttributeInternal(POSTEDDATE);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for PostedDate.
-     * @param value value to set the PostedDate
-     */
-    public void setPostedDate(Timestamp value) {
-        setAttributeInternal(POSTEDDATE, value);
-    }
 
     /**
      * @return the associated entity SrPoInvoicePayHeaderImpl.
@@ -298,7 +264,7 @@ public class SrPoInvoicePayLinesImpl extends ERPSolGlobalsEntityImpl {
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(BigDecimal paylinesseq) {
+    public static Key createPrimaryKey(Integer paylinesseq) {
         return new Key(new Object[] { paylinesseq });
     }
 

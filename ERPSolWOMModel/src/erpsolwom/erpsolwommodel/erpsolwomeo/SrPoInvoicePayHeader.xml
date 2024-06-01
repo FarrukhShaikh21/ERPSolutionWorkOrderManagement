@@ -34,7 +34,6 @@
   <Attribute
     Name="InvoicePayCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="20"
     ColumnName="INVOICE_PAY_CODE"
     SQLType="VARCHAR"
@@ -55,7 +54,6 @@
   </Attribute>
   <Attribute
     Name="Supplierid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="SUPPLIERID"
     SQLType="VARCHAR"
@@ -74,12 +72,13 @@
   </Attribute>
   <Attribute
     Name="PayDate"
-    IsNotNull="true"
     ColumnName="PAY_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_PO_INVOICE_PAY_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -249,7 +248,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_PO_INVOICE_PAY_HEADER">
+    TableName="SR_PO_INVOICE_PAY_HEADER"
+    DefaultValue="SRINVPAY">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -275,6 +275,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayHeader.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -297,10 +299,13 @@
           ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayHeader.txtSupplierName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Supplierid"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="PoCode"
-    IsNotNull="true"
     Precision="20"
     ColumnName="PO_CODE"
     SQLType="VARCHAR"
@@ -310,6 +315,100 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReferenceNo"
+    Precision="20"
+    ColumnName="REFERENCE_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_PO_INVOICE_PAY_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayHeader.ReferenceNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PaymentAmount"
+    Precision="16"
+    Scale="6"
+    ColumnName="PAYMENT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_INVOICE_PAY_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayHeader.PaymentAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtAdvanceAmount"
+    ColumnName="TXT_ADVANCE_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrPoInvoicePayAdvance?.sum("AdvanceAmount")]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayHeader.txtAdvanceAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtInvoiceAmount"
+    ColumnName="TXT_INVOICE_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SrPoInvoicePayLines?.sum("InvoiceAmount")]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolwom.erpsolwommodel.erpsolwomeo.SrPoInvoicePayHeader.txtInvoiceAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtBalance"
+    ColumnName="TXT_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SR_PO_INVOICE_PAY_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(PaymentAmount==null?0:PaymentAmount) + (txtAdvanceAmount==null?0:txtAdvanceAmount) -(txtInvoiceAmount==null?0:txtInvoiceAmount)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="PaymentAmount"/>
+      <Item
+        Value="txtAdvanceAmount"/>
+      <Item
+        Value="txtInvoiceAmount"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="SrPoInvoicePayAdvance"

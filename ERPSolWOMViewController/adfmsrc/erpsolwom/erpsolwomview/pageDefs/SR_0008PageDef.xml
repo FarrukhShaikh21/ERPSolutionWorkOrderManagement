@@ -5,6 +5,121 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SrPoInvoicePayHeaderCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPoInvoicePayHeaderCRUDIterator"/>
+    <iterator Binds="SrPoInvoicePayLinesDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPoInvoicePayLinesDetCRUDIterator"/>
+    <iterator Binds="SrPoInvoicePayAdvanceDetCRUD" RangeSize="25" DataControl="ERPSolWOMAppModuleDataControl"
+              id="SrPoInvoicePayAdvanceDetCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Invoicepayseq">
+      <AttrNames>
+        <Item Value="Invoicepayseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="InvoicePayCode">
+      <AttrNames>
+        <Item Value="InvoicePayCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="PayDate">
+      <AttrNames>
+        <Item Value="PayDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" StaticList="false" Uses="LovPoCode" id="PoCode"/>
+    <listOfValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSuperviseSrPOInvPay" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSrPOInvPay" IsViewObjectMethod="true"
+                  DataControl="ERPSolWOMAppModuleDataControl"
+                  InstanceName="data.ERPSolWOMAppModuleDataControl.SrPoInvoicePayHeaderCRUD"
+                  ReturnName="data.ERPSolWOMAppModuleDataControl.methodResults.doSuperviseSrPOInvPay_ERPSolWOMAppModuleDataControl_SrPoInvoicePayHeaderCRUD_doSuperviseSrPOInvPay_result"/>
+    <action IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="ReferenceNo">
+      <AttrNames>
+        <Item Value="ReferenceNo"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolWOMAppModuleDataControl"/>
+    <tree IterBinding="SrPoInvoicePayLinesDetCRUDIterator" id="SrPoInvoicePayLinesDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayLinesView"
+                      Name="SrPoInvoicePayLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="InvoiceCode"/>
+          <Item Value="InvoiceAmount"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SrPoInvoicePayAdvanceDetCRUDIterator" id="SrPoInvoicePayAdvanceDetCRUD">
+      <nodeDefinition DefName="erpsolwom.erpsolwommodel.erpsolwomvo.SrPoInvoicePayAdvanceView"
+                      Name="SrPoInvoicePayAdvanceDetCRUD0">
+        <AttrNames>
+          <Item Value="AdvanceCode"/>
+          <Item Value="AdvanceAmount"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SrPoInvoicePayLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPoInvoicePayLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SrPoInvoicePayAdvanceDetCRUDIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SrPoInvoicePayAdvanceDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="PaymentAmount">
+      <AttrNames>
+        <Item Value="PaymentAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="txtAdvanceAmount">
+      <AttrNames>
+        <Item Value="txtAdvanceAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="txtInvoiceAmount">
+      <AttrNames>
+        <Item Value="txtInvoiceAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SrPoInvoicePayHeaderCRUDIterator" id="txtBalance">
+      <AttrNames>
+        <Item Value="txtBalance"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>
