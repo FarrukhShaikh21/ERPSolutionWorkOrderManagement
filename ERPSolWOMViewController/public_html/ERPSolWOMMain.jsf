@@ -12,7 +12,7 @@
                                          action="ACT-ERPSOL-RETURN-FROM-WOM" partialSubmit="true"/>
                             </af:toolbar>
                         </f:facet>
-                        <af:image source="#{resource['images:imgWorkOrder.jpg']}" id="i1"/>
+                        <af:image id="i1" source="#{resource['images:imgWorkOrder.png']}"/>
                     </af:panelBox>
                 </f:facet>
                 <f:facet name="erptempleft"/>
