@@ -27,6 +27,8 @@
     <page path="/SR_0006.jsf" usageId="erpsolwom_erpsolwomview_SR_0006PageDef"/>
     <page path="/SR_0007.jsf" usageId="erpsolwom_erpsolwomview_SR_0007PageDef"/>
     <page path="/SR_0008.jsf" usageId="erpsolwom_erpsolwomview_SR_0008PageDef"/>
+    <page path="/SR_0009.jsf" usageId="erpsolwom_erpsolwomview_SR_0009PageDef"/>
+    <page path="/SR_0010.jsf" usageId="erpsolwom_erpsolwomview_SR_0010PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolwom_erpsolwomview_ERPSOLWOM_ERPSOLWOM_RollbackPageDef"
@@ -55,6 +57,8 @@
     <page id="erpsolwom_erpsolwomview_SR_0006PageDef" path="erpsolwom.erpsolwomview.pageDefs.SR_0006PageDef"/>
     <page id="erpsolwom_erpsolwomview_SR_0007PageDef" path="erpsolwom.erpsolwomview.pageDefs.SR_0007PageDef"/>
     <page id="erpsolwom_erpsolwomview_SR_0008PageDef" path="erpsolwom.erpsolwomview.pageDefs.SR_0008PageDef"/>
+    <page id="erpsolwom_erpsolwomview_SR_0009PageDef" path="erpsolwom.erpsolwomview.pageDefs.SR_0009PageDef"/>
+    <page id="erpsolwom_erpsolwomview_SR_0010PageDef" path="erpsolwom.erpsolwomview.pageDefs.SR_0010PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolWOMAppModuleDataControl" Package="erpsolwom.erpsolwommodel.erpsolwomam"

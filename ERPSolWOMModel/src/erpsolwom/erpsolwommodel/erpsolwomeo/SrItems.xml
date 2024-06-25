@@ -9,10 +9,15 @@
   DBObjectType="table"
   DBObjectName="SR_ITEMS"
   AliasName="SrItems"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolwom.erpsolwommodel.erpsolwomeo.SrItemsImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="ItemId"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="ITEM_ID"
@@ -71,7 +76,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SR_ITEMS">
+    TableName="SR_ITEMS"
+    DefaultValue="S">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -95,6 +101,51 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SR_ITEMS"/>
+  <Attribute
+    Name="Brandid"
+    Precision="15"
+    ColumnName="BRANDID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CategoryId"
+    Precision="5"
+    Scale="0"
+    ColumnName="CATEGORY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SR_ITEMS"/>
+  <Attribute
+    Name="CostCenter"
+    Precision="20"
+    ColumnName="COST_CENTER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GlCode"
+    Precision="20"
+    ColumnName="GL_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SR_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SrPurchaseDemandLines"
     Association="erpsolwom.erpsolwommodel.erpsolwomassoc.SrItemsSrPurchaseDemandLinesItemIdAssoc"

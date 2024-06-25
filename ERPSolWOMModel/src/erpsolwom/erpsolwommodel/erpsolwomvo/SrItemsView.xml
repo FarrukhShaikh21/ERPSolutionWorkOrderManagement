@@ -17,6 +17,99 @@
     Name="P_ADF_ITEM_FOR"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="AccSoProductBrandsVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SoProductBrandsVO"
+    RowLevelBinds="true"
+    OrderBy="SoProductBrands.BRAND_NAME"/>
+  <ViewAccessor
+    Name="AccItemcategoryVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.ItemcategoryVO"
+    RowLevelBinds="true"
+    OrderBy="Itemcategory.CATEGORY_DESC"/>
+  <ViewAccessor
+    Name="AccVwCostCenterVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.VwCostCenterVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVuDemandForQVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomqvo.VuDemandForQVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovBrandid"
+    ListVOName="AccSoProductBrandsVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Brandid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Pbrandid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BrandName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCategoryId"
+    ListVOName="AccItemcategoryVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CategoryId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CategoryId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CategoryDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCostCenter"
+    ListVOName="AccVwCostCenterVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CostCenter"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Costcenterid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovItemFor"
+    ListVOName="AccVuDemandForQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ItemFor"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SrItems"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.SrItems"/>
@@ -61,7 +154,15 @@
     PrecisionRule="true"
     EntityAttrName="ItemFor"
     EntityUsage="SrItems"
-    AliasName="ITEM_FOR"/>
+    AliasName="ITEM_FOR"
+    LOVName="LovItemFor">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ModifiedBy"
     PrecisionRule="true"
@@ -74,6 +175,54 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SrItems"
     AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="Brandid"
+    PrecisionRule="true"
+    EntityAttrName="Brandid"
+    EntityUsage="SrItems"
+    AliasName="BRANDID"
+    LOVName="LovBrandid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CategoryId"
+    PrecisionRule="true"
+    EntityAttrName="CategoryId"
+    EntityUsage="SrItems"
+    AliasName="CATEGORY_ID"
+    LOVName="LovCategoryId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CostCenter"
+    PrecisionRule="true"
+    EntityAttrName="CostCenter"
+    EntityUsage="SrItems"
+    AliasName="COST_CENTER"
+    LOVName="LovCostCenter">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GlCode"
+    PrecisionRule="true"
+    EntityAttrName="GlCode"
+    EntityUsage="SrItems"
+    AliasName="GL_CODE"/>
   <ViewCriteria
     Name="SrItemsViewByItemForVC"
     ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.SrItemsView"

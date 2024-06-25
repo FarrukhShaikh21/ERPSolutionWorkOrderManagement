@@ -17,6 +17,28 @@
     Name="P_ADF_LOCATIONID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="AccAllLocationsVO"
+    ViewObjectName="erpsolwom.erpsolwommodel.erpsolwomvo.AllLocationsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovLocationid"
+    ListVOName="AccAllLocationsVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="PrgProject"
     Entity="erpsolwom.erpsolwommodel.erpsolwomeo.PrgProject"/>
@@ -33,7 +55,15 @@
     PrecisionRule="true"
     EntityAttrName="Locationid"
     EntityUsage="PrgProject"
-    AliasName="LOCATIONID"/>
+    AliasName="LOCATIONID"
+    LOVName="LovLocationid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Officetypeid"
     PrecisionRule="true"
